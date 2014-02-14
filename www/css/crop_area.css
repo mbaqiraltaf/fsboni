@@ -1,0 +1,42 @@
+/*crop page*/
+/*-starts-------------------*/
+
+.crop-main-container {
+	padding: 0px;
+	margin: 0px auto;
+	width: 600px;
+	border: 1px solid #E5E5E5;
+}
+.preview_img {
+	float: left;
+	width: 580px;
+	padding: 10px;
+	background: #F7F7F7;
+	border-bottom: 1px dashed #CCCCCC;
+	font-size: 11px;
+	font-family: Tahoma, Arial;
+}
+.preview_img img {
+	padding: 5px;
+	background: #E4E4E4;
+	float: left;
+	margin-right: 10px;
+}
+.crop-main-container .preview_img .buttons {
+	clear: both;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.crop-main-container .preview_img .text {
+	float: left;
+	font-size: 11px;
+	font-family: Tahoma, Arial;
+	padding: 5px;
+	clear: right;
+	margin-left: 10px;
+}
+.crop-main-container .main-img {
+	float: left;
+	padding: 10px 0px;
+}

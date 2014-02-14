@@ -1,0 +1,78 @@
+﻿/*----------Default tags-----------*/
+body, select, input, textarea{font-family:Arial, Helvetica, sans-serif;}
+
+select, input, textarea{font-size:12px;}
+
+a{outline:none;}
+.floatleft{float:left}
+.floatright{float:right}
+.floatnone{float:none}
+.clearboth{clear:both}
+.left{text-align:left;}
+.right{text-align:right;}
+.center{text-align:center;}
+.bold{font-weight:bold;}
+.italic{font-style: italic;}
+.capitalize{text-transform:capitalize;}
+.uppercase{text-transform: uppercase;}
+.lowercase{text-transform:lowercase;}
+.underline{text-decoration:underline;}
+.strike{text-decoration:line-through;}
+.middle{ vertical-align:middle;}
+
+/*----fonts sizes---------*/
+.font10{ font-size:10px;}
+.font11{ font-size:11px;}
+.font12{ font-size:12px;}
+.font13{ font-size:13px;}
+
+
+.mb10{margin-bottom:10px;}
+
+/*----links------------*/
+.link{text-decoration:underline;}
+.link:hover{text-decoration:none;}
+.link_none{text-decoration:none;}
+.link_none:hover{text-decoration:underline;}
+.black{color:#000;}
+.white{color:#fff;}
+.red{color:#FF0000;}
+.darkgrey{color:#333;}
+.lightgrey{color:#797374;}
+
+input[type="button"], input[type="submit"] {
+	cursor: pointer;
+	background-color: #524d4e;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	color: #FFFFFF;
+	padding: 2px 5px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #797374;
+	border-right-color: #1c1919;
+	border-bottom-color: #1c1919;
+	border-left-color: #797374;
+	outline:none;
+	width: 0;  /* IE table-cell margin fix */
+    overflow: visible;
+}
+
+input[type="button"], input[type="submit"] {  /* IE < 7 ignores [class] */
+    width: auto;  /* cancel margin fix for other browsers */
+}
+
+input[type="button"]:active, input[type="submit"]:active {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #1c1919;
+	border-right-color: #797374;
+	border-bottom-color: #797374;
+	border-left-color: #1c1919;
+}

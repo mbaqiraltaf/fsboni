@@ -1,0 +1,1 @@
+<h3>Thank you for registration. Please verify your email address by clicking on the link sent to your email. You will then be automatically logged in to your Account. Please note that every listing is subject to approval by FSBONI.com before being uploaded on the site. Please allow 24 hours for FSBONI.com to activate your property listing.</h3>

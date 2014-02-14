@@ -1,0 +1,9 @@
+#slider1 {overflow: hidden;   margin:20px 0 0 0;}
+#slider1 li {width: 151px !important; padding:5px; background:#fff; border: 1px solid #2e2e2e; }
+#slider1 img, #slider2 img {float: left; width: 151px; height:110px !important;}
+.bx-window, .bx-wrapper{width: 815px !important;  margin-left: 21px;}
+.bx-next {position:absolute; top:46%; right:-56px; z-index:999;	width: 27px; height: 26px;	text-indent: -999999px;
+	background: url(../images/right_arrow.gif) no-repeat 0 0px;}
+/*previous button*/
+.bx-prev {position:absolute; top:46%; left:-12px; z-index:999; width: 27px; height: 26px; text-indent: -999999px;
+    background: url(../images/left_arrow.gif) no-repeat 0 0px;}

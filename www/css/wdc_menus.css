@@ -1,0 +1,319 @@
+
+#nav {
+    float: left;
+    margin-top: 0px;
+    position: relative;
+    z-index: 990;
+    display: inline;
+    list-style: none;
+	margin-right:5px;
+}
+
+/*** begin content **/
+li.nav-homebrewing-equipment ul.level0 {
+    width: 470px !important;
+    z-index: -1;
+	float:left;
+	height:170px;
+}
+
+#nav li.nav-homebrewing-equipment.over > ul span.level0 {
+    z-index: -1;
+	float:left;
+}
+
+#nav li.nav-homebrewing-equipment.over > ul {
+    left: -2px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    padding: 0px 5px 20px 5px;
+    background: #fff url(../images/arrow_top.png) 200px -10px no-repeat;
+    border: solid 1px #000;
+}
+
+
+li.nav-homebrewing-ingredients ul.level0 {
+    width: 820px !important;
+    z-index: -1;
+	
+	
+}
+
+
+#nav li.nav-homebrewing-ingredients.over > ul {
+    left: -2px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    padding: 0px 5px 0px 5px;
+}
+
+#nav html > body li.nav-homebrewing-ingredients.over > ul {
+    height: 450px;
+}
+
+li.nav-kegging ul.level0 {
+    width: 620px !important;
+    z-index: -1;
+}
+
+#nav li.nav-kegging.over > ul span.level0 {
+    z-index: -1;
+}
+
+#nav li.nav-kegging.over > ul {
+    left: -235px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    background: url('/skin/frontend/default/midwest/images/nav/backgrounds/menu_back_bot_600px.png') no-repeat left bottom !important;
+}
+
+#nav html > body li.nav-kegging.over > ul {
+    height: 450px;
+}
+
+li.nav-all-grain-brewing ul.level0 {
+    width: 620px !important;
+    z-index: -1;
+}
+
+#nav li.nav-all-grain-brewing.over > ul span.level0 {
+    z-index: -1;
+}
+
+#nav li.nav-all-grain-brewing.over > ul {
+    left: -225px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    background: url('/skin/frontend/default/midwest/images/nav/backgrounds/menu_back_bot_600px.png') no-repeat left bottom !important;
+}
+
+#nav html > body li.nav-all-grain-brewing.over > ul {
+    height: 450px;
+}
+
+li.nav-winemaking-equipment ul.level0 {
+    width: 620px !important;
+    z-index: -1;
+}
+
+#nav li.nav-winemaking-equipment.over > ul span.level0 {
+    z-index: -1;
+}
+
+#nav li.nav-winemaking-equipment.over > ul {
+    left: -240px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    background: url('/skin/frontend/default/midwest/images/nav/backgrounds/menu_back_bot_600px.png') no-repeat left bottom !important;
+}
+
+#nav html > body li.nav-winemaking-equipment.over > ul {
+    height: 450px;
+}
+
+li.nav-winemaking-ingredients ul.level0 {
+    width: 620px !important;
+    z-index: -1;
+}
+
+#nav li.nav-winemaking-ingredients.over > ul span.level0 {
+    z-index: -1;
+}
+
+#nav li.nav-winemaking-ingredients.over > ul {
+    left: -295px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    background: url('/skin/frontend/default/midwest/images/nav/backgrounds/menu_back_bot_600px.png') no-repeat left bottom !important;
+}
+
+#nav html > body li.nav-winemaking-ingredients.over > ul {
+    height: 450px;
+}
+
+li.nav-other-products ul.level0 {
+    width: 420px !important;
+    z-index: -1;
+}
+
+#nav li.nav-other-products.over > ul span.level0 {
+    z-index: -1;
+}
+
+#nav li.nav-other-products.over > ul {
+    left: -240px;
+    z-index: -1;
+    background-color: #EDEEED;
+    margin-top: 0px;
+    background: url('/skin/frontend/default/midwest/images/nav/backgrounds/menu_back_bot_400px.png') no-repeat left bottom !important;
+}
+
+#nav html > body li.nav-other-products.over > ul {
+    height: 450px;
+}
+
+/** end content **/
+#nav ul {
+    position: absolute;
+    width: 200px;
+    top: 33px;
+    left: -10000px;
+}
+ /** TOP WILL MODIFY GAP FROM BAR TO FIRST MENU**/
+#nav UL LI.level1 {
+    float: left;
+    width: 200px;
+}
+
+#nav li {
+    position: relative;
+    text-align: left;
+}
+
+#nav span {
+    display: block;
+    cursor: pointer; /*white-space:nowrap;*/
+    font-size: 13px;
+}
+
+#nav li {
+    float: left;
+}
+
+#nav a {
+    float: left;
+    font-weight: bold;
+}
+
+#nav li:hover {
+    background-image: none;
+    border: 0 !important;
+}
+
+#nav li.over a, #nav a:hover {
+}
+
+#nav ul a, #nav ul a:hover {
+    float: none;
+    padding: 0;
+    font-weight: lighter;
+}
+
+#nav li.level0 li {
+    margin-bottom: 1px;
+}
+
+#nav li.level0 li.last {
+    margin-bottom: 0;
+}
+
+#nav li.level0 li li {
+    border: 0;
+}
+
+#nav li.level0 li.level1 a {
+    border-right: 0;
+}
+
+#nav ul span, #nav ul li.last li span {
+    padding: 5px 10px;
+}
+
+/** Menu Classes **/
+#nav a.top { /*float:right;*/
+    display: block;
+    background: url("/skin/frontend/default/midwest/images/nav/backgrounds/MidTabLeftB.gif") no-repeat left top;
+    margin: 0;
+    padding: 0 0 0 5px;
+    text-decoration: none;
+    z-index: 999 !important;
+    height: 33px;
+}
+
+#nav a span.top {
+    float: left;
+    display: block;
+    background: url("/skin/frontend/default/midwest/images/nav/backgrounds/MidTabRightB.gif") no-repeat right top;
+    padding: 5px 15px 4px 6px;
+    color: #000000;
+    height: 33px;
+}
+
+#nav a.top:hover {
+    background-position: 0% -42px;
+}
+
+#nav a.top:hover span {
+    background-position: 100% -42px;
+    color: RED;
+}
+
+#nav li.over > a.top {
+    background-position: 0% -42px;
+}
+
+#nav li.over > a.top span {
+    background-position: 100% -42px;
+}
+
+#nav span.parent:hover {
+    text-decoration: underline;
+    color: RED;
+}
+
+#nav span.child:hover {
+    text-decoration: underline;
+    color: RED;
+}
+
+.top {
+    font-weight: bold;
+    font-size: 1.15em;
+    color: #000000;
+}
+
+.parent {
+    font-weight: bold;
+    margin: -0px 0px -0px 0px;
+    padding: -0px 0px 0px 0px;
+    font-size: 1.1em;
+    color: #000000;
+}
+
+.child { /*overflow:hidden;*/
+    white-space: normal;
+    text-indent: 3px;
+    margin: -6px 0px -3px 0px !important;
+    padding: -5px 0px 0px 0px;
+    font-size: 0.8em;
+    line-height: 1.0em;
+    color: #000000;
+    position: relative;
+}
+
+.subchild {
+    text-indent: 5px;
+    margin: -6px 0px -3px 0px !important;
+    padding: -5px 0px 0px 0px;
+    font-size: 0.4em;
+    line-height: 0.4em;
+    visibility: hidden;
+    color: #000000;
+}
+
+.top-left {
+    width: 150px;
+    float: left;
+    border: 0;
+    word-wrap: break-word;
+    margin-left: -8px;
+    position: relative;
+    padding: 0 5px 0 0px;
+}
+

@@ -1,0 +1,45 @@
+#lbOverlay { position: absolute; top: 0; left: 0; z-index: 99998; width: 100%; height: 500px; }
+	#lbOverlay.grey { background-color: #000000; }
+	#lbOverlay.red { background-color: #330000; }
+	#lbOverlay.green { background-color: #003300; }
+	#lbOverlay.blue { background-color: #011D50; }
+	#lbOverlay.gold { background-color: #666600; }
+
+#lbMain { position: absolute; left: 0; width: 100%; z-index: 99999; text-align: center; line-height: 0; }
+#lbMain a img { border: none; }
+
+#lbOuterContainer { position: relative; background-color: #fff; width: 200px; height: 200px; margin: 0 auto; }
+	#lbOuterContainer.grey {
+}
+	#lbOuterContainer.red { border:none}
+	#lbOuterContainer.green { border:none; }
+	#lbOuterContainer.blue { border:none; }
+	#lbOuterContainer.gold { border:none; }
+
+#lbDetailsContainer {	font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; width: 100%; line-height: 1.4em;	overflow: auto; margin: 0 auto; }
+	#lbDetailsContainer.grey { border:none; border-top: none; }
+	
+
+#lbImageContainer, #lbIframeContainer { padding: 10px; }
+#lbLoading {
+	position: absolute; top: 45%; left: 0%; height: 32px; width: 100%; text-align: center; line-height: 0; background:background: url(images/loading.gif) center no-repeat;
+}
+
+#lbHoverNav { position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#lbImageContainer>#lbHoverNav { left: 0; }
+#lbHoverNav a { outline: none; }
+
+#lbClose {
+	width: 17px;
+	height: 17px;
+	float: right;
+	margin-right:10px;
+	*margin-top: -15px;
+	margin-bottom: 10px;
+	color: #666666;
+}
+#lbClose.grey {
+	background-image: url(../images/del.gif);
+	background-repeat: no-repeat;
+}
+	

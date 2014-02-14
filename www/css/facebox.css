@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* Universal reset */
+@media print {
+    .noprint {display:none;}
+  }
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl,dt, dd, ol, ul, li, fieldset, form, label, legend, caption{
+margin: 0; padding: 0; border: 0;}
+
+input[type="button"] {cursor: pointer; }
+
+a{color:#ce026a;}
+a:hover{color:#ce026a; text-decoration:none;}
+ul, li{list-style:none;}
+
+
+/*---------------------*/
+/*----Layout-----------*/
+body{padding:5px; font-family:arial, verdana, sans-serif; font-size:12px; background:#FFF; color:#231F20;}
+.w40{width:40px;}
+
+.cart_box2{font-size:12px; color:#231F20; float:left; width:720px;}
+.cartitems2{font-size:12px; color:#231F20; float:left; width:720px;}
+.cartitems2 .row{float:left; width:100%; border-bottom:dashed 1px #f2f2f2; margin-bottom:10px; padding-bottom:5px;}
+.cartitems2 .row .c1{float:left; width:20%;}
+.cartitems2 .row .c2{float:left; width:33%; padding:0 1%;}
+.cartitems2 .row .c3{float:left; width:20%;}
+.cartitems2 .row .c4{float:left; width:15%;}
+.cartitems2 .row .c5{float:left; width:10%; text-align:center;}
+.cart_box2 .cartitems2 .row .text{float:left; width:72%;}
+.cart_box2 .cartitems2 .row .text textarea{width:650px; font-size:12px;}
