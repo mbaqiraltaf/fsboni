@@ -1,84 +1,65 @@
 <?php
 
-class RealEstateController extends Controller
-{
-    public function accessRules()
-    {
+class RealEstateController extends Controller {
+
+    public function accessRules() {
         return array(
             array('allow',
                 'actions' => array('myAccount'),
                 'roles' => array('user'),
             ),
-
         );
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $this->render('index');
     }
 
-
-    public function actionAboutUs()
-    {
+    public function actionAboutUs() {
         $this->render('about-us');
     }
 
-
-    public function actionMortgages()
-    {
+    public function actionMortgages() {
         $this->render('mortgages');
     }
 
-
-    public function actionLinks()
-    {
+    public function actionLinks() {
         $this->render('links');
     }
 
-
-    public function actionFlatFee()
-    {
+    public function actionFlatFee() {
         $this->render('flat-fee');
     }
 
-    public function actionAgent()
-    {
+    public function actionAgent() {
         $this->render('agent');
     }
 
-    public function actionTermsConditions()
-    {
+    public function actionTermsConditions() {
         $this->render('terms-conditions');
     }
 
-    public function actionCommunities()
-    {
+    public function actionCommunities() {
         $this->render('communities');
     }
 
-    public function actionPrivacyPolicy()
-    {
+    public function actionPrivacyPolicy() {
         $this->render('privacy-policy');
     }
 
-    public function actionMortgageNewsletter()
-    {
+    public function actionMortgageNewsletter() {
         $this->render('mortgage-newsletter');
     }
 
-    public function actionContactUs()
-    {
+    public function actionContactUs() {
         $this->render('contact-us');
     }
 
-    public function actionTestinomials()
-    {
+    public function actionTestinomials() {
         $this->render('testinomials');
     }
 
-    public function actionForgotPassword()
-    {
+    public function actionForgotPassword() {
         $model = new ResetForm;
         $message = '';
         if (isset($_POST['submit_x'])) {
@@ -87,53 +68,44 @@ class RealEstateController extends Controller
                 $email = new EmailHelper();
                 $userInfo = FsUser::model()->findAll("email = '" . $model->email . "'");
                 $email->sendPassword($model->email, $userInfo[0]->first_name . ' ' . $userInfo[0]->last_name, $userInfo[0]->paswd);
-                $message = 'An email containing your  password will be sent to your email address shortly';
+                $message = 'An email containing your password will be sent to your email address shortly';
             }
         }
         $this->render('forgot-password', array('model' => $model, 'message' => $message));
     }
 
-    public function actionSearch()
-    {
-		$model = new FsSearchCriteria;
-		if(CHttpRequest::getParam('prop_id') != null)
-		{
-			$result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
-			$image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
-			$this->render('search', array('model' => $model, 'property_details' => $result[0], 'image' => $image[0]));
-		}
-		else
-		{
-			$this->render('search', array('model' => $model));
-		}
+    public function actionSearch() {
+        $model = new FsSearchCriteria;
+        if (CHttpRequest::getParam('prop_id') != null) {
+            $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+            $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
+            $this->render('search', array('model' => $model, 'property_details' => $result[0], 'image' => $image[0]));
+        } else {
+            $this->render('search', array('model' => $model));
+        }
     }
-	
-	public function actionFullPageListing()
-	{
-		if (Yii::app()->user->getId() !== null){
-			$model = new FsSearchCriteria;
-			$this->render('full-page-listing', array('model' => $model));
-		}
-		else
-		{
-			$user = new FsUser;
 
-			if (isset($_POST['submit_x'])) {
-				$user->attributes = CHttpRequest::getParam('FsUser');            
-				
-				if ($user->validate()) {
-					$user->save();                
-					$this->actionGenerateUrl($user->user_id);
-					$this->redirect(array('success'));
-				}
-			}
-			$this->render('buyer-register', array('user' => $user));
-		}
-	}
+    public function actionFullPageListing() {
+        if (Yii::app()->user->getId() !== null) {
+            $model = new FsSearchCriteria;
+            $this->render('full-page-listing', array('model' => $model));
+        } else {
+            $user = new FsUser;
 
+            if (isset($_POST['submit_x'])) {
+                $user->attributes = CHttpRequest::getParam('FsUser');
 
-    public function actionSellHome()
-    {
+                if ($user->validate()) {
+                    $user->save();
+                    $this->actionGenerateUrl($user->user_id);
+                    $this->redirect(array('success'));
+                }
+            }
+            $this->render('buyer-register', array('user' => $user));
+        }
+    }
+
+    public function actionSellHome() {
         if (isset($_POST['step3_x'])) {
             $this->setPageState('step2', CHttpRequest::getParam('FsProperty'));
             $model = new FsProperty('step2');
@@ -196,14 +168,12 @@ class RealEstateController extends Controller
         }
     }
 
-    public function actionListing()
-    {
+    public function actionListing() {
         $model = new FsProperty;
         $this->render('listing', array('model' => $model));
     }
 
-    public function actionSellerRegistration()
-    {
+    public function actionSellerRegistration() {
         $seller = new FsSeller;
         $user = new FsUser;
 
@@ -213,28 +183,24 @@ class RealEstateController extends Controller
             $valid = $user->validate();
             //$valid = $seller->validate() && $valid;
             if ($valid) {
-                /*$city = FsCity::model()->findAll("city = '" . $user->city . "'");
-                $county = FsCounty::model()->findAll("NAME = '" . $user->county . "'");
-                $user->city = $city[0]->id;
-                $user->county = $county[0]->id;*/
+                /* $city = FsCity::model()->findAll("city = '" . $user->city . "'");
+                  $county = FsCounty::model()->findAll("NAME = '" . $user->county . "'");
+                  $user->city = $city[0]->id;
+                  $user->county = $county[0]->id; */
                 $user->save();
                 $seller->user_id = $user->user_id;
                 $seller->save();
                 $this->redirect(array('sellHome', 'u' => $user->user_id));
-
             }
         }
         $this->render('step1', array('seller' => $seller, 'user' => $user));
     }
 
-
-    public function actionSuccess()
-    {
+    public function actionSuccess() {
         $this->render('registration-success');
     }
 
-    public function actionLoadCities()
-    {
+    public function actionLoadCities() {
         $data = array();
         $state_id = CHttpRequest::getParam('state_id');
         if (!empty($state_id)) {
@@ -246,8 +212,7 @@ class RealEstateController extends Controller
         echo json_encode($data);
     }
 
-    public function actionLoadCounties()
-    {
+    public function actionLoadCounties() {
         $data = array();
         $city_name = CHttpRequest::getParam('city_name');
         if (!empty($city_name)) {
@@ -260,8 +225,7 @@ class RealEstateController extends Controller
         echo json_encode($data);
     }
 
-    public function actionLoadZipCode()
-    {
+    public function actionLoadZipCode() {
         $data = array();
         $county_name = CHttpRequest::getParam('county_name');
         $city_name = CHttpRequest::getParam('city_name');
@@ -276,8 +240,7 @@ class RealEstateController extends Controller
         echo json_encode($data);
     }
 
-    public function actionGenerateUrl($user_id)
-    {
+    public function actionGenerateUrl($user_id) {
         //$key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
         if (empty($user_id)) {
             $user_id = Yii::app()->session['user_id'];
@@ -298,8 +261,7 @@ class RealEstateController extends Controller
         $email->sendActivationEmail($userInfo[0]->email, $url, $userInfo[0]->first_name . ' ' . $userInfo[0]->last_name, $userInfo[0]->paswd);
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin() {
         if (isset($_GET['z']) && isset($_GET['user_id']) || isset(Yii::app()->session['user_id'])) {
             $decrypted = '';
 
@@ -310,10 +272,10 @@ class RealEstateController extends Controller
                 //$key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
                 $user_id = CHttpRequest::getParam('user_id');
                 Yii::app()->user->setState('Role', 'admin');
-				
+
                 $decrypted = substr($user_id, 5, count($user_id) - 5 - 1);
                 Yii::app()->session['user_id'] = $decrypted;
-				Yii::app()->user->setId($decrypted);
+                Yii::app()->user->setId($decrypted);
                 // $decrypted = Yii::app()->getSecurityManager()->decrypt($user_id, $key);
             }
 
@@ -346,26 +308,22 @@ class RealEstateController extends Controller
         }
     }
 
-    public function actionMyAccount()
-    {
+    public function actionMyAccount() {
         $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->session['user_id']);
         $this->render('my-account', array('properties' => $seller_properties));
     }
 
-    public function actionMembershipPage()
-    {
+    public function actionMembershipPage() {
         $this->redirect(array('myAccount'));
     }
 
-    public function actionChangePassword()
-    {
+    public function actionChangePassword() {
         $this->render('change-password');
     }
 
-
-    public function actionLogout()
-    {
+    public function actionLogout() {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }
+
 }
