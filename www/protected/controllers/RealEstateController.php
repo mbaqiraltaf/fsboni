@@ -142,7 +142,7 @@ class RealEstateController extends Controller {
         } else if (isset($_POST['save_x'])) {
             $model = new FsProperty();
             $user = $this->getPageState('step1', array());
-            $model->attributes = $this->getPageState('step1', array());
+            $model->attributes = $user;
             $model->attributes = $this->getPageState('step2', array());
             $model->attributes = $this->getPageState('step3', array());
             $model->attributes = $this->getPageState('step4', array());
@@ -161,7 +161,7 @@ class RealEstateController extends Controller {
                 $this->render('step6', array('model' => $model));
             }
         } else {
-            $user_id = CHttpRequest::getParam('u');
+            $user_id = CHttpRequest::getParam('uid');
             $this->setPageState('step1', array('seller_id' => $user_id));
             $model = new FsProperty('new');
             $this->render('step2', array('model' => $model));
@@ -181,16 +181,11 @@ class RealEstateController extends Controller {
             $user->attributes = CHttpRequest::getParam('FsUser');
             $seller->attributes = CHttpRequest::getParam('FsSeller');
             $valid = $user->validate();
-            //$valid = $seller->validate() && $valid;
-            if ($valid) {
-                /* $city = FsCity::model()->findAll("city = '" . $user->city . "'");
-                  $county = FsCounty::model()->findAll("NAME = '" . $user->county . "'");
-                  $user->city = $city[0]->id;
-                  $user->county = $county[0]->id; */
+            if ($valid) {                
                 $user->save();
                 $seller->user_id = $user->user_id;
                 $seller->save();
-                $this->redirect(array('sellHome', 'u' => $user->user_id));
+                $this->redirect(array('sellHome', 'uid' => $user->user_id));
             }
         }
         $this->render('step1', array('seller' => $seller, 'user' => $user));

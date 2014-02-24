@@ -21,24 +21,22 @@
  * @property FsProperty[] $fsProperties
  * @property FsCity $city0
  */
-class FsUser extends CActiveRecord
-{
+class FsUser extends CActiveRecord {
+
     public $repeat_password;
     public $repeat_email;
 
     /**
      * @return string the associated database table name
      */
-    public function tableName()
-    {
+    public function tableName() {
         return 'fs_user';
     }
 
     /**
      * @return array validation rules for model attributes.
      */
-    public function rules()
-    {
+    public function rules() {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
@@ -46,18 +44,13 @@ class FsUser extends CActiveRecord
             array('first_name, last_name', 'required'),
             //array('state, city', 'numerical', 'integerOnly' => true),
             array('first_name, last_name, county', 'length', 'max' => 255),
-
             array('paswd, repeat_password', 'required'),
             array('paswd, repeat_password', 'length', 'min' => 6, 'max' => 40),
             array('paswd', 'compare', 'compareAttribute' => 'repeat_password'),
-
-
             array('email, repeat_email', 'required'),
             array('email, repeat_email', 'email'),
             array('email', 'unique'),
             array('email', 'compare', 'compareAttribute' => 'repeat_email'),
-
-
             array('STATUS, user_type', 'length', 'max' => 1),
             array('created_date, updated_date', 'safe'),
             // The following rule is used by search().
@@ -69,8 +62,7 @@ class FsUser extends CActiveRecord
     /**
      * @return array relational rules.
      */
-    public function relations()
-    {
+    public function relations() {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
@@ -82,8 +74,7 @@ class FsUser extends CActiveRecord
     /**
      * @return array customized attribute labels (name=>label)
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return array(
             'user_id' => 'User',
             'first_name' => 'First Name',
@@ -112,8 +103,7 @@ class FsUser extends CActiveRecord
      * @return CActiveDataProvider the data provider that can return the models
      * based on the search/filter conditions.
      */
-    public function search()
-    {
+    public function search() {
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $criteria = new CDbCriteria;
@@ -142,8 +132,8 @@ class FsUser extends CActiveRecord
      * @param string $className active record class name.
      * @return FsUser the static model class
      */
-    public static function model($className = __CLASS__)
-    {
+    public static function model($className = __CLASS__) {
         return parent::model($className);
     }
+
 }

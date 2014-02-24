@@ -5,17 +5,19 @@
 
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', array(
+    <?php
+    $form = $this->beginWidget('CActiveForm', array(
         'id' => 'fs-property-form',
         // Please note: When you enable ajax validation, make sure the corresponding
         // controller action is handling ajax validation correctly.
         // There is a call to performAjaxValidation() commented in generated controller code.
         // See class documentation of CActiveForm for details on this.
         'enableAjaxValidation' => false,
-        'stateful'=>true,
-    )); ?>
+        'stateful' => true,
+    ));
+    ?>
 
-    <?php echo $form->errorSummary(array($user)); ?>
+<?php echo $form->errorSummary(array($user)); ?>
     <br/>
 
     <p class="required">Fields Marked as (*) are mandatory</p>
@@ -59,44 +61,45 @@
         <div class="left_area"><?php echo $form->labelEx($seller, 'street_number'); ?></div>
         <div class="right_area">
             <div class="state_col">
-                <?php echo $form->textField($seller, 'street_number', array('class' => 'w100')); ?>
+    <?php echo $form->textField($seller, 'street_number', array('class' => 'w100')); ?>
             </div>
             <div class="state_col">
-                <?php echo $form->labelEx($seller, 'compass_poing'); ?>
-                <?php echo $form->dropDownList($seller, 'compass_poing', array('' => '', 'N' => 'N', 'S' => 'S', 'E' => 'E', 'W' => 'W'), array('class' => 'w100')); ?>
+<?php echo $form->labelEx($seller, 'compass_poing'); ?>
+    <?php echo $form->dropDownList($seller, 'compass_poing', array('' => '', 'N' => 'N', 'S' => 'S', 'E' => 'E', 'W' => 'W'), array('class' => 'w100')); ?>
             </div>
             <div class="state_col ml10">
-                <?php echo $form->labelEx($seller, 'street_name'); ?>
-                <?php echo $form->textField($seller, 'street_name', array('class' => 'w100')); ?>
+<?php echo $form->labelEx($seller, 'street_name'); ?>
+    <?php echo $form->textField($seller, 'street_name', array('class' => 'w100')); ?>
             </div>
             <div class="state_col_last">
-                <?php echo $form->labelEx($seller, 'street_suffix'); ?>
-                <?php
-                $street_suffix = array('' => '', 'AVE' => 'AVE', 'BLVD' => 'BLVD', 'CIR' => 'CIR', 'CT' => 'CT', 'DR' => 'DR', 'HWY' => 'HWY', 'LN' => 'LN', 'PKWY' => 'PKWY', 'PL' => 'PL', 'PLZ' => 'PLZ', 'PT' => 'PT', 'RD' => 'RD', 'SQ' => 'SQ', 'ST' => 'ST', 'TER' => 'TER', 'TRL' => 'TRL', 'WAY' => 'WAY', 'NONE' => 'NONE');
-                echo $form->dropDownList($seller, 'street_suffix', $street_suffix, array('class' => 'w100')); ?>
+    <?php echo $form->labelEx($seller, 'street_suffix'); ?>
+    <?php
+    $street_suffix = array('' => '', 'AVE' => 'AVE', 'BLVD' => 'BLVD', 'CIR' => 'CIR', 'CT' => 'CT', 'DR' => 'DR', 'HWY' => 'HWY', 'LN' => 'LN', 'PKWY' => 'PKWY', 'PL' => 'PL', 'PLZ' => 'PLZ', 'PT' => 'PT', 'RD' => 'RD', 'SQ' => 'SQ', 'ST' => 'ST', 'TER' => 'TER', 'TRL' => 'TRL', 'WAY' => 'WAY', 'NONE' => 'NONE');
+    echo $form->dropDownList($seller, 'street_suffix', $street_suffix, array('class' => 'w100'));
+    ?>
             </div>
         </div>
     </div>
-    <?php echo $form->hiddenField($user, 'STATUS', array('value' => 'a')); ?>
-    <?php echo $form->hiddenField($user, 'user_type', array('value' => 's')); ?>
+<?php echo $form->hiddenField($user, 'STATUS', array('value' => 'a')); ?>
+<?php echo $form->hiddenField($user, 'user_type', array('value' => 's')); ?>
 
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($user, 'state'); ?></div>
         <div class="right_area">
             <div class="state_col">
-                <?php echo $form->dropDownList($user, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'class' => 'w100')); ?>
+    <?php echo $form->dropDownList($user, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'class' => 'w100')); ?>
             </div>
             <div class="state_col2">
-                <?php echo $form->labelEx($user, 'city'); ?>
-                <?php
-                $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-                    'model' => $user,
-                    'attribute' => 'city',
-                    // additional javascript options for the autocomplete plugin
-                    'options' => array(
-                        'minLength' => '2',
-                    ),
-                    'source' => 'js: function(request, response) {
+    <?php echo $form->labelEx($user, 'city'); ?>
+    <?php
+    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+        'model' => $user,
+        'attribute' => 'city',
+        // additional javascript options for the autocomplete plugin
+        'options' => array(
+            'minLength' => '2',
+        ),
+        'source' => 'js: function(request, response) {
                                 $.ajax({
                                     type : "POST",
                                     url: "' . $this->createUrl('realEstate/loadCities') . '",
@@ -109,24 +112,24 @@
                                     }
                                 })
                              }',
-                    //'source'=>$this->createUrl("realEstate/loadCities"),
-                    'htmlOptions' => array(
-                        'class' => 'w85'
-                    ),
-                ));
-                ?>
+        //'source'=>$this->createUrl("realEstate/loadCities"),
+        'htmlOptions' => array(
+            'class' => 'w85'
+        ),
+    ));
+    ?>
             </div>
             <div class="state_col2">
-                <?php echo $form->labelEx($user, 'county'); ?>
-                <?php
-                $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-                    'model' => $user,
-                    'attribute' => 'county',
-                    // additional javascript options for the autocomplete plugin
-                    'options' => array(
-                        'minLength' => '1',
-                    ),
-                    'source' => 'js: function(request, response) {
+    <?php echo $form->labelEx($user, 'county'); ?>
+    <?php
+    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+        'model' => $user,
+        'attribute' => 'county',
+        // additional javascript options for the autocomplete plugin
+        'options' => array(
+            'minLength' => '1',
+        ),
+        'source' => 'js: function(request, response) {
                                 $.ajax({
                                     type : "POST",
                                     url: "' . $this->createUrl('realEstate/loadCounties') . '",
@@ -139,27 +142,27 @@
                                     }
                                 })
                              }',
-                    'htmlOptions' => array(
-                        'class' => 'w70'
-                    ),
-                ));
-                ?>
+        'htmlOptions' => array(
+            'class' => 'w70'
+        ),
+    ));
+    ?>
             </div>
             <div class="state_col_new">
-                <?php echo $form->labelEx($seller, 'address'); ?>
-                <?php echo $form->listBox($seller, 'address', array(),array('class' => 'w80')); ?>
+    <?php echo $form->labelEx($seller, 'address'); ?>
+    <?php echo $form->listBox($seller, 'address', array(), array('class' => 'w80')); ?>
             </div>
             <div class="state_col_new ml10">
-                <?php echo $form->labelEx($seller, 'zip_code'); ?>
-                <?php
-                $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-                    'model' => $seller,
-                    'attribute' => 'zip_code',
-                    // additional javascript options for the autocomplete plugin
-                    'options' => array(
-                        'minLength' => '1',
-                    ),
-                    'source' => 'js: function(request, response) {
+    <?php echo $form->labelEx($seller, 'zip_code'); ?>
+    <?php
+    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+        'model' => $seller,
+        'attribute' => 'zip_code',
+        // additional javascript options for the autocomplete plugin
+        'options' => array(
+            'minLength' => '1',
+        ),
+        'source' => 'js: function(request, response) {
                                 $.ajax({
                                     type : "POST",
                                     url: "' . $this->createUrl('realEstate/loadZipCode') . '",
@@ -173,11 +176,11 @@
                                     }
                                 })
                              }',
-                    'htmlOptions' => array(
-                        'class' => 'w40'
-                    ),
-                ));
-                ?>
+        'htmlOptions' => array(
+            'class' => 'w40'
+        ),
+    ));
+    ?>
             </div>
         </div>
     </div>
@@ -186,25 +189,26 @@
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($seller, 'contact'); ?></div>
         <div class="right_area">
-            <?php echo $form->textField($seller, 'contact'); ?>
+<?php echo $form->textField($seller, 'contact'); ?>
         </div>
     </div>-->
 
     <div class="clear">&nbsp;</div>
 
     <div align="center">
-        <?php
-        //echo CHtml::submitButton("",array('name'=>'step2', 'class' => 'step2 mlr10'));
-        echo CHtml::imageButton(Yii::app()->baseUrl . '/images/listing.png', array('class' => 'mlr10', 'name' => 'step2', 'type' => 'submit')); ?>
+<?php
+//echo CHtml::submitButton("",array('name'=>'step2', 'class' => 'step2 mlr10'));
+echo CHtml::imageButton(Yii::app()->baseUrl . '/images/listing.png', array('class' => 'mlr10', 'name' => 'step2', 'type' => 'submit'));
+?>
 
     </div>
-	<br/>
-	<div style="font-size: 14px;">Already a registered member? <a style="text-decoration:underline;" href="<?php echo $this->createUrl('realEstate/login');?>">Sign-in</a></div>
+    <br/>
+    <div style="font-size: 14px;">Already a registered member? <a style="text-decoration:underline;" href="<?php echo $this->createUrl('realEstate/login'); ?>">Sign-in</a></div>
 
 
 
 
-    <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
 
 </div>
 

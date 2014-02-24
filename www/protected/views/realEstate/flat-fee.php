@@ -4,7 +4,7 @@
         <?php echo CHtml::image(Yii::app()->baseUrl . '/images/banner.jpg'); ?>
     </a></div>
 <div class="center-align mb30"><a href="#"
-                     style="text-align: center">
+                                  style="text-align: center">
         <?php echo CHtml::image(Yii::app()->baseUrl . '/images/request_free.gif'); ?>
     </a>
 </div>

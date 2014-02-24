@@ -16,28 +16,28 @@
 
             <span style="color:Red; display:none;" id="ContentPlaceHolder1_spanSlrProp"></span>
 
-                        <span id="ContentPlaceHolder1_Prop_list"><span>
-                        <div class="heading">
-                            <div class="title">FSBONI ID#</div>
-                            <div class="view_pro">View Count</div>
-                            <div class="view_pro">Edit/View</div>
-                        </div>
-                        </span><br><span>
-                                <?php foreach($properties as $property)
-{ ?>
+            <span id="ContentPlaceHolder1_Prop_list"><span>
+                    <div class="heading">
+                        <div class="title">FSBONI ID#</div>
+                        <div class="view_pro">View Count</div>
+                        <div class="view_pro">Edit/View</div>
+                    </div>
+                </span><br><span>
+                    <?php foreach ($properties as $property) {
+                        ?>
 
                         <div class="pro_row">
-                            <div class="title"><?php echo $property->fsboni_property_id ; ?></div>
+                            <div class="title"><?php echo $property->fsboni_property_id; ?></div>
                             <div class="view_pro"></div>
-<!--                            <div class="view_pro"><a-->
-<!--                                        href="properties_edit.aspx?userid=OTM=-8DDpOYL9s9Q=&amp;property_id=ODM%3d-NumP1XOOFxI%3d">Edit</a><span-->
-<!--                                    class="mlr5">|</span> <a-->
-<!--                                        href="listing.aspx?userid=OTM=-8DDpOYL9s9Q=&amp;property_id=ODM%3d-NumP1XOOFxI%3d">View</a>-->
-<!--                            </div>-->
+                            <!--                            <div class="view_pro"><a-->
+                            <!--                                        href="properties_edit.aspx?userid=OTM=-8DDpOYL9s9Q=&amp;property_id=ODM%3d-NumP1XOOFxI%3d">Edit</a><span-->
+                            <!--                                    class="mlr5">|</span> <a-->
+                            <!--                                        href="listing.aspx?userid=OTM=-8DDpOYL9s9Q=&amp;property_id=ODM%3d-NumP1XOOFxI%3d">View</a>-->
+                            <!--                            </div>-->
 
                         </div>
-                                <?php } ?>
-                        </span></span>
+                    <?php } ?>
+                </span></span>
 
             <div class="view"><span id="ContentPlaceHolder1_lbl_view_all"></span></div>
         </div>

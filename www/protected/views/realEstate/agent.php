@@ -10,4 +10,4 @@
     being sold for in your neighborhood. We believe in 100% Customer satisfaction, and take pride in providing both
     buyers, and sellers with prompt service saving our customers thousands of dollars year in,
     and year out.</p>
-  
+

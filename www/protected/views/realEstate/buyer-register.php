@@ -2,16 +2,18 @@
 <div class="clear">&nbsp;</div>
 <div class="form">
 
-    <?php $form = $this->beginWidget('CActiveForm', array(
+    <?php
+    $form = $this->beginWidget('CActiveForm', array(
         'id' => 'fs-property-form',
         // Please note: When you enable ajax validation, make sure the corresponding
         // controller action is handling ajax validation correctly.
         // There is a call to performAjaxValidation() commented in generated controller code.
         // See class documentation of CActiveForm for details on this.
         'enableAjaxValidation' => false,
-    )); ?>
+    ));
+    ?>
 
-    <?php echo $form->errorSummary($user); ?>
+<?php echo $form->errorSummary($user); ?>
     <br/>
 
     <p class="required">Fields Marked as (*) are mandatory</p>
@@ -49,12 +51,11 @@
     <div class="clear">&nbsp;</div>
 
     <div align="center">
-        <?php
-        echo CHtml::imageButton(Yii::app()->baseUrl . '/images/submit_btn.gif', array('class' => 'mlr10', 'name' => 'submit', 'type' => 'submit')); ?>
+<?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/submit_btn.gif', array('class' => 'mlr10', 'name' => 'submit', 'type' => 'submit')); ?>
 
     </div>
 
-    <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
 
 </div>
 

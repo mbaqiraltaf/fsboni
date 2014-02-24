@@ -11,7 +11,7 @@
     <div class="center"><h3 class="hhheading">List Your Home For Free</h3></div>
     <span id="ContentPlaceHolder1_lbl_sell_home"> <a
             href="<?php echo $this->createUrl('realEstate/sellerRegistration'); ?>">
-            <?php echo CHtml::image(Yii::app()->baseUrl . '/images/sell_a_home.jpg'); ?>
+                <?php echo CHtml::image(Yii::app()->baseUrl . '/images/sell_a_home.jpg'); ?>
         </a></span>
     <a title="Buy A Home" href="<?php echo $this->createUrl('realEstate/search'); ?>">
         <?php echo CHtml::image(Yii::app()->baseUrl . '/images/buy_a_home.jpg', 'Buy A Home', array('width' => '276', 'height' => '255')); ?>
@@ -69,16 +69,16 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery.bxSlider.min.js');
                 href="<?php echo $this->createUrl('realEstate/mortgages'); ?>">Mortgages</a> |
             <a href="<?php echo $this->createUrl('realEstate/agent'); ?>">Agent</a> | <a
                 href="<?php echo $this->createUrl('realEstate/flatFee'); ?>">Flat-Fee MLS</a> |
-                <span id="ContentPlaceHolder1_hide"> <a href="<?php echo $this->createUrl('realEstate/search'); ?>">Buy
-                        A Home</a> | <a href="<?php echo $this->createUrl('realEstate/sellerRegistration'); ?>">Sell
-                        A Home</a> | </span> <a href="<?php echo $this->createUrl('realEstate/contactUs'); ?>">Contact
+            <span id="ContentPlaceHolder1_hide"> <a href="<?php echo $this->createUrl('realEstate/search'); ?>">Buy
+                    A Home</a> | <a href="<?php echo $this->createUrl('realEstate/sellerRegistration'); ?>">Sell
+                    A Home</a> | </span> <a href="<?php echo $this->createUrl('realEstate/contactUs'); ?>">Contact
                 Us</a> | <a href="<?php echo $this->createUrl('realEstate/communities'); ?>">Communities</a>
         </p>
 
         <p><a href="<?php echo $this->createUrl('realEstate/testinomials'); ?>">Testimonials</a> |
             <a target="_blank" href="http://www.kruegerrealestate.com/">Krueger Real Estate</a> | <a
                 href="<?php echo $this->createUrl('realEstate/links'); ?>">Links</a> <a style="display:none;"
-                                                                                        href="termsofuse.aspx">Terms of
+                href="termsofuse.aspx">Terms of
                 Use</a> | <a
                 href="<?php echo $this->createUrl('realEstate/privacyPolicy'); ?>">Privacy Policies</a> |
             <a href="<?php echo $this->createUrl('realEstate/termsConditions'); ?>">Terms and Conditions</a> | <a

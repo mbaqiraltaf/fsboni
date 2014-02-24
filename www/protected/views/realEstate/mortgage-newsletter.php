@@ -1,7 +1,7 @@
 
-               <h3><span id="ContentPlaceHolder1_lbl_title">Mortgage Newsletter</span></h3>
-              
-                  <p id="ContentPlaceHolder1_span_aboutus"></p><table width="600" cellspacing="0" cellpadding="0" border="0">
+<h3><span id="ContentPlaceHolder1_lbl_title">Mortgage Newsletter</span></h3>
+
+<p id="ContentPlaceHolder1_span_aboutus"></p><table width="600" cellspacing="0" cellpadding="0" border="0">
     <tbody>
         <tr>
             <td valign="middle" align="left" style="background-color: rgb(225, 225, 225); font-family: Arial,Helvetica,sans-serif; font-size: 18px; color: rgb(102, 102, 102); border-bottom: 1px solid rgb(238, 28, 35);"><strong>Guaranteed Rate Report</strong></td>
@@ -16,5 +16,5 @@
 <p>&nbsp;</p>
 <p style="font-size: 12px;"><img height="212" width="500" src="http://www.guaranteedrate.com/images/email/GuaranteedRate-Rates.jpg" alt=""></p>
 <p style="font-size: 12px;"><img height="226" width="500" style="border: 1px solid black;" src="http://www.guaranteedrate.com/images/email/GuaranteedRate-Arrows.jpg" alt=""></p>
-       
-               
+
+
