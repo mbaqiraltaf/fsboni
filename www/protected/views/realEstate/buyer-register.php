@@ -1,4 +1,4 @@
-<h3>Register to search Properties</h3>
+<h3>View Full Property Listing</h3>
 <div class="clear">&nbsp;</div>
 <div class="form">
 
@@ -13,7 +13,7 @@
     ));
     ?>
 
-<?php echo $form->errorSummary($user); ?>
+    <?php echo $form->errorSummary($user); ?>
     <br/>
 
     <p class="required">Fields Marked as (*) are mandatory</p>
@@ -51,12 +51,18 @@
     <div class="clear">&nbsp;</div>
 
     <div align="center">
-<?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/submit_btn.gif', array('class' => 'mlr10', 'name' => 'submit', 'type' => 'submit')); ?>
+        <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/access.gif', array('class' => 'mlr10', 'name' => 'submit', 'type' => 'submit')); ?>
 
     </div>
 
-<?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
 
 </div>
+
+<div class="reg_row bold">FSBONI Buyers save 10% compared to homes sold in the MLS.</div>
+<div>&nbsp;</div>
+<div class="reg_row bold" style="color:#FC9200;font-size:14px;text-align:center;">ALREADY A MEMBER? PROCEED TO LOGIN TAB ABOVE</div>
+<div>&nbsp;</div>
+<div class="reg_row" style="text-align:center;">To access your existing Members page to List Homes, Search Listings, Retrieve Saved Searches, Contact Sellers, and Contact Us!</div>
 
 

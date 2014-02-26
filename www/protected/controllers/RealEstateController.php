@@ -2,11 +2,15 @@
 
 class RealEstateController extends Controller {
 
+    public function filters() {
+        return array('accessControl');
+    }
+
     public function accessRules() {
         return array(
             array('allow',
                 'actions' => array('myAccount'),
-                'roles' => array('user'),
+                'roles' => array('member'),
             ),
         );
     }
@@ -81,14 +85,34 @@ class RealEstateController extends Controller {
             $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
             $this->render('search', array('model' => $model, 'property_details' => $result[0], 'image' => $image[0]));
         } else {
-            $this->render('search', array('model' => $model));
+            if (isset($_POST['search_submit'])) {
+                $criteria = new CDbCriteria();
+                $criteria->order = 'id ASC';
+                $criteria->limit = 13;
+                $result = FsProperty::model()->findAll($criteria);
+                $images = array();
+                foreach ($result as $record) {
+                    $image = FsPropGallery::model()->findAll('prop_id = ' . $record->id);
+                    if (count($image) > 0)
+                        $images[$record->id] = $image[0]->image_name;
+                    else
+                        $images[$record->id] = 'home.jpg';
+                }
+                $this->render('search', array('model' => $model, 'search_results' => $result, 'images' => $images));
+            }
+            else {
+                $this->render('search', array('model' => $model));
+            }
         }
     }
 
     public function actionFullPageListing() {
         if (Yii::app()->user->getId() !== null) {
-            $model = new FsSearchCriteria;
-            $this->render('full-page-listing', array('model' => $model));
+            if (CHttpRequest::getParam('prop_id') != null) {
+                $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+                $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
+                $this->render('full-page-listing', array('property_details' => $result[0], 'image' => $image[0]));
+            }
         } else {
             $user = new FsUser;
 
@@ -103,6 +127,27 @@ class RealEstateController extends Controller {
             }
             $this->render('buyer-register', array('user' => $user));
         }
+    }
+
+    public function actionStep3() {
+        if (isset($_POST['step4_x'])) {
+            var_dump($_POST);
+            $interior_relation = new FsInteriorPropRelation();
+            $interior_relation->attributes = $_POST['FsInteriorPropRelation'];
+            if ($interior_relation->validate()) {
+                echo 'saved';
+            } else {
+                echo 'sasaa';
+            }
+        }
+        $model = new FsProperty;
+        $interior_relation = new FsInteriorPropRelation;
+        $appliances_relation = new FsAppliancesRelation;
+        $kitchen_relation = new FsKitchenRelation;
+        $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
+        $addition_rooms_relation = new FsAdditionalRoomsRelation;
+        $equipment_relation = new FsEquipmentRelation;
+        $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
     }
 
     public function actionSellHome() {
@@ -181,7 +226,7 @@ class RealEstateController extends Controller {
             $user->attributes = CHttpRequest::getParam('FsUser');
             $seller->attributes = CHttpRequest::getParam('FsSeller');
             $valid = $user->validate();
-            if ($valid) {                
+            if ($valid) {
                 $user->save();
                 $seller->user_id = $user->user_id;
                 $seller->save();
@@ -236,9 +281,8 @@ class RealEstateController extends Controller {
     }
 
     public function actionGenerateUrl($user_id) {
-        //$key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
         if (empty($user_id)) {
-            $user_id = Yii::app()->session['user_id'];
+            $user_id = Yii::app()->user->getId();
         }
         $final = '';
         for ($i = 0; $i <= 9; $i++) {
@@ -247,9 +291,7 @@ class RealEstateController extends Controller {
                 $final .= $user_id;
             }
         }
-        ///$encrypted = Yii::app()->getSecurityManager()->encrypt($user_id, $key);
         $url = $this->createAbsoluteUrl('login', array('z' => 'c', 'user_id' => $final));
-        //$url = $this->createUrl('login', array('z' => 'c', 'user_id' => $final));
 
         $userInfo = FsUser::model()->findAll('user_id = ' . $user_id);
         $email = new EmailHelper();
@@ -257,28 +299,22 @@ class RealEstateController extends Controller {
     }
 
     public function actionLogin() {
-        if (isset($_GET['z']) && isset($_GET['user_id']) || isset(Yii::app()->session['user_id'])) {
+        if (isset($_GET['z']) && isset($_GET['user_id']) || Yii::app()->user->getId() !== null) {
             $decrypted = '';
 
-            if (isset(Yii::app()->session['user_id'])) {
-                $decrypted = Yii::app()->session['user_id'];
+            if (Yii::app()->user->getId() !== null) {
+                $decrypted = Yii::app()->user->getId();
             } else {
                 $z = CHttpRequest::getParam('z');
-                //$key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
                 $user_id = CHttpRequest::getParam('user_id');
-                Yii::app()->user->setState('Role', 'admin');
-
+                Yii::app()->user->setState('Role', 'member');
                 $decrypted = substr($user_id, 5, count($user_id) - 5 - 1);
-                Yii::app()->session['user_id'] = $decrypted;
                 Yii::app()->user->setId($decrypted);
-                // $decrypted = Yii::app()->getSecurityManager()->decrypt($user_id, $key);
             }
-
 
             $user = FsUser::model()->findAll('user_id = ' . $decrypted);
             if (count($user) > 0) {
-                $seller_properties = FsProperty::model()->findAll('seller_id = ' . $decrypted);
-                $this->render('my-account', array('properties' => $seller_properties));
+                $this->redirect(array('myAccount'));
             } else {
                 $model = new LoginForm;
                 $this->render('login-form', array('model' => $model));
@@ -289,11 +325,9 @@ class RealEstateController extends Controller {
                 $model->attributes = $_POST['LoginForm'];
                 if ($model->validate()) {
                     $user = FsUser::model()->find("email = '" . $model->username . "'");
-                    Yii::app()->session['user_id'] = $user->user_id;
                     Yii::app()->user->setId($user->user_id);
-                    Yii::app()->user->setState('Role', 'user');
-                    $seller_properties = FsProperty::model()->findAll('seller_id = ' . $user->user_id);
-                    $this->render('my-account', array('properties' => $seller_properties));
+                    Yii::app()->user->setState('Role', 'member');
+                    $this->redirect(array('myAccount'));
                 } else {
                     $this->render('login-form', array('model' => $model));
                 }
@@ -304,7 +338,7 @@ class RealEstateController extends Controller {
     }
 
     public function actionMyAccount() {
-        $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->session['user_id']);
+        $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->user->getId());
         $this->render('my-account', array('properties' => $seller_properties));
     }
 

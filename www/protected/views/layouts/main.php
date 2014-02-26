@@ -47,8 +47,8 @@
 
                     array('label' => '<span>Login</span>', 'url' => array('/realEstate/login'),'visible' => Yii::app()->user->isGuest),
                     array('label' => '<span>Links</span>', 'url' => array('/realEstate/links')),
-                    array('label' => '<span>My Account</span>', 'url' => array('/realEstate/myAccount'), 'items' => array(array('label' => 'Membership Page', 'url' => array('/realEstate/membershipPage')), array('label' => 'Change Password', 'url' => array('/realEstate/changePassword')), array('label' => 'Logout', 'url' => array('/realEstate/logout'))), 'visible' => Yii::app()->user->checkAccess('user')),
-					array('label' => '<span>Logout</span>', 'url' => array('/realEstate/logout'), 'visible' => Yii::app()->user->checkAccess('user')),
+                    array('label' => '<span>My Account</span>', 'url' => array('/realEstate/myAccount'), 'items' => array(array('label' => 'Membership Page', 'url' => array('/realEstate/membershipPage')), array('label' => 'Change Password', 'url' => array('/realEstate/changePassword')), array('label' => 'Logout', 'url' => array('/realEstate/logout'))), 'visible' => Yii::app()->user->checkAccess('member')),
+					array('label' => '<span>Logout</span>', 'url' => array('/realEstate/logout'), 'visible' => Yii::app()->user->checkAccess('member')),
                 ),
                 'htmlOptions' => array('class' => 'nav', 'id' => 'drop_down'),
             )); ?>
