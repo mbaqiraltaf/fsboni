@@ -109,9 +109,10 @@ class RealEstateController extends Controller {
     public function actionFullPageListing() {
         if (Yii::app()->user->getId() !== null) {
             if (CHttpRequest::getParam('prop_id') != null) {
-                $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
-                $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
-                $this->render('full-page-listing', array('property_details' => $result[0], 'image' => $image[0]));
+                $result = FsProperty::model()->with(array(
+                            'city0' => array('select' => 'city'), 'state0' => array('select' => 'state_name')))->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+                //$image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
+                $this->render('full-page-listing', array('property_details' => $result[0]));
             }
         } else {
             $user = new FsUser;

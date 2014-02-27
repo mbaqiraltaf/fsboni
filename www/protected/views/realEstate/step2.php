@@ -54,8 +54,8 @@
                 <?php echo $form->dropDownList($model, 'compas_point', array('N' => 'N', 'S' => 'S', 'E' => 'E', 'W' => 'W'), array('class' => 'w100')); ?>
             </div>
             <div class="state_col ml10">
-<?php echo $form->labelEx($model, 'street_number'); ?>
-                <?php echo $form->textField($model, 'street_number', array('class' => 'w85')); ?>
+<?php echo $form->labelEx($model, 'street_name'); ?>
+                <?php echo $form->textField($model, 'street_name', array('class' => 'w85')); ?>
             </div>
             <div class="state_col_last">
                 <?php echo $form->labelEx($model, 'street_suffix'); ?>
@@ -183,7 +183,7 @@
             $ <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
         </div>
         <div class="left_area1"><?php echo $form->labelEx($model, 'prop_style'); ?><br/>
-<?php echo $form->radioButtonList($model, 'prop_style', array('a' => 'Attached', 'd' => 'Detached', 'l' => 'All'), array('separator' => '')); ?>
+<?php echo $form->radioButtonList($model, 'prop_style', array('Attached' => 'Attached', 'Detached' => 'Detached', 'All' => 'All'), array('separator' => '')); ?>
         </div>
     </div>
 
