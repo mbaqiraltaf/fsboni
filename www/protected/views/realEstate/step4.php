@@ -26,7 +26,7 @@
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'garage_ownrship'); ?></div>
         <div class="right_area">
-<?php echo $form->dropDownList($model, 'garage_ownrship', array('f' => 'Fee/Leases', 'o' => 'Owned/No Fee', 'r' => 'Rental Only')); ?>
+<?php echo $form->dropDownList($model, 'garage_ownrship', array('Fee/Leases' => 'Fee/Leases', 'Owned/No Fee' => 'Owned/No Fee', 'Rental Only' => 'Rental Only')); ?>
         </div>
     </div>
 
@@ -40,21 +40,21 @@
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'disability_access'); ?></div>
         <div class="right_area">
-<?php echo $form->radioButtonList($model, 'disability_access', array('y' => 'Yes', 'n' => 'No'), array('separator' => '')); ?>
+<?php echo $form->radioButtonList($model, 'disability_access', array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '')); ?>
         </div>
     </div>
 
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'elevatory_building'); ?></div>
         <div class="right_area">
-<?php echo $form->radioButtonList($model, 'elevatory_building', array('y' => 'Yes', 'n' => 'No'), array('separator' => '')); ?>
+<?php echo $form->radioButtonList($model, 'elevatory_building', array('Yes' => 'Yes', 'No' => 'No'), array('separator' => '')); ?>
         </div>
     </div>
 
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'sewer'); ?></div>
         <div class="right_area">
-<?php echo $form->radioButtonList($model, 'sewer', array('p' => 'Public Sewer', 's' => 'Septic'), array('separator' => '')); ?>
+<?php echo $form->radioButtonList($model, 'sewer', array('Public Sewer' => 'Public Sewer', 'Septic' => 'Septic'), array('separator' => '')); ?>
         </div>
     </div>
 
@@ -82,7 +82,7 @@
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'pet_friendly'); ?></div>
         <div class="right_area">
-<?php echo $form->dropDownList($model, 'pet_friendly', array('' => 'None', 'd' => 'Dog', 'c' => 'Cat', 'b' => 'Both')); ?>
+<?php echo $form->dropDownList($model, 'pet_friendly', array('None' => 'None', 'Dog' => 'Dog', 'Cat' => 'Cat', 'Both' => 'Both')); ?>
         </div>
     </div>
 

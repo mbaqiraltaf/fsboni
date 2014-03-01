@@ -7,8 +7,7 @@
             </div>
             <div class="bottom_bg"></div>
             <div class="links_thumb">
-                <span id="ContentPlaceHolder1_dvRqst"><img class="middle" alt="" src="images/icon1.gif">
-                    <span id="ContentPlaceHolder1_lbl_appt_rqst"><a class="change_pass" href="request_for_appointment.aspx?userid=18" id="pacces1">Contact Seller</a></span></span>
+
                 <span id="ContentPlaceHolder1_dvprint"><img class="middle" alt="" src="images/demo.gif">
                     <span id="ContentPlaceHolder1_print2"><a class="change_pass" href="printflyer.aspx?property_id=MTI=-wnBs6 lkshc=" id="print">Print Flyer</a></span>&nbsp;</span>                           
 
@@ -28,7 +27,9 @@
             <div class="left_box2">
                 <div class="new_row2 first">
                     <div class="left_part2X">
-                        <a id="dmn" href="#dmns"><img src="images/btn_rd.jpg"></a>&nbsp; <a id="if" href="#ifs"><img src="images/btn_if.jpg"></a>&nbsp; <a id="ef" href="#efs"><img src="images/btn_ef.jpg"></a>
+                        <a id="dmn" href="#dmns"><img src="images/btn_rd.jpg"></a>&nbsp; <a id="if" href="#" onclick = '$("#ifs").dialog("open");
+                                return false;'><img src="images/btn_if.jpg"></a>&nbsp; <a id="ef" href="#" onclick = '$("#efs").dialog("open");
+                                        return false;'><img src="images/btn_ef.jpg"></a>
                     </div>
                 </div>
                 <div class="new_row2">
@@ -43,8 +44,9 @@
                     </div>
                 </div>
                 <div class="new_row2">
-                    <div class="left_part2"><img class="middle" alt="" src="images/Home-icon.png"> <a class="change_pass info" href="#">Average Home Price<span>112500</span></a>&nbsp;&nbsp;&nbsp;<img class="middle" alt="" src="images/coins-icon.png"> <a class="change_pass info" href="#">Average Income<span>52500</span></a>&nbsp; 
-                        <img class="middle" alt="Key" src="images/loan_icon.gif"> <a href="#loan_cal" id="calculator">Mortgage Calculator</a>
+                    <div class="left_part2"><img class="middle" alt="" src="images/Home-icon.png"> <a class="change_pass info" href="#">Average Home Price<span>0</span></a>&nbsp;&nbsp;&nbsp;<img class="middle" alt="" src="images/coins-icon.png"> <a class="change_pass info" href="#">Average Income<span>0</span></a>&nbsp; 
+                        <img class="middle" alt="Key" src="images/loan_icon.gif"> <a href="#" id="calculator" onclick = '$("#loan_cal").dialog("open");
+                                return false;'>Mortgage Calculator</a>
                     </div>
                 </div>
 
@@ -110,3 +112,191 @@
         <div class="bottom_curve"></div>
     </div><!--main_row end -->
 </div>
+
+<?php
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id' => 'ifs',
+    // additional javascript options for the dialog plugin
+    'options' => array(
+        'title' => 'Interior Features',
+        'autoOpen' => false,
+        'width' => 'auto',
+        'height' => 'auto'
+    ),
+));
+?>
+
+<div style="line-height:20px;" class="register_cont" id="ifs">
+    <div class="clear">&nbsp;</div>
+    <?php echo $property_details->city0->city; ?>
+    <h3>Interior Features</h3><p>
+        <span id="ContentPlaceHolder1_dvIntrProFeatr">
+            <span id="ContentPlaceHolder1_dvInterFeatr"><b>Interior Property Features:</b> <span id="ContentPlaceHolder1_intrPropFeatr"><?php
+                    $values = array();
+                    if (isset($property_details->fsInteriorPropRelations))
+                        if (count($property_details->fsInteriorPropRelations)) {
+                            foreach ($property_details->fsInteriorPropRelations as $object) {
+                                $values[] = $object->interiorPropFeatur->title;
+                            }
+                        }
+                    echo implode(', ', $values);
+                    ?></span></span><br>
+        </span>
+        <?php
+        if (isset($property_details->airConditioning))
+            if ($property_details->airConditioning->title) :
+                ?>
+                <span id="ContentPlaceHolder1_divAirConditioning">
+                    <span id="ContentPlaceHolder1_dvAirCondtng"><b>Air Conditioning:</b> <span id="ContentPlaceHolder1_AirConditioning"><?php echo $property_details->airConditioning->title; ?></span></span><br>
+                </span>
+        <?php  endif; ?>
+        <?php
+        if (isset($property_details->heating0))
+            if ($property_details->heating0->title) :
+                ?>
+                <span id="ContentPlaceHolder1_dvHeatting">
+                    <span id="ContentPlaceHolder1_dvheating"><b>Heating:</b> <span id="ContentPlaceHolder1_heating"><?php echo $property_details->heating0->title; ?></span></span><br>
+                </span>
+        <?php  endif; ?>
+        <span id="ContentPlaceHolder1_divKitchens">
+            <span id="ContentPlaceHolder1_dvKitchen"><b>Kitchen Features:</b>  <span id="ContentPlaceHolder1_kitchen">Eating Area-Breakfast Bar,Island</span></span><br>
+        </span>
+        <span id="ContentPlaceHolder1_dvKitchenAppliances">
+            <span id="ContentPlaceHolder1_dvAppliances"><b>Appliances:</b>  <span id="ContentPlaceHolder1_Appliances">Oven/Range,Microwave,Dishwasher,Refrigerator,Washer,Dryer,Disposal,Built-in Microwave</span></span><br>
+        </span>
+        <?php
+        if (isset($property_details->dinning0))
+            if ($property_details->dinning0->title) :
+                ?>
+                <span id="ContentPlaceHolder1_dvDinningDinnningDimensions">
+                    <span id="ContentPlaceHolder1_dvDingLable"><b>Dining:</b>  <span id="ContentPlaceHolder1_lblDinnig"><?php echo $property_details->dinning0->title; ?></span></span><br>
+                </span>
+        <?php  endif; ?>
+        <?php
+        if (isset($property_details->attic0))
+            if ($property_details->attic0->title) :
+                ?>
+                <span id="ContentPlaceHolder1_dvDinningDinnningDimensions">
+                    <span id="ContentPlaceHolder1_dvDingLable"><b>Attic (Detached Only):</b>  <span id="ContentPlaceHolder1_lblDinnig"><?php echo $property_details->attic0->title; ?></span></span><br>
+                </span>
+        <?php  endif; ?>
+        <?php
+        if (isset($property_details->basementDetails))
+            if ($property_details->basementDetails->title) :
+                ?>
+                <span id="ContentPlaceHolder1_dvDinningDinnningDimensions">
+                    <span id="ContentPlaceHolder1_dvDingLable"><b>Basement Details:</b>  <span id="ContentPlaceHolder1_lblDinnig"><?php echo $property_details->basementDetails->title; ?></span></span><br>
+                </span>
+        <?php  endif; ?>
+
+
+
+        <span id="ContentPlaceHolder1_dvBathAmenitiesBathDimensions">
+            <span id="ContentPlaceHolder1_dvBathAmenities"><b>Bathroom Amenities:</b> <span id="ContentPlaceHolder1_bathroomAmenities">Whirlpool,Spa Soaking Tub,Separate Shower,Double Sink</span></span><br>
+
+        </span>
+
+
+        <span id="ContentPlaceHolder1_dvElectricityEquipment">
+            <br>
+            <span id="ContentPlaceHolder1_dvEquipment"><b>Equipment:</b>  <span id="ContentPlaceHolder1_equipment">Air-Filter,Humidifier,Security System,Cable ready</span></span><br>
+        </span></p>
+</div>
+
+<?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>
+
+<?php
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id' => 'efs',
+    // additional javascript options for the dialog plugin
+    'options' => array(
+        'title' => 'External Features',
+        'autoOpen' => false,
+        'width' => 'auto',
+        'height' => 'auto'
+    ),
+));
+?>
+
+
+<div style="line-height:20px; width:400px;" class="register_cont" id="efs">
+
+    <div class="clear">&nbsp;</div>
+    <h3>Exterior Features</h3>
+    <p>
+        <span id="ContentPlaceHolder1_dvExteriorGarageOwnr">
+            <span id="ContentPlaceHolder1_dvExterior"><b>Exterior Construction:</b>  <span id="ContentPlaceHolder1_exteriorConstr">Brick</span></span><br>
+        </span>
+        <?php if ($property_details->garage_ownrship) : ?>
+            <span id="ContentPlaceHolder1_dvGarageOwner">
+                <span id="ContentPlaceHolder1_dvOwnerg"><b>Garage Ownership:</b>  <span id="ContentPlaceHolder1_grageOwner"><?php echo $property_details->garage_ownrship; ?></span></span><br>
+            </span>
+        <?php endif; ?>
+        <?php
+        if (isset($property_details->garageType))
+            if ($property_details->garageType->title) :
+                ?>
+                <span id="ContentPlaceHolder1_dvGarageType">
+                    <span id="ContentPlaceHolder1_dvGtyp"><b>Garage Type:</b>  <span id="ContentPlaceHolder1_grageType"><?php echo $property_details->garageType->title; ?></span></span><br>
+                </span>
+        <?php  endif; ?>
+        <?php if ($property_details->disability_access) : ?>
+            <span id="ContentPlaceHolder1_dvEleavatorSewer">
+                <br>
+                <span id="ContentPlaceHolder1_dvSewer"><b>Disability Access : </b>  <span id="ContentPlaceHolder1_sewer"><?php echo $property_details->disability_access; ?></span></span><br>
+            </span>
+        <?php endif; ?>
+        <?php if ($property_details->elevatory_building) : ?>
+            <span id="ContentPlaceHolder1_dvEleavatorSewer">
+                <br>
+                <span id="ContentPlaceHolder1_dvSewer"><b>
+                        Elevatory Building : </b>  <span id="ContentPlaceHolder1_sewer"><?php echo $property_details->elevatory_building; ?></span></span><br>
+            </span>
+        <?php endif; ?>
+        <?php if ($property_details->sewer) : ?>
+            <span id="ContentPlaceHolder1_dvEleavatorSewer">
+                <br>
+                <span id="ContentPlaceHolder1_dvSewer"><b>Sewer : </b>  <span id="ContentPlaceHolder1_sewer"><?php echo $property_details->sewer; ?></span></span><br>
+            </span>
+        <?php endif; ?>
+        <?php
+        if (isset($property_details->water0))
+            if ($property_details->water0->title) :
+                ?>
+                <span id="ContentPlaceHolder1_dvWaterAmenities">
+                    <span id="ContentPlaceHolder1_dvWater"><b>Water:</b>  <span id="ContentPlaceHolder1_water"><?php echo $property_details->water0->title; ?></span></span><br>
+                    <br>
+                </span>
+        <?php  endif; ?>
+
+        <span id="ContentPlaceHolder1_dvPetAsmtIncl">
+            <span id="ContentPlaceHolder1_dvAsmtIncl"><b>ASSESSMENTS INCLUDE:</b>  <span id="ContentPlaceHolder1_asmtIncl">TV/Cable,Exterior Maintenance</span></span><br>
+            <?php if ($property_details->pet_friendly) : ?>
+                <span id="ContentPlaceHolder1_dvPet"><b>Pets:</b>  <span id="ContentPlaceHolder1_lblpet"><?php echo $property_details->pet_friendly; ?></span></span>
+            <?php endif; ?>
+            <br>
+        </span>
+    </p>
+</div>
+
+<?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>
+
+
+<?php
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id' => 'loan_cal',
+    // additional javascript options for the dialog plugin
+    'options' => array(
+        'autoOpen' => false,
+        'width' => 'auto',
+        'height' => 'auto'
+    ),
+));
+?>
+
+<div id="loan_cal">
+    <iframe width="680" scrolling="no" height="350" frameborder="0" src="http://www.guaranteedrate.com/rcemail/grate_iframe.php?C_LN=07678484&amp;RID=330">
+    </iframe>
+</div>
+
+<?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>

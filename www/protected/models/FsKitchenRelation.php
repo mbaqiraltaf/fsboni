@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'fs_kitchen_relation':
  * @property integer $id
  * @property integer $kitchen_id
- * @property integer $property_id
+ * @property integer $prop_id
  * @property string $created_date
  * @property string $updated_date
  *
@@ -31,11 +31,11 @@ class FsKitchenRelation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('kitchen_id, property_id', 'numerical', 'integerOnly'=>true),
+			array('kitchen_id, prop_id', 'numerical', 'integerOnly'=>true),
 			array('created_date, updated_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, kitchen_id, property_id, created_date, updated_date', 'safe', 'on'=>'search'),
+			array('id, kitchen_id, prop_id, created_date, updated_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +59,7 @@ class FsKitchenRelation extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'kitchen_id' => 'Kitchen Features',
-			'property_id' => 'Property',
+			'prop_id' => 'Property',
 			'created_date' => 'Created Date',
 			'updated_date' => 'Updated Date',
 		);
@@ -85,7 +85,7 @@ class FsKitchenRelation extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('kitchen_id',$this->kitchen_id);
-		$criteria->compare('property_id',$this->property_id);
+		$criteria->compare('prop_id',$this->prop_id);
 		$criteria->compare('created_date',$this->created_date,true);
 		$criteria->compare('updated_date',$this->updated_date,true);
 

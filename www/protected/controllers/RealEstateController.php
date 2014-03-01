@@ -110,7 +110,21 @@ class RealEstateController extends Controller {
         if (Yii::app()->user->getId() !== null) {
             if (CHttpRequest::getParam('prop_id') != null) {
                 $result = FsProperty::model()->with(array(
-                            'city0' => array('select' => 'city'), 'state0' => array('select' => 'state_name')))->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+                            'city0' => array('select' => 'city'),
+                            'state0' => array('select' => 'state_name'),
+                            'dinning0' => array('select' => 'title'),
+                            'airConditioning' => array('select' => 'title'),
+                            'heating0' => array('select' => 'title'),
+                            'attic0' => array('select' => 'title'),
+                            'basementDetails' => array('select' => 'title'),
+                            'garageType' => array('select' => 'title'),
+                            'water0' => array('select' => 'title'),
+                            'fsInteriorPropRelations',
+                            //'fsInteriorPropRelations.interiorPropFeatur' => array('alias' => 'interiorPropFeatur'), 
+                        ))->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+//                echo '<pre>';
+//                print_r($result);
+//                echo '</pre>';
                 //$image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
                 $this->render('full-page-listing', array('property_details' => $result[0]));
             }
@@ -130,18 +144,13 @@ class RealEstateController extends Controller {
         }
     }
 
-    public function actionStep3() {
-        if (isset($_POST['step4_x'])) {
-            var_dump($_POST);
-            $interior_relation = new FsInteriorPropRelation();
-            $interior_relation->attributes = $_POST['FsInteriorPropRelation'];
-            if ($interior_relation->validate()) {
-                echo 'saved';
-            } else {
-                echo 'sasaa';
-            }
-        }
+    public function actionStep3() {        
         $model = new FsProperty;
+        
+//            $exterior_relation = new FsExteriorConstrRelation;
+//            $amenities_relation = new FsAmenitiesRelation;
+//            $assessments_include = new FsAssessincRelation;
+//            $this->render('step4', array('model' => $model, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
         $interior_relation = new FsInteriorPropRelation;
         $appliances_relation = new FsAppliancesRelation;
         $kitchen_relation = new FsKitchenRelation;
@@ -149,6 +158,7 @@ class RealEstateController extends Controller {
         $addition_rooms_relation = new FsAdditionalRoomsRelation;
         $equipment_relation = new FsEquipmentRelation;
         $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
+    
     }
 
     public function actionSellHome() {
@@ -169,6 +179,12 @@ class RealEstateController extends Controller {
             }
         } else if (isset($_POST['step4_x'])) {
             $this->setPageState('step3', CHttpRequest::getParam('FsProperty'));
+            $this->setPageState('interior_relation', CHttpRequest::getParam('FsInteriorPropRelation'));
+            $this->setPageState('appliances_relation', CHttpRequest::getParam('FsAppliancesRelation'));
+            $this->setPageState('kitchen_relation', CHttpRequest::getParam('FsKitchenRelation'));
+            $this->setPageState('bathroom_amenities_relation', CHttpRequest::getParam('FsBathroomAmenitiesRelation'));
+            $this->setPageState('addition_rooms_relation', CHttpRequest::getParam('FsAdditionalRoomsRelation'));
+            $this->setPageState('equipment_relation', CHttpRequest::getParam('FsEquipmentRelation'));
             $model = new FsProperty('step3');
             $model->attributes = CHttpRequest::getParam('FsProperty');
             $exterior_relation = new FsExteriorConstrRelation;
@@ -177,6 +193,9 @@ class RealEstateController extends Controller {
             $this->render('step4', array('model' => $model, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
         } else if (isset($_POST['step5_x'])) {
             $this->setPageState('step4', CHttpRequest::getParam('FsProperty'));
+            $this->setPageState('exterior_relation', CHttpRequest::getParam('FsExteriorConstrRelation'));
+            $this->setPageState('amenities_relation', CHttpRequest::getParam('FsAmenitiesRelation'));
+            $this->setPageState('assessments_include', CHttpRequest::getParam('FsAssessincRelation'));
             $model = new FsProperty('step4');
             $model->attributes = CHttpRequest::getParam('FsProperty');
             $this->render('step5', array('model' => $model));
@@ -201,7 +220,16 @@ class RealEstateController extends Controller {
             $model->fsboni_property_id = $fsboni_property_id;
 
             if ($model->save()) {
-                $this->actionGenerateUrl($user['seller_id']);
+                $id = $model->id;
+                $this->saveRelationalTables($id, $this->getPageState('interior_relation', array()), 'FsInteriorPropRelation');
+                $this->saveRelationalTables($id, $this->getPageState('appliances_relation', array()), 'FsAppliancesRelation');
+                $this->saveRelationalTables($id, $this->getPageState('kitchen_relation', array()), 'FsKitchenRelation');
+                $this->saveRelationalTables($id, $this->getPageState('bathroom_amenities_relation', array()), 'FsBathroomAmenitiesRelation');
+                $this->saveRelationalTables($id, $this->getPageState('equipment_relation', array()), 'FsEquipmentRelation');
+                $this->saveRelationalTables($id, $this->getPageState('exterior_relation', array()), 'FsExteriorConstrRelation');
+                $this->saveRelationalTables($id, $this->getPageState('amenities_relation', array()), 'FsAmenitiesRelation');
+                $this->saveRelationalTables($id, $this->getPageState('assessments_include', array()), 'FsAssessincRelation');
+                //$this->actionGenerateUrl($user['seller_id']);
                 $this->redirect(array('success'));
             } else {
                 $this->render('step6', array('model' => $model));
@@ -211,6 +239,23 @@ class RealEstateController extends Controller {
             $this->setPageState('step1', array('seller_id' => $user_id));
             $model = new FsProperty('new');
             $this->render('step2', array('model' => $model));
+        }
+    }
+
+    public function saveRelationalTables($prop_id, $relationalData, $modelName) {
+        foreach ($relationalData as $key => &$value) {
+            $value = array_filter($value);
+        }
+
+        foreach ($relationalData as $key => $values) {
+            if (is_array($values)) {
+                foreach ($values as $value) {
+                    $model = new $modelName();
+                    $model->prop_id = $prop_id;
+                    $model->$key = $value;
+                    $model->save();
+                }
+            }
         }
     }
 
