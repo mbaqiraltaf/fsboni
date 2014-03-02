@@ -128,79 +128,55 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 
 <div style="line-height:20px;" class="register_cont" id="ifs">
     <div class="clear">&nbsp;</div>
-    <?php echo $property_details->city0->city; ?>
-    <h3>Interior Features</h3><p>
-        <span id="ContentPlaceHolder1_dvIntrProFeatr">
-            <span id="ContentPlaceHolder1_dvInterFeatr"><b>Interior Property Features:</b> <span id="ContentPlaceHolder1_intrPropFeatr"><?php
-                    $values = array();
-                    if (isset($property_details->fsInteriorPropRelations))
-                        if (count($property_details->fsInteriorPropRelations)) {
-                            foreach ($property_details->fsInteriorPropRelations as $object) {
-                                $values[] = $object->interiorPropFeatur->title;
-                            }
-                        }
-                    echo implode(', ', $values);
-                    ?></span></span><br>
-        </span>
+    <p>
         <?php
-        if (isset($property_details->airConditioning))
-            if ($property_details->airConditioning->title) :
-                ?>
-                <span id="ContentPlaceHolder1_divAirConditioning">
-                    <span id="ContentPlaceHolder1_dvAirCondtng"><b>Air Conditioning:</b> <span id="ContentPlaceHolder1_AirConditioning"><?php echo $property_details->airConditioning->title; ?></span></span><br>
-                </span>
-        <?php  endif; ?>
-        <?php
-        if (isset($property_details->heating0))
-            if ($property_details->heating0->title) :
-                ?>
-                <span id="ContentPlaceHolder1_dvHeatting">
-                    <span id="ContentPlaceHolder1_dvheating"><b>Heating:</b> <span id="ContentPlaceHolder1_heating"><?php echo $property_details->heating0->title; ?></span></span><br>
-                </span>
-        <?php  endif; ?>
-        <span id="ContentPlaceHolder1_divKitchens">
-            <span id="ContentPlaceHolder1_dvKitchen"><b>Kitchen Features:</b>  <span id="ContentPlaceHolder1_kitchen">Eating Area-Breakfast Bar,Island</span></span><br>
-        </span>
-        <span id="ContentPlaceHolder1_dvKitchenAppliances">
-            <span id="ContentPlaceHolder1_dvAppliances"><b>Appliances:</b>  <span id="ContentPlaceHolder1_Appliances">Oven/Range,Microwave,Dishwasher,Refrigerator,Washer,Dryer,Disposal,Built-in Microwave</span></span><br>
-        </span>
-        <?php
-        if (isset($property_details->dinning0))
-            if ($property_details->dinning0->title) :
-                ?>
-                <span id="ContentPlaceHolder1_dvDinningDinnningDimensions">
-                    <span id="ContentPlaceHolder1_dvDingLable"><b>Dining:</b>  <span id="ContentPlaceHolder1_lblDinnig"><?php echo $property_details->dinning0->title; ?></span></span><br>
-                </span>
-        <?php  endif; ?>
-        <?php
-        if (isset($property_details->attic0))
-            if ($property_details->attic0->title) :
-                ?>
-                <span id="ContentPlaceHolder1_dvDinningDinnningDimensions">
-                    <span id="ContentPlaceHolder1_dvDingLable"><b>Attic (Detached Only):</b>  <span id="ContentPlaceHolder1_lblDinnig"><?php echo $property_details->attic0->title; ?></span></span><br>
-                </span>
-        <?php  endif; ?>
-        <?php
-        if (isset($property_details->basementDetails))
-            if ($property_details->basementDetails->title) :
-                ?>
-                <span id="ContentPlaceHolder1_dvDinningDinnningDimensions">
-                    <span id="ContentPlaceHolder1_dvDingLable"><b>Basement Details:</b>  <span id="ContentPlaceHolder1_lblDinnig"><?php echo $property_details->basementDetails->title; ?></span></span><br>
-                </span>
-        <?php  endif; ?>
+        if (isset($property_details->fsInteriorPropRelations)) {
+            echo Helper::showDropDownValues($property_details->fsInteriorPropRelations, 'Interior Property Features', 'title', 'interiorPropFeatur');
+        }
 
+        if (isset($property_details->airConditioning)) {
+            echo Helper::showDropDownValues($property_details->airConditioning, 'Air Conditioning', 'title');
+        }
 
+        if (isset($property_details->heating0)) {
+            echo Helper::showDropDownValues($property_details->heating0, 'Heating', 'title');
+        }
 
-        <span id="ContentPlaceHolder1_dvBathAmenitiesBathDimensions">
-            <span id="ContentPlaceHolder1_dvBathAmenities"><b>Bathroom Amenities:</b> <span id="ContentPlaceHolder1_bathroomAmenities">Whirlpool,Spa Soaking Tub,Separate Shower,Double Sink</span></span><br>
+        if (isset($property_details->fsKitchenRelations)) {
+            echo Helper::showDropDownValues($property_details->fsKitchenRelations, 'Kitchen Features', 'title', 'kitchen');
+        }
 
-        </span>
+        if (isset($property_details->fsAppliancesRelations)) {
+            echo Helper::showDropDownValues($property_details->fsAppliancesRelations, 'Appliances', 'title', 'appliances');
+        }
 
+        if (isset($property_details->dinning0)) {
+            echo Helper::showDropDownValues($property_details->dinning0, 'Dining', 'title');
+        }
 
-        <span id="ContentPlaceHolder1_dvElectricityEquipment">
-            <br>
-            <span id="ContentPlaceHolder1_dvEquipment"><b>Equipment:</b>  <span id="ContentPlaceHolder1_equipment">Air-Filter,Humidifier,Security System,Cable ready</span></span><br>
-        </span></p>
+        if (isset($property_details->attic0)) {
+            echo Helper::showDropDownValues($property_details->attic0, 'Attic (Detached Only)', 'title');
+        }
+
+        if (isset($property_details->basementDetails)) {
+            echo Helper::showDropDownValues($property_details->basementDetails, 'Basement Details', 'title');
+        }
+
+        if (isset($property_details->fsBathroomAmenitiesRelations)) {
+            echo Helper::showDropDownValues($property_details->fsBathroomAmenitiesRelations, 'Bathroom Amenities', 'title', 'bathAmenities');
+        }
+
+        if (isset($property_details->fsAdditionalRoomsRelations)) {
+            echo Helper::showDropDownValues($property_details->fsAdditionalRoomsRelations, 'Additinal Rooms', 'title', 'addiRooms');
+        }
+
+        echo Helper::showDropDownValues($property_details, 'Electricity', 'electricity');
+
+        if (isset($property_details->fsEquipmentRelations)) {
+            echo Helper::showDropDownValues($property_details->fsEquipmentRelations, 'Equipment', 'title', 'equipment');
+        }
+        ?>
+    </p>
 </div>
 
 <?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>
@@ -224,58 +200,40 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
     <div class="clear">&nbsp;</div>
     <h3>Exterior Features</h3>
     <p>
-        <span id="ContentPlaceHolder1_dvExteriorGarageOwnr">
-            <span id="ContentPlaceHolder1_dvExterior"><b>Exterior Construction:</b>  <span id="ContentPlaceHolder1_exteriorConstr">Brick</span></span><br>
-        </span>
-        <?php if ($property_details->garage_ownrship) : ?>
-            <span id="ContentPlaceHolder1_dvGarageOwner">
-                <span id="ContentPlaceHolder1_dvOwnerg"><b>Garage Ownership:</b>  <span id="ContentPlaceHolder1_grageOwner"><?php echo $property_details->garage_ownrship; ?></span></span><br>
-            </span>
-        <?php endif; ?>
         <?php
-        if (isset($property_details->garageType))
-            if ($property_details->garageType->title) :
-                ?>
-                <span id="ContentPlaceHolder1_dvGarageType">
-                    <span id="ContentPlaceHolder1_dvGtyp"><b>Garage Type:</b>  <span id="ContentPlaceHolder1_grageType"><?php echo $property_details->garageType->title; ?></span></span><br>
-                </span>
-        <?php  endif; ?>
-        <?php if ($property_details->disability_access) : ?>
-            <span id="ContentPlaceHolder1_dvEleavatorSewer">
-                <br>
-                <span id="ContentPlaceHolder1_dvSewer"><b>Disability Access : </b>  <span id="ContentPlaceHolder1_sewer"><?php echo $property_details->disability_access; ?></span></span><br>
-            </span>
-        <?php endif; ?>
-        <?php if ($property_details->elevatory_building) : ?>
-            <span id="ContentPlaceHolder1_dvEleavatorSewer">
-                <br>
-                <span id="ContentPlaceHolder1_dvSewer"><b>
-                        Elevatory Building : </b>  <span id="ContentPlaceHolder1_sewer"><?php echo $property_details->elevatory_building; ?></span></span><br>
-            </span>
-        <?php endif; ?>
-        <?php if ($property_details->sewer) : ?>
-            <span id="ContentPlaceHolder1_dvEleavatorSewer">
-                <br>
-                <span id="ContentPlaceHolder1_dvSewer"><b>Sewer : </b>  <span id="ContentPlaceHolder1_sewer"><?php echo $property_details->sewer; ?></span></span><br>
-            </span>
-        <?php endif; ?>
-        <?php
-        if (isset($property_details->water0))
-            if ($property_details->water0->title) :
-                ?>
-                <span id="ContentPlaceHolder1_dvWaterAmenities">
-                    <span id="ContentPlaceHolder1_dvWater"><b>Water:</b>  <span id="ContentPlaceHolder1_water"><?php echo $property_details->water0->title; ?></span></span><br>
-                    <br>
-                </span>
-        <?php  endif; ?>
+        if (isset($property_details->fsExteriorConstrRelations)) {
+            echo Helper::showDropDownValues($property_details->fsExteriorConstrRelations, 'Exterior Construction', 'title', 'exteriorConstr');
+        }
 
-        <span id="ContentPlaceHolder1_dvPetAsmtIncl">
-            <span id="ContentPlaceHolder1_dvAsmtIncl"><b>ASSESSMENTS INCLUDE:</b>  <span id="ContentPlaceHolder1_asmtIncl">TV/Cable,Exterior Maintenance</span></span><br>
-            <?php if ($property_details->pet_friendly) : ?>
-                <span id="ContentPlaceHolder1_dvPet"><b>Pets:</b>  <span id="ContentPlaceHolder1_lblpet"><?php echo $property_details->pet_friendly; ?></span></span>
-            <?php endif; ?>
-            <br>
-        </span>
+        echo Helper::showDropDownValues($property_details, 'Garage Ownership', 'garage_ownrship');
+
+        if (isset($property_details->garageType)) {
+            echo Helper::showDropDownValues($property_details->garageType, 'Garage Type', 'title');
+        }
+
+        echo Helper::showDropDownValues($property_details, 'Disability Access', 'disability_access');
+
+        echo Helper::showDropDownValues($property_details, 'Elevatory Building', 'elevatory_building');
+
+        echo Helper::showDropDownValues($property_details, 'Sewer', 'sewer');
+
+        if (isset($property_details->water0)) {
+            echo Helper::showDropDownValues($property_details->water0, 'Water', 'title');
+        }
+
+        if (isset($property_details->fsAmenitiesRelations)) {
+            echo Helper::showDropDownValues($property_details->fsAmenitiesRelations, 'Amenities', 'title', 'amenities');
+        }
+
+        if (isset($property_details->fsAssessnicRelations)) {
+            echo Helper::showDropDownValues($property_details->fsAssessnicRelations, 'ASSESSMENTS INCLUDE', 'title', 'assinc');
+        }
+
+        echo Helper::showDropDownValues($property_details, 'Pets', 'pet_friendly');
+        ?>
+
+        <br>
+
     </p>
 </div>
 
@@ -295,8 +253,25 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 ?>
 
 <div id="loan_cal">
-    <iframe width="680" scrolling="no" height="350" frameborder="0" src="http://www.guaranteedrate.com/rcemail/grate_iframe.php?C_LN=07678484&amp;RID=330">
-    </iframe>
+<!--    <iframe width="680" scrolling="no" height="350" frameborder="0" src="http://www.guaranteedrate.com/rcemail/grate_iframe.php?C_LN=07678484&amp;RID=330">
+    </iframe>-->
 </div>
+
+<?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>
+
+<?php
+$this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+    'id' => 'loan_cal',
+    // additional javascript options for the dialog plugin
+    'options' => array(
+        'autoOpen' => false,
+        'width' => 'auto',
+        'height' => 'auto'
+    ),
+));
+?>
+<h3>Dimensions:</h3><br><br>
+L.R:25*30 Level : 7Fireplace  Other<br><br> D.R 10*10 Level : 7 Fireplace Other <br><br> KIT 15*10 Level : 7Fireplace  Other <br><br> M-BED 15*15 Level : 7Fireplace  Other <br><br> 1-BED 12*10 Level : 7Fireplace  Other <br><br>Laundry Room 5*5 Level : 7 Fireplace  Other <br><br>Deck/Balcony 19*10 Level : 7Fireplace  Other <br><br>
+
 
 <?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>

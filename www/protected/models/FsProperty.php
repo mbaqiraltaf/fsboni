@@ -212,6 +212,8 @@ class FsProperty extends CActiveRecord {
         return array(
             'fsAdditionalRoomsRelations' => array(self::HAS_MANY, 'FsAdditionalRoomsRelation', 'prop_id'),
             'fsAmenitiesRelations' => array(self::HAS_MANY, 'FsAmenitiesRelation', 'prop_id'),
+            'fsAssessnicRelations' => array(self::HAS_MANY, 'FsAssessincRelation', 'prop_id'),
+            'fsKitchenRelations' => array(self::HAS_MANY, 'FsKitchenRelation', 'prop_id'),
             'fsAppliancesRelations' => array(self::HAS_MANY, 'FsAppliancesRelation', 'prop_id'),
             'fsAsmtInclRelations' => array(self::HAS_MANY, 'FsAsmtInclRelation', 'prop_id'),
             'fsBathroomAmenitiesRelations' => array(self::HAS_MANY, 'FsBathroomAmenitiesRelation', 'prop_id'),

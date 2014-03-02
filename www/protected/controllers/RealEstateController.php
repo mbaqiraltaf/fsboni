@@ -120,7 +120,14 @@ class RealEstateController extends Controller {
                             'garageType' => array('select' => 'title'),
                             'water0' => array('select' => 'title'),
                             'fsInteriorPropRelations',
-                            //'fsInteriorPropRelations.interiorPropFeatur' => array('alias' => 'interiorPropFeatur'), 
+                            'fsAppliancesRelations',
+                            'fsBathroomAmenitiesRelations',
+                            'fsAdditionalRoomsRelations',
+                            'fsEquipmentRelations',
+                            'fsExteriorConstrRelations',
+                            //'fsAmenitiesRelations',
+                            'fsKitchenRelations',
+                            //'fsAssessnicRelations'
                         ))->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
 //                echo '<pre>';
 //                print_r($result);
@@ -158,7 +165,7 @@ class RealEstateController extends Controller {
         $addition_rooms_relation = new FsAdditionalRoomsRelation;
         $equipment_relation = new FsEquipmentRelation;
         $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
-    
+//    
     }
 
     public function actionSellHome() {

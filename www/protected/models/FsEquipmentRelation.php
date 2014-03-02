@@ -49,6 +49,7 @@ class FsEquipmentRelation extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'prop' => array(self::BELONGS_TO, 'FsProperty', 'prop_id'),
+                        'equipment' => array(self::BELONGS_TO, 'FsEquipment', 'equipment_id'),
 		);
 	}
 

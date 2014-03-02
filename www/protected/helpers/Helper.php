@@ -24,7 +24,42 @@ class Helper {
     
     public static function arrayOfObjectToString($array){
         $output = array();
+        foreach($array as $object)
+        {
+            
+        }
         
+    }
+    
+    public static function showDropDownValues($itemObject, $label, $attributeName, $relationalColumnName = '') {
+        $html = '';
+        $value = '';
+        if (is_array($itemObject)) {
+            $values = array();
+            if (count($itemObject)) {
+                foreach ($itemObject as $object) {
+                    $values[] = $object->$relationalColumnName->$attributeName;
+                }
+            }
+            $value = implode(',', $values);
+        } else {
+            if ($itemObject->$attributeName) {
+                $value = $itemObject->$attributeName;
+            }
+        }
+        if ($value) {
+            $html .= '<span>';
+            $html .= '<span>';
+            $html .= '<b>';
+            $html .= $label . ': ';
+            $html .= '</b>';
+            $html .= '<span>';
+            $html .= $value;
+            $html .= '</span>';
+            $html .= '</span><br>';
+            $html .= '</span>';
+        }
+        return $html;
     }
 
 }

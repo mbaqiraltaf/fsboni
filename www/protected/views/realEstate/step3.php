@@ -341,7 +341,7 @@ $level = CHtml::dropDownList('Level', '', $levels_data, array('class' => 'select
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'electricity'); ?></div>
         <div class="right_area">
-<?php echo $form->radioButtonList($model, 'electricity', array('c' => 'Circuit Breakers', 'a' => '200+ Amp Service'), array('separator' => '')); ?>
+<?php echo $form->radioButtonList($model, 'electricity', array('Circuit Breakers' => 'Circuit Breakers', '200+ Amp Service' => '200+ Amp Service'), array('separator' => '')); ?>
         </div>
     </div>
 
