@@ -129,11 +129,16 @@ class RealEstateController extends Controller {
                             'fsKitchenRelations',
                             //'fsAssessnicRelations'
                         ))->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
-//                echo '<pre>';
-//                print_r($result);
-//                echo '</pre>';
-                //$image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
-                $this->render('full-page-listing', array('property_details' => $result[0]));
+//                $images = array();
+//                foreach ($result as $record) {
+//                    $image = FsPropGallery::model()->findAll('prop_id = ' . $record->id);
+//                    if (count($image) > 0)
+//                        $images[$record->id] = $image[0]->image_name;
+//                    else
+//                        $images[$record->id] = 'home.jpg';
+//                }
+                $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
+                $this->render('full-page-listing', array('property_details' => $result[0], 'image' => $image));
             }
         } else {
             $user = new FsUser;
@@ -236,7 +241,7 @@ class RealEstateController extends Controller {
                 $this->saveRelationalTables($id, $this->getPageState('exterior_relation', array()), 'FsExteriorConstrRelation');
                 $this->saveRelationalTables($id, $this->getPageState('amenities_relation', array()), 'FsAmenitiesRelation');
                 $this->saveRelationalTables($id, $this->getPageState('assessments_include', array()), 'FsAssessincRelation');
-                //$this->actionGenerateUrl($user['seller_id']);
+                $this->actionGenerateUrl($user['seller_id']);
                 $this->redirect(array('success'));
             } else {
                 $this->render('step6', array('model' => $model));
@@ -267,8 +272,20 @@ class RealEstateController extends Controller {
     }
 
     public function actionListing() {
-        $model = new FsProperty;
-        $this->render('listing', array('model' => $model));
+        $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->user->getId());
+        $this->render('listing', array('properties' => $seller_properties));        
+    }
+    
+    public function actionInquiryMadeByBuyers(){
+        $this->render('inquiries-buyers');
+    }
+    
+    public function actionInquiriesMadeToSellers(){
+        $this->render('inquiries-sellers');
+    }
+    
+    public function actionSavedSearches(){
+        $this->render('saved-searches');
     }
 
     public function actionSellerRegistration() {

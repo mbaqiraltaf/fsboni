@@ -1,9 +1,20 @@
+<style>
+    .fields-span{margin-right: 25px;}
+</style>
+
 <div class="listing">
     <div style="float:left;">
         <div class="img_frame" id="ContentPlaceHolder1_imgFrame">
             <div class="top_bg"></div>
             <div class="mid_bg">
-                <a href="uploaded_files/prop_gallery/4abc6a6af11d42e689f9f063a4e6de58373-321.jpeg" rel="bigImage" id="bigImagexx"><img id="ContentPlaceHolder1_property_img" src="uploaded_files/prop_gallery/4abc6a6af11d42e689f9f063a4e6de58373-321.jpeg"></a>   
+                <a href="#" rel="bigImage" id="bigImagexx">
+                    <?php if (count($image) > 0) : ?>
+                        <img src="<?php echo Yii::app()->baseUrl . '/images/prop_gallery/' . $image[0]->image_name; ?>">
+                    <?php else: ?>
+                        <img src="<?php echo Yii::app()->baseUrl . '/images/prop_gallery/home.jpg'; ?>">
+                    <?php endif; ?>
+                </a>   
+
             </div>
             <div class="bottom_bg"></div>
             <div class="links_thumb">
@@ -27,9 +38,10 @@
             <div class="left_box2">
                 <div class="new_row2 first">
                     <div class="left_part2X">
-                        <a id="dmn" href="#dmns"><img src="images/btn_rd.jpg"></a>&nbsp; <a id="if" href="#" onclick = '$("#ifs").dialog("open");
-                                return false;'><img src="images/btn_if.jpg"></a>&nbsp; <a id="ef" href="#" onclick = '$("#efs").dialog("open");
-                                        return false;'><img src="images/btn_ef.jpg"></a>
+                        <a id="dmn" href="#"  onclick = '$("#dims").dialog("open");
+                                return false;'><img src="images/btn_rd.jpg"></a>&nbsp; <a id="if" href="#" onclick = '$("#ifs").dialog("open");
+                                        return false;'><img src="images/btn_if.jpg"></a>&nbsp; <a id="ef" href="#" onclick = '$("#efs").dialog("open");
+                                                return false;'><img src="images/btn_ef.jpg"></a>
                     </div>
                 </div>
                 <div class="new_row2">
@@ -62,38 +74,38 @@
         <div class="mid_strip">
             <div class="listing_row">
                 <div class="left_part2">
-                    <span id="ContentPlaceHolder1_dvCompaas">
+                    <span class="fields-span">
                         <b>Compass Point : </b>
                         <?php echo $property_details->compas_point; ?>
 
                     </span>
 
 
-                    <span id="ContentPlaceHolder1_dvStreetNumber">
+                    <span class="fields-span">
                         <b>Street Name : </b>
                         <?php echo $property_details->street_name; ?>
                     </span> &nbsp;
-                    <b> City : </b><?php echo $property_details->city0->city; ?>
-                    <b>State : </b><?php echo $property_details->state0->state_name; ?>
-                    <b>Zip Code : </b><?php echo $property_details->zip_code; ?>
+                    <?php if (isset($property_details->city0)) : ?>
+                    <span class="fields-span"><b> City : </b><?php echo $property_details->city0->city; ?></span>
+                    <?php endif; ?>
+                    <span class="fields-span"><b>State : </b><?php echo $property_details->state0->state_name; ?></span>
+                    <span class="fields-span"><b>Zip Code : </b><?php echo $property_details->zip_code; ?></span>
 
                 </div></div>
 
             <div class="listing_row">
                 <div style="border-color:Red;" class="left_part2">
-                    <b>Property Type : </b> <span id="ContentPlaceHolder1_lblPropStyle"><?php echo $property_details->prop_type; ?></span>
-                    <b>Property Style :</b>  <?php echo $property_details->prop_style; ?>
-                    <b> </b>  
-                    <span style="color:red;"><b> </b>  </span>
+                    <span class="fields-span"><b>Property Type : </b> <?php echo $property_details->prop_type; ?></span>
+                    <span class="fields-span"><b>Property Style :</b>  <?php echo $property_details->prop_style; ?></span>
                 </div>
             </div>
             <div class="listing_row">
                 <div class="left_part2">
-                    <span id="ContentPlaceHolder1_dvcounty"><b>County : </b><?php echo $property_details->county; ?></span>
-                    <b>Property Taxes :</b> <?php echo $property_details->property_taxes; ?>
-                    <b>Tax Year :</b> <?php echo $property_details->tax_year; ?>
-                    <span id="ContentPlaceHolder1_dvAssessment"> <b>Assessment : </b><?php echo $property_details->assessment; ?></span>
-                    <span id="ContentPlaceHolder1_dvFreequency"><b>Frequency :</b>  <span id="ContentPlaceHolder1_lblFreequency"><?php echo $property_details->frequency; ?></span></span>
+                    <span class="fields-span"><b>County : </b><?php echo $property_details->county; ?></span>
+                    <span class="fields-span"><b>Property Taxes :</b> <?php echo $property_details->property_taxes; ?></span>
+                    <span class="fields-span"><b>Tax Year :</b> <?php echo $property_details->tax_year; ?></span>
+                    <span class="fields-span"><b>Assessment : </b><?php echo $property_details->assessment; ?></span>
+                    <span class="fields-span"><b>Frequency :</b>  <span id="ContentPlaceHolder1_lblFreequency"><?php echo $property_details->frequency; ?></span></span>
                 </div>
             </div>
             <div class="listing_row">
@@ -197,8 +209,7 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 
 <div style="line-height:20px; width:400px;" class="register_cont" id="efs">
 
-    <div class="clear">&nbsp;</div>
-    <h3>Exterior Features</h3>
+    <div class="clear">&nbsp;</div>    
     <p>
         <?php
         if (isset($property_details->fsExteriorConstrRelations)) {
@@ -253,15 +264,15 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 ?>
 
 <div id="loan_cal">
-<!--    <iframe width="680" scrolling="no" height="350" frameborder="0" src="http://www.guaranteedrate.com/rcemail/grate_iframe.php?C_LN=07678484&amp;RID=330">
-    </iframe>-->
+    <iframe width="680" scrolling="no" height="350" frameborder="0" src="http://www.guaranteedrate.com/rcemail/grate_iframe.php?C_LN=07678484&amp;RID=330">
+    </iframe>
 </div>
 
 <?php $this->endWidget('zii.widgets.jui.CJuiDialog'); ?>
 
 <?php
 $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id' => 'loan_cal',
+    'id' => 'dims',
     // additional javascript options for the dialog plugin
     'options' => array(
         'autoOpen' => false,

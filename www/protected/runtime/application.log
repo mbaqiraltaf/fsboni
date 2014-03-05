@@ -7384,3 +7384,51 @@ Stack trace:
 #22 {main}
 REQUEST_URI=/fsboni/index.php?r=realEstate/step3
 ---
+2014/03/05 17:43:22 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "fsboni.s@gmail.com" using 2 possible authenticators' in D:\wamp\fsboni_yii\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\Esmtp\AuthHandler.php:179
+Stack trace:
+#0 D:\wamp\fsboni_yii\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 D:\wamp\fsboni_yii\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 D:\wamp\fsboni_yii\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 D:\wamp\fsboni_yii\www\protected\extensions\yii-mail\YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 D:\wamp\fsboni_yii\www\protected\helpers\EmailHelper.php(27): YiiMail->send(Object(YiiMailMessage))
+#5 D:\wamp\fsboni_yii\www\protected\helpers\EmailHelper.php(17): EmailHelper->sendEmail('Remind Password', '<div style='ove...', 'muhammadbaqiral...')
+#6 D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php(74): EmailHelper->sendPassword('muhammadbaqiral...', 'baqir Altaf', '123456')
+#7 D:\wamp\fsboni_yii\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionForgotPassword()
+#8 D:\wamp\fsboni_yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): CController->run('forgotPassword')
+#17 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('realEstate/forg...')
+#18 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\wamp\fsboni_yii\www\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/fsboni/index.php?r=realEstate/forgotPassword
+HTTP_REFERER=http://localhost:8080/fsboni/index.php?r=realEstate/forgotPassword
+---
+2014/03/05 18:36:05 [error] [php] Trying to get property of non-object (D:\wamp\fsboni_yii\www\protected\views\realEstate\full-page-listing.php:77)
+Stack trace:
+#0 D:\wamp\fsboni_yii\yii\framework\web\CController.php(869): RealEstateController->renderFile()
+#1 D:\wamp\fsboni_yii\yii\framework\web\CController.php(782): RealEstateController->renderPartial()
+#2 D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php(136): RealEstateController->render()
+#3 D:\wamp\fsboni_yii\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionFullPageListing()
+#4 D:\wamp\fsboni_yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#6 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#9 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#12 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#13 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\fsboni_yii\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/fsboni/index.php?r=realEstate/fullPageListing&prop_id=F11063
+in D:\wamp\fsboni_yii\www\protected\views\realEstate\full-page-listing.php (77)
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (136)
+in D:\wamp\fsboni_yii\www\index.php (13)
