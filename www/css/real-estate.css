@@ -9,3 +9,11 @@
 .center-align{
     text-align: center;
 }
+
+.step2-heading
+{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}

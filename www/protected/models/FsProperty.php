@@ -331,7 +331,7 @@ class FsProperty extends CActiveRecord {
             'home_warantee' => 'Home Warrantee',
             'appraiser' => 'Appraiser',
             'home_inspector' => 'Home Inspector',
-            'prop_size' => 'Sq. Ft.',
+            'prop_size' => 'Square Footage',
             'prop_view_count' => 'Prop View Count',
             'prop_type' => 'Property Type',
             'fireplace_details' => 'Fireplace Details',

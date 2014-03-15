@@ -6,6 +6,10 @@
         <a href="#">
             <?php echo CHtml::image(Yii::app()->baseUrl . '/images/btn_guess.png'); ?></a>
     </div>
+    <div>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=TwitterStories" class="twitter-hashtag-button" data-size="large" data-related="yhtak4fun" data-url="http://fsboni.com">Tweet #TwitterStories</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
 </div>
 <div class="BuySellHome">
     <div class="center"><h3 class="hhheading">List Your Home For Free</h3></div>
@@ -84,6 +88,8 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery.bxSlider.min.js');
             <a href="<?php echo $this->createUrl('realEstate/termsConditions'); ?>">Terms and Conditions</a> | <a
                 href="<?php echo $this->createUrl('realEstate/mortgageNewsletter'); ?>">Mortgage
                 Newsletter</a>
+            
+
         </p>
     </div>
 </div>

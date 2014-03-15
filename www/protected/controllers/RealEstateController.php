@@ -158,18 +158,20 @@ class RealEstateController extends Controller {
 
     public function actionStep3() {        
         $model = new FsProperty;
+        $model = new FsProperty('new');
+            $this->render('step2', array('model' => $model));
         
 //            $exterior_relation = new FsExteriorConstrRelation;
 //            $amenities_relation = new FsAmenitiesRelation;
 //            $assessments_include = new FsAssessincRelation;
 //            $this->render('step4', array('model' => $model, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
-        $interior_relation = new FsInteriorPropRelation;
-        $appliances_relation = new FsAppliancesRelation;
-        $kitchen_relation = new FsKitchenRelation;
-        $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
-        $addition_rooms_relation = new FsAdditionalRoomsRelation;
-        $equipment_relation = new FsEquipmentRelation;
-        $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
+//        $interior_relation = new FsInteriorPropRelation;
+//        $appliances_relation = new FsAppliancesRelation;
+//        $kitchen_relation = new FsKitchenRelation;
+//        $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
+//        $addition_rooms_relation = new FsAdditionalRoomsRelation;
+//        $equipment_relation = new FsEquipmentRelation;
+//        $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
 //    
     }
 
