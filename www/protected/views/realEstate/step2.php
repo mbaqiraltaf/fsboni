@@ -134,10 +134,7 @@
                 ));
                 ?>
             </div>
-            <div class="state_col_new">
-                <?php echo $form->labelEx($model, 'neighbourhood'); ?>
-                <?php echo $form->listBox($model, 'neighbourhood', array(), array('class' => 'w80')); ?>
-            </div>
+            
             <div class="state_col_new ml10">
                 <?php echo $form->labelEx($model, 'zip_code'); ?>
                 <?php
@@ -170,6 +167,26 @@
             </div>
         </div>
     </div>
+    
+    <div class="contact_row">
+        
+        <div class="left_area"><?php echo $form->labelEx($model, 'neighbourhood'); ?></div>
+        <div class="right_area">
+            <div class="left_area1" style="width: 130px;">
+                <?php echo $form->textField($model, 'neighbourhood', array('class' => 'w85')); ?></div>
+            <div class="left_area1" style="margin-right: 20px;">
+                <?php echo $form->labelEx($model, 'building_name'); ?>
+                <?php echo $form->textField($model, 'building_name', array('class' => 'w70')); ?>
+            </div>
+            <div class="left_area1">
+                <?php echo $form->labelEx($model, 'sub_division'); ?>
+                <?php echo $form->textField($model, 'sub_division', array('class' => 'w85')); ?>
+            </div>
+            
+            
+        </div>
+        
+    </div>
 
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'price_range'); ?></div>
@@ -194,7 +211,7 @@
             <?php echo $form->labelEx($model, 'numbr_bedroom'); ?></div>
         <div class="right_area1 w70">
             <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
-          to </div>
+         </div>
         <div class="right_area1 w100">
             <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>

@@ -188,9 +188,9 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <div class="left_col" style="width:70px;"><?php echo $form->labelEx($model, 'bed_room_range_min'); ?></div>
                                 <div class="right_col_new">
                                     <div class="search_float_box ml0">
-                                        <?php echo $form->dropDownList($model, 'bed_room_range_min', CHtml::listData(FsNoBedroom::model()->findAll(), 'title', 'title'), array('prompt' => '', 'class' => 'search_box_range two_digit')); ?>
+                                        <?php echo $form->dropDownList($model, 'bed_room_range_min', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('prompt' => '', 'class' => 'search_box_range two_digit')); ?>
                                         <span class="mlr10">to</span>
-                                        <?php echo $form->dropDownList($model, 'bed_room_range_max', CHtml::listData(FsNoBedroom::model()->findAll(), 'title', 'title'), array('prompt' => '', 'class' => 'search_box_range two_digit')); ?>
+                                        <?php echo $form->dropDownList($model, 'bed_room_range_max', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('prompt' => '', 'class' => 'search_box_range two_digit')); ?>
                                     </div>
                                     <div class="search_float_box"><span
                                             class="mlr_15"><?php echo $form->labelEx($model, 'bath_room_range_min'); ?></span>

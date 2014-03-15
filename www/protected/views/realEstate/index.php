@@ -1,12 +1,12 @@
 <div class="freeTickects">
     <h3><span id="ContentPlaceHolder1_lbl_reffal_title">Register to Win Free AMC theater tickets</span></h3>
 
-    <div class="box">
+    <div class="box" style="margin-bottom: 20px;">
         <?php echo CHtml::image(Yii::app()->baseUrl . '/images/raffle_image/9aa4be78c00b477abbbdf0d2fdf233f4free_ticket.jpg', 'image', array('class' => 'pic', 'id' => 'ContentPlaceHolder1_reff_image')); ?>
         <a href="#">
             <?php echo CHtml::image(Yii::app()->baseUrl . '/images/btn_guess.png'); ?></a>
     </div>
-    <div>
+    <div style="padding: 0 50px;">
         <a href="https://twitter.com/intent/tweet?button_hashtag=TwitterStories" class="twitter-hashtag-button" data-size="large" data-related="yhtak4fun" data-url="http://fsboni.com">Tweet #TwitterStories</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
