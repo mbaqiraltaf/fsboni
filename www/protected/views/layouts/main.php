@@ -12,7 +12,7 @@
     echo CHtml::cssFile(Yii::app()->baseUrl . '/css/real-estate.css');
     echo CHtml::cssFile(Yii::app()->baseUrl . '/css/fancybox/jquery.fancybox-1.3.1.css');
 
-    echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery-1.5.1.js');
+    echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery-1.11.0.js');
     echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/Maxreachalert.js');
     echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/fancybox/jquery.mousewheel-3.0.2.pack.js');
     echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/fancybox/jquery.fancybox-1.3.1.js');
@@ -50,7 +50,7 @@
                     array('label' => '<span>My Account</span>', 'url' => array('/realEstate/myAccount'), 'items' => array(array('label' => 'Membership Page', 'url' => array('/realEstate/membershipPage')), array('label' => 'Change Password', 'url' => array('/realEstate/changePassword')), array('label' => 'Logout', 'url' => array('/realEstate/logout'))), 'visible' => Yii::app()->user->checkAccess('member')),
 					array('label' => '<span>Logout</span>', 'url' => array('/realEstate/logout'), 'visible' => Yii::app()->user->checkAccess('member')),
                 ),
-                'htmlOptions' => array('class' => 'nav', 'id' => 'drop_down'),
+                'htmlOptions' => array('class' => 'nav','id' => 'drop_down'),
             )); ?>
         </div>
         <!-- mainmenu -->

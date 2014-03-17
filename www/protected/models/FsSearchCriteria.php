@@ -129,7 +129,7 @@ class FsSearchCriteria extends CActiveRecord
 			'state' => 'State',
 			'cityagain' => 'Cityagain',
 			'zip' => 'Zip Code',
-			'neighbourhood' => 'Neighbourhood',
+			'neighbourhood' => 'Neighborhood',
 			'compass_point' => 'Compass Point',
 			'street_name' => 'Street Name',
 			'property_style_type' => 'Property Style Type',

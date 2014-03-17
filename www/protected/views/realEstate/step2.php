@@ -9,9 +9,11 @@
         }
     }
     ;
+
+    
 </script>
 
-<h3>Page 2 of 6 - Property Listing Information</h3>
+<!--<h3>Page 2 of 6 - Property Listing Information</h3>-->
 <div class="clear">&nbsp;</div>
 <div class="step2-heading" style="font-size: 16px;"><b>Free Full page Listings for all <span style="color: #FC9200">FSBONI Members</span></b></div>
 <div class="step2-heading" style="font-size: 13px;"><b>Provide your basic property information <span style="color: red;">your street numbers are not displayed for your privacy</span></b></div>
@@ -134,7 +136,7 @@
                 ));
                 ?>
             </div>
-            
+
             <div class="state_col_new ml10">
                 <?php echo $form->labelEx($model, 'zip_code'); ?>
                 <?php
@@ -167,9 +169,9 @@
             </div>
         </div>
     </div>
-    
+
     <div class="contact_row">
-        
+
         <div class="left_area"><?php echo $form->labelEx($model, 'neighbourhood'); ?></div>
         <div class="right_area">
             <div class="left_area1" style="width: 130px;">
@@ -182,15 +184,15 @@
                 <?php echo $form->labelEx($model, 'sub_division'); ?>
                 <?php echo $form->textField($model, 'sub_division', array('class' => 'w85')); ?>
             </div>
-            
-            
+
+
         </div>
-        
+
     </div>
 
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'price_range'); ?></div>
-        <div class="right_area1">$ <?php echo $form->textField($model, 'price_range', array('class' => 'w85')); ?>
+        <div class="right_area1">$ <?php echo $form->textField($model, 'price_range', array('class' => 'w85 digit-format')); ?>
         </div>
     </div>
 
@@ -198,9 +200,9 @@
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'prop_type'); ?></div>
         <div class="right_area1">
-            $ <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
+            <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
         </div>
-        <div class="left_area1" style="width: 55px !important;"><?php echo $form->labelEx($model, 'pet_friendly'); //echo $form->labelEx($model, 'prop_style');   ?></div>
+        <div class="left_area1" style="width: 55px !important;"><?php echo $form->labelEx($model, 'pet_friendly'); //echo $form->labelEx($model, 'prop_style');    ?></div>
         <div class="right_area1">
             <?php echo $form->dropDownList($model, 'pet_friendly', array('None' => 'None', 'Dog' => 'Dog', 'Cat' => 'Cat', 'Both' => 'Both'), array('style' => 'width: 180px;')); //echo $form->radioButtonList($model, 'prop_style', array('Attached' => 'Attached', 'Detached' => 'Detached', 'All' => 'All'), array('separator' => '')); ?>
         </div>
@@ -211,7 +213,7 @@
             <?php echo $form->labelEx($model, 'numbr_bedroom'); ?></div>
         <div class="right_area1 w70">
             <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
-         </div>
+        </div>
         <div class="right_area1 w100">
             <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
@@ -241,7 +243,7 @@
 
         <div class="right_area">
             <div class="left_area1">
-                $ <?php echo $form->textField($model, 'property_taxes', array('class' => 'w70')); ?><div>to NONE</div></div>
+                $ <?php echo $form->textField($model, 'property_taxes', array('class' => 'w70 digit-format')); ?></div>
             <div class="tax_year">
                 <?php echo $form->labelEx($model, 'tax_year'); ?>
                 <?php echo $form->textField($model, 'tax_year', array('class' => 'four_digit')); ?>
@@ -253,7 +255,7 @@
             <div class="riht_area1">
 
                 <?php echo $form->labelEx($model, 'frequency'); ?>
-                <?php echo $form->dropDownList($model, 'frequency', array('Monthly' => 'Monthly', 'Annually' => 'Annually'), array('class' => 'w120')); ?>
+                <?php echo $form->dropDownList($model, 'frequency', array('' => 'None', 'Monthly' => 'Monthly', 'Annually' => 'Annually'), array('class' => 'w120')); ?>
             </div>
         </div>
     </div>

@@ -253,7 +253,7 @@ class FsProperty extends CActiveRecord {
             'city' => 'City',
             'state' => 'State',
             'zip_code' => 'Zip Code',
-            'neighbourhood' => 'Neighbourhood',
+            'neighbourhood' => 'Neighborhood',
             'school' => 'School',
             'mls_number' => 'Mls Number',
             'prp_desc' => 'Property Description',
