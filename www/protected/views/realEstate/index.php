@@ -40,6 +40,23 @@ echo CHtml::cssFile(Yii::app()->baseUrl . '/css/slider1.css');
 echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/easySlider.js');
 echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery.bxSlider.min.js');
 ?>
+<script>
+    function start() {
+    new mq('m1');
+    mqRotate(mqr);
+}
+window.onload = start;
+
+$(document).ready(function(){
+
+    $('#slider1').bxSlider({
+        displaySlideQty: 10,
+        moveSlideQty: 1,
+        auto: true
+    });
+});
+
+    </script>
 <div id="slider">
     <div class="left_curve"></div>
     <div class="strip">

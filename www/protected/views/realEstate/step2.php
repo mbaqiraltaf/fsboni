@@ -72,13 +72,9 @@
 
 
     <div class="contact_row">
-        <div class="left_area"><?php echo $form->labelEx($model, 'state'); ?></div>
+        <div class="left_area"><?php echo $form->labelEx($model, 'city'); ?></div>
         <div class="right_area">
             <div class="state_col">
-                <?php echo $form->dropDownList($model, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'class' => 'w100')); ?>
-            </div>
-            <div class="state_col2">
-                <?php echo $form->labelEx($model, 'city'); ?>
                 <?php
                 $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
                     'model' => $model,
@@ -108,36 +104,10 @@
                 ?>
             </div>
             <div class="state_col2">
-                <?php echo $form->labelEx($model, 'county'); ?>
-                <?php
-                $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-                    'model' => $model,
-                    'attribute' => 'county',
-                    // additional javascript options for the autocomplete plugin
-                    'options' => array(
-                        'minLength' => '1',
-                    ),
-                    'source' => 'js: function(request, response) {
-                                $.ajax({
-                                    type : "POST",
-                                    url: "' . $this->createUrl('realEstate/loadCounties') . '",
-                                    dataType: "json",
-                                    data: {
-                                         city_name : $("#FsProperty_city").val()
-                                    },
-                                    success: function (data) {
-                                            response(data);
-                                    }
-                                })
-                             }',
-                    'htmlOptions' => array(
-                        'class' => 'w70'
-                    ),
-                ));
-                ?>
+                <?php echo $form->labelEx($model, 'state'); ?>
+                <?php echo $form->dropDownList($model, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'class' => 'w70')); ?>
             </div>
-
-            <div class="state_col_new ml10">
+            <div class="state_col2">
                 <?php echo $form->labelEx($model, 'zip_code'); ?>
                 <?php
                 $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
@@ -163,6 +133,35 @@
                              }',
                     'htmlOptions' => array(
                         'class' => 'w40'
+                    ),
+                ));
+                ?>
+            </div>
+            <div class="state_col_new ml10">
+                <?php echo $form->labelEx($model, 'county'); ?>
+                <?php
+                $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                    'model' => $model,
+                    'attribute' => 'county',
+                    // additional javascript options for the autocomplete plugin
+                    'options' => array(
+                        'minLength' => '1',
+                    ),
+                    'source' => 'js: function(request, response) {
+                                $.ajax({
+                                    type : "POST",
+                                    url: "' . $this->createUrl('realEstate/loadCounties') . '",
+                                    dataType: "json",
+                                    data: {
+                                         city_name : $("#FsProperty_city").val()
+                                    },
+                                    success: function (data) {
+                                            response(data);
+                                    }
+                                })
+                             }',
+                    'htmlOptions' => array(
+                        'class' => 'w69'
                     ),
                 ));
                 ?>
@@ -212,17 +211,17 @@
         <div class="left_area1">
             <?php echo $form->labelEx($model, 'numbr_bedroom'); ?></div>
         <div class="right_area1 w70">
-            <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
+            <?php echo $form->dropDownList($model, 'numbr_bedroom[]', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div class="right_area1 w100">
-            <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
+            <?php echo $form->dropDownList($model, 'numbr_bedroom[]', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div style="width:80px;" class="left_area1"><?php echo $form->labelEx($model, 'numbr_bathroom'); ?></div>
         <div class="right_area1 w70">
-            <?php echo $form->dropDownList($model, 'numbr_bathroom', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
+            <?php echo $form->dropDownList($model, 'numbr_bathroom[]', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div class="right_area1 w70">
-            <?php echo $form->dropDownList($model, 'numbr_bathroom', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
+            <?php echo $form->dropDownList($model, 'numbr_bathroom[]', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div class="left_area1 w70"><?php echo $form->labelEx($model, 'prop_size'); ?></div>
         <div style="width:200px;" class="right_area1">

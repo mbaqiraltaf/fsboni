@@ -177,9 +177,25 @@ class RealEstateController extends Controller {
 
     public function actionSellHome() {
         if (isset($_POST['step3_x'])) {
-            $this->setPageState('step2', CHttpRequest::getParam('FsProperty'));
+            
             $model = new FsProperty('step2');
-            $model->attributes = CHttpRequest::getParam('FsProperty');
+            $property = CHttpRequest::getParam('FsProperty'); 
+            $number_bedroom = '';
+            $number_bathroom = '';
+            foreach($property['numbr_bedroom'] as $bedroom)
+            {
+                $number_bedroom .= $bedroom;
+            }
+            
+            foreach($property['numbr_bathroom'] as $bathroom)
+            {
+                $number_bathroom .= $bathroom;
+            }
+            
+            $property['numbr_bedroom'] = $number_bedroom;
+            $property['numbr_bathroom'] = $number_bathroom;
+            $this->setPageState('step2', $property);
+            $model->attributes = $property;      
             if ($model->validate()) {
                 $interior_relation = new FsInteriorPropRelation;
                 $appliances_relation = new FsAppliancesRelation;
@@ -243,8 +259,8 @@ class RealEstateController extends Controller {
                 $this->saveRelationalTables($id, $this->getPageState('exterior_relation', array()), 'FsExteriorConstrRelation');
                 $this->saveRelationalTables($id, $this->getPageState('amenities_relation', array()), 'FsAmenitiesRelation');
                 $this->saveRelationalTables($id, $this->getPageState('assessments_include', array()), 'FsAssessincRelation');
-                $this->actionGenerateUrl($user['seller_id']);
-                $this->redirect(array('success'));
+                //$this->actionGenerateUrl($user['seller_id']);
+                $this->redirect(array('myAccount'));
             } else {
                 $this->render('step6', array('model' => $model));
             }
@@ -294,7 +310,7 @@ class RealEstateController extends Controller {
         $seller = new FsSeller;
         $user = new FsUser;
 
-        if (isset($_POST['step2_x'])) {
+        if (isset($_POST['submit_x'])) {
             $user->attributes = CHttpRequest::getParam('FsUser');
             $seller->attributes = CHttpRequest::getParam('FsSeller');
             $valid = $user->validate();
@@ -302,7 +318,9 @@ class RealEstateController extends Controller {
                 $user->save();
                 $seller->user_id = $user->user_id;
                 $seller->save();
-                $this->redirect(array('sellHome', 'uid' => $user->user_id));
+                //$this->redirect(array('sellHome', 'uid' => $user->user_id));
+                $this->actionGenerateUrl($user->user_id);
+                $this->redirect(array('success'));
             }
         }
         $this->render('step1', array('seller' => $seller, 'user' => $user));

@@ -198,7 +198,7 @@
     <div align="center">
 <?php
 //echo CHtml::submitButton("",array('name'=>'step2', 'class' => 'step2 mlr10'));
-echo CHtml::imageButton(Yii::app()->baseUrl . '/images/listing.png', array('class' => 'mlr10', 'name' => 'step2', 'type' => 'submit'));
+echo CHtml::imageButton(Yii::app()->baseUrl . '/images/submit_btn.gif', array('class' => 'mlr10', 'name' => 'submit', 'type' => 'submit'));
 ?>
 
     </div>
