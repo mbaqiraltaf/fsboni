@@ -210,14 +210,14 @@
     <div class="contact_row">
         <div class="left_area1">
             <?php echo $form->labelEx($model, 'numbr_bedroom'); ?></div>
-        <div class="right_area1 w70">
+        <div class="right_area1 w53">
             <?php echo $form->dropDownList($model, 'numbr_bedroom[]', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div class="right_area1 w100">
             <?php echo $form->dropDownList($model, 'numbr_bedroom[]', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div style="width:80px;" class="left_area1"><?php echo $form->labelEx($model, 'numbr_bathroom'); ?></div>
-        <div class="right_area1 w70">
+        <div class="right_area1 w53">
             <?php echo $form->dropDownList($model, 'numbr_bathroom[]', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
         <div class="right_area1 w70">
@@ -266,6 +266,33 @@
         <div class="right_area">
             <?php echo $form->textArea($model, 'prp_desc', array('class' => 'desc-box', 'onkeyup' => 'countChar(this)')); ?></div>
         <div id="lblMsg1" class="char-count" style="text-align:right">1000 characters left</div>
+    </div>
+    
+    <div class="contact_row">
+
+        <div class="left_area">Upload Photo<div> 
+            </div></div>
+        <div class="right_area"> <?php echo $form->fileField($model, 'att_dett_style'); ?>
+            <br />
+            Best suited image size(374*322) in pixels.
+        </div>
+
+    </div>
+    
+    <div class="contact_row">
+        <div class="left_area"><?php echo $form->labelEx($model, 'youtube'); ?></div>
+        <div class="right_area">  http:// <?php echo $form->textField($model, 'youtube', array()); ?></div>
+    </div> 
+    
+    <div class="contact_row">
+        <div class="left_area"><?php echo $form->labelEx($model, 'open_house'); ?></div>
+        <div class="right_area">
+            <?php echo $form->dropDownList($model, 'open_house', array('today' => 'Today', 'saturday' => 'Saturday', 'sunday' => 'Sunday'), array('prompt' => 'None', 'class' => 'w100')); ?>
+
+            <?php echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
+            to
+<?php echo $form->dropDownList($model, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
+        </div> 
     </div>
 
     <div class="clear">&nbsp;</div>

@@ -4,7 +4,7 @@ $(document).ready(function() {
         $('.search_results').hide();
         $(this).addClass('TabbedPanelsTabSelected');
         $('.show-advanced').removeClass('TabbedPanelsTabSelected');
-        $('.second_row, .last_row').hide();
+        $('.second_row, .last_row, .third_row').hide();
         $('.normal-search-button').show();
     });
 
@@ -12,13 +12,9 @@ $(document).ready(function() {
         $('.search_results').hide();
         $(this).addClass('TabbedPanelsTabSelected');
         $('.show-quick').removeClass('TabbedPanelsTabSelected');        
-        $('.second_row, .last_row').show();
+        $('.second_row, .last_row, .third_row').show();
         $('.normal-search-button').hide();
     });
 
-//    $('.search-button').live('click', function() {
-//        if (!($('.specific-div').length > 0))
-//            $('.search_results').show();
-//    });
 });
 

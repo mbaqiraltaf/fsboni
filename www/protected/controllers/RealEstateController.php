@@ -158,8 +158,9 @@ class RealEstateController extends Controller {
 
     public function actionStep3() {        
         $model = new FsProperty;
-        $model = new FsProperty('new');
-            $this->render('step2', array('model' => $model));
+        $this->render('step5', array('model' => $model));
+//        $model = new FsProperty('new');
+//            $this->render('step2', array('model' => $model));
         
 //            $exterior_relation = new FsExteriorConstrRelation;
 //            $amenities_relation = new FsAmenitiesRelation;

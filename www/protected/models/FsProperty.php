@@ -324,7 +324,7 @@ class FsProperty extends CActiveRecord {
             'updated_date' => 'Updated Date',
             'status' => 'Status',
             'electricity' => 'Electricity',
-            'youtube' => 'Youtube',
+            'youtube' => 'Upload Youtube Video',
             'list_home_inMls' => 'List your Home In Mls for a flat fee',
             'virtual_tour' => 'Virtual Tour',
             'real_estate_attorney' => 'Real Estate Attorney',

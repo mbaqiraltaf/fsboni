@@ -1,4 +1,4 @@
-<h3>Page 3 of 6 - Interior Features</h3>
+<h3>Interior Features</h3>
 <div class="clear">&nbsp;</div>
 <div style="text-align:right;"><b>Property Listing- Free Full page Listings for all FSBONI Members</b></div>
 <?php

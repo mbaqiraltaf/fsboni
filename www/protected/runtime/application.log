@@ -7625,3 +7625,75 @@ in D:\wamp\fsboni_yii\www\index.php (13)
 2014/03/22 07:43:36 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
 in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (244)
 in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:48 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (199)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:48 [warning] [application] Failed to set unsafe attribute "building_name" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (199)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:48 [warning] [application] Failed to set unsafe attribute "sub_division" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (199)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:48 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (199)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:54 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (220)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:54 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (220)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:54 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (220)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:54 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (220)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:30:54 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (220)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:03 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (231)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:03 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (231)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:06 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (236)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (242)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "building_name" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (242)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "sub_division" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (242)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (242)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (243)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (243)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (243)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (243)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (243)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (244)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (244)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/03/29 13:31:09 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (245)
+in D:\wamp\fsboni_yii\www\index.php (13)

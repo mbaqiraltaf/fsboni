@@ -1,4 +1,4 @@
-<h3>Page 6 of 6 - Optional Services</h3>
+<h3>Optional Services</h3>
 <div class="clear">&nbsp;</div>
 
 <div class="form">

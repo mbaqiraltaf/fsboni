@@ -52,11 +52,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                     <?php echo $form->textField($model, 'street_name', array('size' => 50, 'maxlength' => 50)); ?>
                                 </div>
                             </div>
-                            <div class="city_row">
-                                <div class="search_float_box">
-                                    <?php echo $form->labelEx($model, 'state'); ?> <br/>
-                                    <?php echo $form->dropDownList($model, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
-                                </div>
+                            <div class="city_row">                                
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'city'); ?> <br/>
                                     <?php
@@ -83,6 +79,41 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                         //'source'=>$this->createUrl("realEstate/loadCities"),
                                         'htmlOptions' => array(
                                             'style' => 'width : 150px;'
+                                        ),
+                                    ));
+                                    ?>
+                                </div>
+                                <div class="search_float_box">
+                                    <?php echo $form->labelEx($model, 'state'); ?> <br/>
+                                    <?php echo $form->dropDownList($model, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
+                                </div>
+                                 
+                                <div class="search_float_box">
+                                    <?php echo $form->labelEx($model, 'zip'); ?> <br/>
+                                    <?php
+                                    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                                        'model' => $model,
+                                        'attribute' => 'zip',
+                                        // additional javascript options for the autocomplete plugin
+                                        'options' => array(
+                                            'minLength' => '1',
+                                        ),
+                                        'source' => 'js: function(request, response) {
+                                $.ajax({
+                                    type : "POST",
+                                    url: "' . $this->createUrl('realEstate/loadZipCode') . '",
+                                    dataType: "json",
+                                    data: {
+                                         county_name : $("#FsProperty_county").val(),
+                                         city_name : $("#FsProperty_city").val()
+                                    },
+                                    success: function (data) {
+                                            response(data);
+                                    }
+                                })
+                             }',
+                                        'htmlOptions' => array(
+                                            'class' => 'w40'
                                         ),
                                     ));
                                     ?>
@@ -117,56 +148,56 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                     ));
                                     ?>
                                 </div>
+                               
+                            </div>
+                            
+                            
+                            <div class="city_row third_row" style="display:none;">                              
                                 <div class="search_float_box">
-                                    <div id="dvSampleMap1" style="display:none;"></div>
+                                    <?php echo $form->labelEx($model, 'neighbourhood'); ?> <br/>
+                                    <?php
+                                    echo $form->textField($model, 'neighbourhood', array('style' => 'width : 150px;')); ?> 
+                                </div>
+                                <div class="search_float_box">
+                                    <?php echo $form->labelEx($model, 'building_name'); ?> <br/>
+                                    <?php echo $form->textField($model, 'building_name', array('class' => 'w150'));  ?>
+                                </div>
+                                 
+                                <div class="search_float_box">
+                                    <?php echo $form->labelEx($model, 'sub_division'); ?> <br/>
+                                    <?php
+                                    echo $form->textField($model, 'sub_division', array('class' => 'w150')); 
+                                    ?>
                                 </div>
 
                                 <div class="search_float_box">
-                                    <?php echo $form->labelEx($model, 'neighbourhood'); ?> <br/>
-                                    <?php echo $form->listBox($model, 'neighbourhood', array(), array('style' => 'width : 217px;')); ?>
-                                </div>
-                                <div class="search_float_box">
-                                    <?php echo $form->labelEx($model, 'zip'); ?> <br/>
+                                    <?php echo $form->labelEx($model, 'street_number_min'); ?> <br/>
                                     <?php
-                                    $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-                                        'model' => $model,
-                                        'attribute' => 'zip',
-                                        // additional javascript options for the autocomplete plugin
-                                        'options' => array(
-                                            'minLength' => '1',
-                                        ),
-                                        'source' => 'js: function(request, response) {
-                                $.ajax({
-                                    type : "POST",
-                                    url: "' . $this->createUrl('realEstate/loadZipCode') . '",
-                                    dataType: "json",
-                                    data: {
-                                         county_name : $("#FsProperty_county").val(),
-                                         city_name : $("#FsProperty_city").val()
-                                    },
-                                    success: function (data) {
-                                            response(data);
-                                    }
-                                })
-                             }',
-                                        'htmlOptions' => array(
-                                            'class' => 'w40'
-                                        ),
-                                    ));
+                                    echo $form->textField($model, 'street_number_min', array('class' => 'w150', 'value' => '00000')); 
+                                    ?>
+                                    <span class="mlr10">to</span>
+                                </div>
+                                
+                                <div class="search_float_box">
+                                    <?php echo $form->labelEx($model, 'street_number_max'); ?> <br/>
+                                    <?php
+                                    echo $form->textField($model, 'street_number_max', array('class' => 'w150', 'value' => '00000')); 
                                     ?>
                                 </div>
+                               
                             </div>
+                            
 
                             <div class="city_row">
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'prop_type'); ?><br/>
-                                    <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
+                                    <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('style' => 'width: 180px;')); ?>
 
                                 </div>
-                                <div class="search_float_box w240">
+<!--                                <div class="search_float_box w240">
                                     <span><?php echo $form->labelEx($model, 'property_style'); ?></span><br/>
                                     <?php echo $form->dropDownList($model, 'property_style', array('a' => 'Attached', 'd' => 'Detached', 'l' => 'All'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
-                                </div>
+                                </div>-->
 
                             </div>
                             <div class="city_row">
