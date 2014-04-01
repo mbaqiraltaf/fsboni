@@ -1,17 +1,10 @@
+<?php
+echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery.ui.timepicker.js');
+?>
+
 <script>
-
-    function countChar(val) {
-        var len = val.value.length;
-        if (len >= 1000) {
-            val.value = val.value.substring(0, 500);
-        } else {
-            $('.char-count').text(1000 - len + ' characters left');
-        }
-    }
-    ;
-
-    
-</script>
+    $('#testing-time').timepicker({showLeadingZero: false });
+    </script>
 
 <!--<h3>Page 2 of 6 - Property Listing Information</h3>-->
 <div class="clear">&nbsp;</div>
@@ -210,19 +203,19 @@
     <div class="contact_row">
         <div class="left_area1">
             <?php echo $form->labelEx($model, 'numbr_bedroom'); ?></div>
-        <div class="right_area1 w53">
-            <?php echo $form->dropDownList($model, 'numbr_bedroom[]', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
-        </div>
         <div class="right_area1 w100">
+            <?php echo $form->dropDownList($model, 'numbr_bedroom', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'id')), 'title', 'title'), array('class' => 'w50')); ?>
+        </div>
+<!--        <div class="right_area1 w100">
             <?php echo $form->dropDownList($model, 'numbr_bedroom[]', CHtml::listData(FsNoBedroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
-        </div>
+        </div>-->
         <div style="width:80px;" class="left_area1"><?php echo $form->labelEx($model, 'numbr_bathroom'); ?></div>
-        <div class="right_area1 w53">
-            <?php echo $form->dropDownList($model, 'numbr_bathroom[]', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
+        <div class="right_area1 w100">
+            <?php echo $form->dropDownList($model, 'numbr_bathroom', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'id')), 'title', 'title'), array('class' => 'w50')); ?>
         </div>
-        <div class="right_area1 w70">
+<!--        <div class="right_area1 w70">
             <?php echo $form->dropDownList($model, 'numbr_bathroom[]', CHtml::listData(FsNoBathroom::model()->findAll(array('order' => 'title')), 'title', 'title'), array('class' => 'w50')); ?>
-        </div>
+        </div>-->
         <div class="left_area1 w70"><?php echo $form->labelEx($model, 'prop_size'); ?></div>
         <div style="width:200px;" class="right_area1">
             <div style="float:left;">
@@ -287,9 +280,11 @@
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'open_house'); ?></div>
         <div class="right_area">
-            <?php echo $form->dropDownList($model, 'open_house', array('today' => 'Today', 'saturday' => 'Saturday', 'sunday' => 'Sunday'), array('prompt' => 'None', 'class' => 'w100')); ?>
+            <?php echo $form->dropDownList($model, 'open_house', array('today' => 'Today', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), array('prompt' => 'None', 'class' => 'w100')); ?>
+            
+            <?php echo $form->textField($model, 'open_house_to_time', array('id' => 'testing-time')); ?>
 
-            <?php echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
+            <?php //echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
             to
 <?php echo $form->dropDownList($model, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
         </div> 
@@ -298,7 +293,7 @@
     <div class="clear">&nbsp;</div>
 
     <div align="center">
-        <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/interior.png', array('class' => 'mlr10', 'name' => 'step3')); ?>
+        <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'submit_property')); ?>
 
     </div>
 

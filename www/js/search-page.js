@@ -15,6 +15,5 @@ $(document).ready(function() {
         $('.second_row, .last_row, .third_row').show();
         $('.normal-search-button').hide();
     });
-
 });
 

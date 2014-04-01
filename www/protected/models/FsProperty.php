@@ -187,7 +187,7 @@ class FsProperty extends CActiveRecord {
             array('state, city, county, zip_code, price_range, prop_type, numbr_bedroom,numbr_bathroom, prop_size, prp_desc,  street_number, street_name', 'required'),
             //array('state, city, county, zip_code, price_range, prop_type, prop_style, numbr_bedroom,numbr_bathroom, prop_size, prp_desc, street_number', 'required', 'on' => 'step2'),
             //array('prp_desc', 'required'),
-            array('seller_id, numbr_bedroom, numbr_bathroom', 'numerical', 'integerOnly' => true),
+            array('seller_id', 'numerical', 'integerOnly' => true),
             array('prop_size', 'numerical'),
             array('fsboni_property_id, street_name, prop_title, zip_code, mls_number, kitchen_max_dimension, kitchen_min_dimension, dinning_max_dimension, dinning_min_dimenstion, attic_max_dimension, attic_min_dimension, base_max_dimenstion, base_min_dimension, bath_max_dim_1, bath_min_dim_1, bath_max_dim_2, bath_min_dim_2, bath_max_dim_3, bath_min_dim_3, bed_mast_bed_max_dim, bed_mast_bed_min_dim, bed_max_dim_1, bed_min_dim_1, bed_max_dim_2, bed_min_dim_2, bed_max_dim_3, bed_min_dim_3, bed_max_dim_4, bed_min_dim_4, bed_max_dim_5, bed_min_dim_5, assessment, time_frame_for_selling, living_room_max, living_room_min, family_room_max, family_room_min, den_max, den_min, laundry_max, laundry_min, balcony_max, balcony_min, bonus_room_max, bonus_room_min, county, frequency, state, compas_point', 'length', 'max' => 255),
             array('street_number', 'length', 'max' => 100),

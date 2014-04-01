@@ -55,7 +55,7 @@ class FsUser extends CActiveRecord {
             array('created_date, updated_date', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('user_id, first_name, last_name, email, paswd, status, state, city, user_type, created_date, updated_date, county', 'safe', 'on' => 'search'),
+            array('user_id, first_name, last_name, email, paswd, status, state, city, user_type, created_date, updated_date, county, salt', 'safe', 'on' => 'search'),
         );
     }
 

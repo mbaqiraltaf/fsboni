@@ -29,7 +29,10 @@
                     <div class="pro_row">
                         <div class="title"><?php echo $property->fsboni_property_id; ?></div>
                         <div class="view_pro">0</div>
-                        <div class="view_pro"> <a
+                        <div class="view_pro"> 
+                            <a
+                                href="<?php echo $this->createUrl('realEstate/editproperty', array('prop_id' => $property->fsboni_property_id)); ?>">Edit</a> | 
+                            <a
                                 href="<?php echo $this->createUrl('realEstate/fullPageListing', array('prop_id' => $property->fsboni_property_id)); ?>">View</a>
                         </div>
 
