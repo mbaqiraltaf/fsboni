@@ -460,7 +460,14 @@ class RealEstateController extends Controller {
     public function actionEditProperty() {
         if (CHttpRequest::getParam('prop_id') != null) {
             $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
-            $this->render('edit-property', array('property_data' => $result[0]));
+            $interior_relation = new FsInteriorPropRelation;
+            $appliances_relation = new FsAppliancesRelation;
+            $kitchen_relation = new FsKitchenRelation;
+            $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
+            $addition_rooms_relation = new FsAdditionalRoomsRelation;
+            $equipment_relation = new FsEquipmentRelation;
+//                $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
+            $this->render('edit-property', array('property_data' => $result[0], 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
         }
     }
 

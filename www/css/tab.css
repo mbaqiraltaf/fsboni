@@ -40,4 +40,8 @@
 .ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: 1em 0; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
 
+#tabs-2:target, #tabs-1:target, #tabs-3:target {
+  z-index: 1;
+}
+
 

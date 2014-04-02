@@ -4,6 +4,17 @@ $(document).ready(function() {
         var x = $(this).val();
         $(this).val(x.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     });
+    
+    $('.ui-state-default').click(function(){
+        $(this).addClass('TabbedPanelsTabSelected');
+        var href = $(this).children('a').attr('href');
+        console.log(href);
+        var div = $(href).clone();
+        console.log(div);
+        
+        $('.main-edit-div').html(div);
+        div.css('display', 'block !important');
+    })
 });
 
 function countChar(val) {
@@ -14,6 +25,9 @@ function countChar(val) {
         $('.char-count').text(1000 - len + ' characters left');
     }
 };
+
+
+
 
 
 
