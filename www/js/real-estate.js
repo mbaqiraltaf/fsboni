@@ -1,19 +1,18 @@
 
 $(document).ready(function() {
+    var mainDiv = $('.main-edit-div').clone();
     $('.digit-format').on('keyup', function() {
         var x = $(this).val();
         $(this).val(x.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     });
     
-    $('.ui-state-default').click(function(){
-        $(this).addClass('TabbedPanelsTabSelected');
+    $('.ui-state-default').click(function(e){
+        e.preventDefault();
+        //$(this).addClass('TabbedPanelsTabSelected');
         var href = $(this).children('a').attr('href');
-        console.log(href);
-        var div = $(href).clone();
-        console.log(div);
-        
+        var div = mainDiv.find(href).clone();
         $('.main-edit-div').html(div);
-        div.css('display', 'block !important');
+        div.removeClass('ui-tabs-hide');        
     })
 });
 

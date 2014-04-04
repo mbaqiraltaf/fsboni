@@ -1,9 +1,32 @@
 <?php
-echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery.ui.timepicker.js');
-?>
+echo CHtml::scriptFile("http://code.jquery.com/jquery-1.9.1.js");
+echo CHtml::scriptFile("http://code.jquery.com/ui/1.10.4/jquery-ui.js");
+echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery-ui.timepickeraddon.js');
+echo CHtml::cssFile("http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css");
 
+
+?>
+<style>
+
+/*.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }*/
+
+</style>
 <script>
-    $('#testing-time').timepicker({showLeadingZero: false });
+    $(document).ready(function(){
+        console.log('asasa');
+        $('#basic_example_1').datetimepicker();
+    });
+    
     </script>
 
 <!--<h3>Page 2 of 6 - Property Listing Information</h3>-->
@@ -280,11 +303,11 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/jquery.ui.timepicker.js');
     <div class="contact_row">
         <div class="left_area"><?php echo $form->labelEx($model, 'open_house'); ?></div>
         <div class="right_area">
-            <?php echo $form->dropDownList($model, 'open_house', array('today' => 'Today', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday'), array('prompt' => 'None', 'class' => 'w100')); ?>
+            <?php echo $form->dropDownList($model, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday','saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
             
-            <?php echo $form->textField($model, 'open_house_to_time', array('id' => 'testing-time')); ?>
+           <?php //echo $form->textField($model, 'open_house_to_time', array('id' => 'testing-time')); ?>
 
-            <?php //echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
+            <?php echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
             to
 <?php echo $form->dropDownList($model, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
         </div> 

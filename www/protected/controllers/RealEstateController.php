@@ -162,16 +162,16 @@ class RealEstateController extends Controller {
             $user = $this->getPageState('step1', array());
             $model->attributes = $user;
             $property = CHttpRequest::getParam('FsProperty');
-            $number_bedroom = '';
-            $number_bathroom = '';
-            foreach ($property['numbr_bedroom'] as $bedroom) {
-                $number_bedroom .= $bedroom;
-            }
-            foreach ($property['numbr_bathroom'] as $bathroom) {
-                $number_bathroom .= $bathroom;
-            }
-            $property['numbr_bedroom'] = $number_bedroom;
-            $property['numbr_bathroom'] = $number_bathroom;
+//            $number_bedroom = '';
+//            $number_bathroom = '';
+//            foreach ($property['numbr_bedroom'] as $bedroom) {
+//                $number_bedroom .= $bedroom;
+//            }
+//            foreach ($property['numbr_bathroom'] as $bathroom) {
+//                $number_bathroom .= $bathroom;
+//            }
+//            $property['numbr_bedroom'] = $number_bedroom;
+//            $property['numbr_bathroom'] = $number_bathroom;
             $model->attributes = $property;
             $fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
             $fsboni_property_id = $fsboni_id[0]->fsboni_property_id;
@@ -460,14 +460,32 @@ class RealEstateController extends Controller {
     public function actionEditProperty() {
         if (CHttpRequest::getParam('prop_id') != null) {
             $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+            if (isset($_POST['update_property_x'])) {
+                //$user = $this->getPageState('step1', array());
+                //$model->attributes = $user;
+                $property = CHttpRequest::getParam('FsProperty');
+//                var_dump($property);
+//                die;
+                $result[0]->attributes = $property;
+                //$fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
+                $fsboni_property_id = CHttpRequest::getParam('prop_id');
+                //$fsboni_property_id++;
+                $result[0]->fsboni_property_id = $fsboni_property_id;
+                if ($result[0]->save()) {
+                    $this->redirect(array('myAccount'));
+                }
+            }
+
             $interior_relation = new FsInteriorPropRelation;
             $appliances_relation = new FsAppliancesRelation;
             $kitchen_relation = new FsKitchenRelation;
             $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
             $addition_rooms_relation = new FsAdditionalRoomsRelation;
             $equipment_relation = new FsEquipmentRelation;
-//                $this->render('step3', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
-            $this->render('edit-property', array('property_data' => $result[0], 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation));
+            $exterior_relation = new FsExteriorConstrRelation;
+            $amenities_relation = new FsAmenitiesRelation;
+            $assessments_include = new FsAssessincRelation;
+            $this->render('edit-property', array('property_data' => $result[0], 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
         }
     }
 

@@ -8031,3 +8031,161 @@ Stack trace:
 #17 {main}
 REQUEST_URI=/fsboni/index.php?r=realEstate/editproperty&prop_id=F11060\
 ---
+2014/04/04 16:51:55 [error] [php] Undefined variable: model (D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php:579)
+Stack trace:
+#0 D:\wamp\fsboni_yii\yii\framework\web\CController.php(869): RealEstateController->renderFile()
+#1 D:\wamp\fsboni_yii\yii\framework\web\CController.php(782): RealEstateController->renderPartial()
+#2 D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php(472): RealEstateController->render()
+#3 D:\wamp\fsboni_yii\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionEditProperty()
+#4 D:\wamp\fsboni_yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#6 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#9 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#12 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#13 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\fsboni_yii\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/fsboni/index.php?r=realEstate/editproperty&prop_id=F11060
+in D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php (579)
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (472)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 17:53:11 [error] [php] Undefined variable: model (D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php:783)
+Stack trace:
+#0 D:\wamp\fsboni_yii\yii\framework\web\CController.php(869): RealEstateController->renderFile()
+#1 D:\wamp\fsboni_yii\yii\framework\web\CController.php(782): RealEstateController->renderPartial()
+#2 D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php(472): RealEstateController->render()
+#3 D:\wamp\fsboni_yii\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionEditProperty()
+#4 D:\wamp\fsboni_yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#6 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#9 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#12 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#13 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\fsboni_yii\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/fsboni/index.php?r=realEstate/editproperty&prop_id=F11060
+in D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php (783)
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (472)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 17:53:33 [error] [php] Undefined variable: model (D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php:783)
+Stack trace:
+#0 D:\wamp\fsboni_yii\yii\framework\web\CController.php(869): RealEstateController->renderFile()
+#1 D:\wamp\fsboni_yii\yii\framework\web\CController.php(782): RealEstateController->renderPartial()
+#2 D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php(472): RealEstateController->render()
+#3 D:\wamp\fsboni_yii\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionEditProperty()
+#4 D:\wamp\fsboni_yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#6 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#9 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#12 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#13 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\fsboni_yii\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/fsboni/index.php?r=realEstate/editproperty&prop_id=F11060
+in D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php (783)
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (472)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 18:07:35 [error] [php] Undefined variable: model (D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php:660)
+Stack trace:
+#0 D:\wamp\fsboni_yii\yii\framework\web\CController.php(869): RealEstateController->renderFile()
+#1 D:\wamp\fsboni_yii\yii\framework\web\CController.php(782): RealEstateController->renderPartial()
+#2 D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php(472): RealEstateController->render()
+#3 D:\wamp\fsboni_yii\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionEditProperty()
+#4 D:\wamp\fsboni_yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#6 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#9 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#12 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#13 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\wamp\fsboni_yii\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/fsboni/index.php?r=realEstate/editproperty&prop_id=F11060
+in D:\wamp\fsboni_yii\www\protected\views\realEstate\edit-property.php (660)
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (472)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:01:02 [error] [php] Attempt to assign property of non-object (D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php:468)
+Stack trace:
+#0 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\wamp\fsboni_yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\wamp\fsboni_yii\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 D:\wamp\fsboni_yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\wamp\fsboni_yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\wamp\fsboni_yii\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 D:\wamp\fsboni_yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\wamp\fsboni_yii\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\wamp\fsboni_yii\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/fsboni/index.php?r=realEstate/editproperty&prop_id=F11060
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:03:12 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (468)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
+in D:\wamp\fsboni_yii\www\index.php (13)
