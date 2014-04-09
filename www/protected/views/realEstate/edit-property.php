@@ -206,10 +206,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                     </div>
 
                     <div class="clear">&nbsp;</div>
-                    <div align="center">
-                        <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
-
-                    </div>
+                   
                 </div>
 
 
@@ -561,9 +558,6 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        <div align="center">
-                            <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
-                        </div>
                     </div>
                 </div>
                 <div id="tabs-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
@@ -644,10 +638,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        <div align="center">
-                            <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
-
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -684,10 +675,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        <div align="center">
-                            <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
-
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -745,11 +733,13 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        <div align="center">
-                            <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'save')); ?>
-
-                        </div>
+                        
                     </div>                    
+                </div>
+                
+                <div align="center">
+                            <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
+
                 </div>
 
                 <?php $this->endWidget(); ?>

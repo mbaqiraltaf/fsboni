@@ -80,8 +80,8 @@ class RealEstateController extends Controller {
 
     public function actionSearch() {
         $model = new FsSearchCriteria;
-        if (CHttpRequest::getParam('prop_id') != null) {
-            $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+        if (yii::app()->getRequest()->getParam('prop_id') != null) {
+            $result = FsProperty::model()->findAll('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
             $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
             $this->render('search', array('model' => $model, 'property_details' => $result[0], 'image' => $image[0]));
         } else {
@@ -108,7 +108,7 @@ class RealEstateController extends Controller {
 
     public function actionFullPageListing() {
         if (Yii::app()->user->getId() !== null) {
-            if (CHttpRequest::getParam('prop_id') != null) {
+            if (yii::app()->getRequest()->getParam('prop_id') != null) {
                 $result = FsProperty::model()->with(array(
                             'city0' => array('select' => 'city'),
                             'state0' => array('select' => 'state_name'),
@@ -128,7 +128,7 @@ class RealEstateController extends Controller {
                             //'fsAmenitiesRelations',
                             'fsKitchenRelations',
                                 //'fsAssessnicRelations'
-                        ))->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+                        ))->findAll('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
 //                $images = array();
 //                foreach ($result as $record) {
 //                    $image = FsPropGallery::model()->findAll('prop_id = ' . $record->id);
@@ -144,7 +144,7 @@ class RealEstateController extends Controller {
             $user = new FsUser;
 
             if (isset($_POST['submit_x'])) {
-                $user->attributes = CHttpRequest::getParam('FsUser');
+                $user->attributes = yii::app()->getRequest()->getParam('FsUser');
 
                 if ($user->validate()) {
                     $user->save();
@@ -161,7 +161,7 @@ class RealEstateController extends Controller {
             $model = new FsProperty();
             $user = $this->getPageState('step1', array());
             $model->attributes = $user;
-            $property = CHttpRequest::getParam('FsProperty');
+            $property = yii::app()->getRequest()->getParam('FsProperty');
 //            $number_bedroom = '';
 //            $number_bathroom = '';
 //            foreach ($property['numbr_bedroom'] as $bedroom) {
@@ -183,7 +183,7 @@ class RealEstateController extends Controller {
                 $this->render('step2', array('model' => $model));
             }
         } else {
-            $user_id = CHttpRequest::getParam('uid');
+            $user_id = yii::app()->getRequest()->getParam('uid');
             $this->setPageState('step1', array('seller_id' => $user_id));
             $model = new FsProperty('new');
             $this->render('step2', array('model' => $model));
@@ -192,7 +192,7 @@ class RealEstateController extends Controller {
 //        if (isset($_POST['step3_x'])) {
 //
 //            $model = new FsProperty('step2');
-//            $property = CHttpRequest::getParam('FsProperty');
+//            $property = yii::app()->getRequest()->getParam('FsProperty');
 //            $number_bedroom = '';
 //            $number_bathroom = '';
 //            foreach ($property['numbr_bedroom'] as $bedroom) {
@@ -219,31 +219,31 @@ class RealEstateController extends Controller {
 //                $this->render('step2', array('model' => $model));
 //            }
 //        } else if (isset($_POST['step4_x'])) {
-//            $this->setPageState('step3', CHttpRequest::getParam('FsProperty'));
-//            $this->setPageState('interior_relation', CHttpRequest::getParam('FsInteriorPropRelation'));
-//            $this->setPageState('appliances_relation', CHttpRequest::getParam('FsAppliancesRelation'));
-//            $this->setPageState('kitchen_relation', CHttpRequest::getParam('FsKitchenRelation'));
-//            $this->setPageState('bathroom_amenities_relation', CHttpRequest::getParam('FsBathroomAmenitiesRelation'));
-//            $this->setPageState('addition_rooms_relation', CHttpRequest::getParam('FsAdditionalRoomsRelation'));
-//            $this->setPageState('equipment_relation', CHttpRequest::getParam('FsEquipmentRelation'));
+//            $this->setPageState('step3', yii::app()->getRequest()->getParam('FsProperty'));
+//            $this->setPageState('interior_relation', yii::app()->getRequest()->getParam('FsInteriorPropRelation'));
+//            $this->setPageState('appliances_relation', yii::app()->getRequest()->getParam('FsAppliancesRelation'));
+//            $this->setPageState('kitchen_relation', yii::app()->getRequest()->getParam('FsKitchenRelation'));
+//            $this->setPageState('bathroom_amenities_relation', yii::app()->getRequest()->getParam('FsBathroomAmenitiesRelation'));
+//            $this->setPageState('addition_rooms_relation', yii::app()->getRequest()->getParam('FsAdditionalRoomsRelation'));
+//            $this->setPageState('equipment_relation', yii::app()->getRequest()->getParam('FsEquipmentRelation'));
 //            $model = new FsProperty('step3');
-//            $model->attributes = CHttpRequest::getParam('FsProperty');
+//            $model->attributes = yii::app()->getRequest()->getParam('FsProperty');
 //            $exterior_relation = new FsExteriorConstrRelation;
 //            $amenities_relation = new FsAmenitiesRelation;
 //            $assessments_include = new FsAssessincRelation;
 //            $this->render('step4', array('model' => $model, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
 //        } else if (isset($_POST['step5_x'])) {
-//            $this->setPageState('step4', CHttpRequest::getParam('FsProperty'));
-//            $this->setPageState('exterior_relation', CHttpRequest::getParam('FsExteriorConstrRelation'));
-//            $this->setPageState('amenities_relation', CHttpRequest::getParam('FsAmenitiesRelation'));
-//            $this->setPageState('assessments_include', CHttpRequest::getParam('FsAssessincRelation'));
+//            $this->setPageState('step4', yii::app()->getRequest()->getParam('FsProperty'));
+//            $this->setPageState('exterior_relation', yii::app()->getRequest()->getParam('FsExteriorConstrRelation'));
+//            $this->setPageState('amenities_relation', yii::app()->getRequest()->getParam('FsAmenitiesRelation'));
+//            $this->setPageState('assessments_include', yii::app()->getRequest()->getParam('FsAssessincRelation'));
 //            $model = new FsProperty('step4');
-//            $model->attributes = CHttpRequest::getParam('FsProperty');
+//            $model->attributes = yii::app()->getRequest()->getParam('FsProperty');
 //            $this->render('step5', array('model' => $model));
 //        } else if (isset($_POST['step6_x'])) {
-//            $this->setPageState('step5', CHttpRequest::getParam('FsProperty'));
+//            $this->setPageState('step5', yii::app()->getRequest()->getParam('FsProperty'));
 //            $model = new FsProperty('step5');
-//            $model->attributes = CHttpRequest::getParam('FsProperty');
+//            $model->attributes = yii::app()->getRequest()->getParam('FsProperty');
 //            $this->render('step6', array('model' => $model));
 //        } else if (isset($_POST['save_x'])) {
 //            $model = new FsProperty();
@@ -253,7 +253,7 @@ class RealEstateController extends Controller {
 //            $model->attributes = $this->getPageState('step3', array());
 //            $model->attributes = $this->getPageState('step4', array());
 //            $model->attributes = $this->getPageState('step5', array());
-//            $model->attributes = CHttpRequest::getParam('FsProperty');
+//            $model->attributes = yii::app()->getRequest()->getParam('FsProperty');
 //
 //            $fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
 //            $fsboni_property_id = $fsboni_id[0]->fsboni_property_id;
@@ -276,7 +276,7 @@ class RealEstateController extends Controller {
 //                $this->render('step6', array('model' => $model));
 //            }
 //        } else {
-//            $user_id = CHttpRequest::getParam('uid');
+//            $user_id = yii::app()->getRequest()->getParam('uid');
 //            $this->setPageState('step1', array('seller_id' => $user_id));
 //            $model = new FsProperty('new');
 //            $this->render('step2', array('model' => $model));
@@ -322,11 +322,11 @@ class RealEstateController extends Controller {
         $user = new FsUser;
 
         if (isset($_POST['submit_x'])) {
-            $userArray = CHttpRequest::getParam('FsUser');
+            $userArray = yii::app()->getRequest()->getParam('FsUser');
             $salt = sha1(md5($userArray['paswd']));
             $user->attributes = $userArray;
             $user->salt = $salt;
-            $seller->attributes = CHttpRequest::getParam('FsSeller');
+            $seller->attributes = yii::app()->getRequest()->getParam('FsSeller');
             $valid = $user->validate();
             if ($valid) {
                 $user->paswd = md5($userArray['paswd'] . $salt);
@@ -349,7 +349,7 @@ class RealEstateController extends Controller {
 
     public function actionLoadCities() {
         $data = array();
-        $state_id = CHttpRequest::getParam('state_id');
+        $state_id = yii::app()->getRequest()->getParam('state_id');
         if (!empty($state_id)) {
             $model = FsCity::model()->findAll('state_id = ' . $state_id);
             foreach ($model as $get) {
@@ -361,7 +361,7 @@ class RealEstateController extends Controller {
 
     public function actionLoadCounties() {
         $data = array();
-        $city_name = CHttpRequest::getParam('city_name');
+        $city_name = yii::app()->getRequest()->getParam('city_name');
         if (!empty($city_name)) {
             $city = FsCity::model()->findAll("city = '" . $city_name . "'");
             $model = FsCounty::model()->findAll('id = ' . $city[0]->id);
@@ -374,8 +374,8 @@ class RealEstateController extends Controller {
 
     public function actionLoadZipCode() {
         $data = array();
-        $county_name = CHttpRequest::getParam('county_name');
-        $city_name = CHttpRequest::getParam('city_name');
+        $county_name = yii::app()->getRequest()->getParam('county_name');
+        $city_name = yii::app()->getRequest()->getParam('city_name');
         if (!empty($county_name) && !empty($city_name)) {
             $city = FsCity::model()->findAll("city = '" . $city_name . "'");
             $county = FsCounty::model()->findAll("NAME = '" . $county_name . "' and id = " . $city[0]->id);
@@ -412,8 +412,8 @@ class RealEstateController extends Controller {
             if (Yii::app()->user->getId() !== null) {
                 $decrypted = Yii::app()->user->getId();
             } else {
-                $z = CHttpRequest::getParam('z');
-                $user_id = CHttpRequest::getParam('user_id');
+                $z = yii::app()->getRequest()->getParam('z');
+                $user_id = yii::app()->getRequest()->getParam('user_id');
                 Yii::app()->user->setState('Role', 'member');
                 $decrypted = substr($user_id, 5, count($user_id) - 5 - 1);
                 Yii::app()->user->setId($decrypted);
@@ -458,20 +458,20 @@ class RealEstateController extends Controller {
     }
 
     public function actionEditProperty() {
-        if (CHttpRequest::getParam('prop_id') != null) {
-            $result = FsProperty::model()->findAll('fsboni_property_id = "' . CHttpRequest::getParam('prop_id') . '"');
+        if (yii::app()->getRequest()->getParam('prop_id') != null) {
+            $result = FsProperty::model()->find('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
             if (isset($_POST['update_property_x'])) {
                 //$user = $this->getPageState('step1', array());
                 //$model->attributes = $user;
-                $property = CHttpRequest::getParam('FsProperty');
+                $property = yii::app()->getRequest()->getParam('FsProperty');
 //                var_dump($property);
 //                die;
-                $result[0]->attributes = $property;
+                $result->attributes = $property;
                 //$fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
-                $fsboni_property_id = CHttpRequest::getParam('prop_id');
+                $fsboni_property_id = yii::app()->getRequest()->getParam('prop_id');
                 //$fsboni_property_id++;
-                $result[0]->fsboni_property_id = $fsboni_property_id;
-                if ($result[0]->save()) {
+                $result->fsboni_property_id = $fsboni_property_id;
+                if ($result->save()) {
                     $this->redirect(array('myAccount'));
                 }
             }
@@ -485,7 +485,7 @@ class RealEstateController extends Controller {
             $exterior_relation = new FsExteriorConstrRelation;
             $amenities_relation = new FsAmenitiesRelation;
             $assessments_include = new FsAssessincRelation;
-            $this->render('edit-property', array('property_data' => $result[0], 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
+            $this->render('edit-property', array('property_data' => $result, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
         }
     }
 

@@ -8189,3 +8189,385 @@ in D:\wamp\fsboni_yii\www\index.php (13)
 2014/04/04 19:05:09 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
 in D:\wamp\fsboni_yii\www\protected\controllers\RealEstateController.php (470)
 in D:\wamp\fsboni_yii\www\index.php (13)
+2014/04/08 18:32:42 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:111)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/fullPageListing&prop_id=F11060
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (111)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:34:01 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:111)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/fullPageListing&prop_id=F11060
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (111)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:34:06 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:461)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/editproperty&prop_id=F11058
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (461)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:35:15 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:461)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/editproperty&prop_id=F11058
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (461)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:39:34 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:461)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/editproperty&prop_id=F11058
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (461)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:39:36 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:461)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/editproperty&prop_id=F11058
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (461)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:39:45 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:131)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/fullPageListing&prop_id=F11060
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (131)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:44 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:44:55 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:45:32 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:49:59 [error] [php] Non-static method CHttpRequest::getParam() should not be called statically, assuming $this from incompatible context (E:\wamp\fsboni\www\protected\controllers\RealEstateController.php:83)
+Stack trace:
+#0 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#1 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#4 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#7 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#8 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/search
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (83)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:28 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (175)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:28 [warning] [application] Failed to set unsafe attribute "building_name" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (175)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:28 [warning] [application] Failed to set unsafe attribute "sub_division" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (175)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:28 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (175)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:42 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:58:56 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:08 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:25 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "neighbourhood" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "air_conditioning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "heating" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "dinning" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "attic" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "basement_details" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "garage_type" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "water" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/08 18:59:54 [warning] [application] Failed to set unsafe attribute "att_dett_style" of "FsProperty".
+in E:\wamp\fsboni\www\protected\controllers\RealEstateController.php (469)
+in E:\wamp\fsboni\www\index.php (13)
+2014/04/09 06:14:03 [error] [php] fsockopen(): unable to connect to ssl://smtp.gmail.com:465 (Unable to find the socket transport &quot;ssl&quot; - did you forget to enable it when you configured PHP?) (E:\wamp\fsboni\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\StreamBuffer.php:233)
+Stack trace:
+#0 E:\wamp\fsboni\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize()
+#1 E:\wamp\fsboni\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Mailer.php(74): Swift_SmtpTransport->start()
+#2 E:\wamp\fsboni\www\protected\extensions\yii-mail\YiiMail.php(133): Swift_Mailer->send()
+#3 E:\wamp\fsboni\www\protected\helpers\EmailHelper.php(27): YiiMail->send()
+#4 E:\wamp\fsboni\www\protected\helpers\EmailHelper.php(10): EmailHelper->sendEmail()
+#5 E:\wamp\fsboni\www\protected\controllers\RealEstateController.php(405): EmailHelper->sendActivationEmail()
+#6 E:\wamp\fsboni\www\protected\controllers\RealEstateController.php(339): RealEstateController->actionGenerateUrl()
+#7 E:\wamp\fsboni\yii\framework\web\actions\CInlineAction.php(49): RealEstateController->actionSellerRegistration()
+#8 E:\wamp\fsboni\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(133): RealEstateController->runAction()
+#10 E:\wamp\fsboni\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 E:\wamp\fsboni\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 E:\wamp\fsboni\yii\framework\web\filters\CInlineFilter.php(58): RealEstateController->filterAccessControl()
+#13 E:\wamp\fsboni\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 E:\wamp\fsboni\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 E:\wamp\fsboni\yii\framework\web\CController.php(265): RealEstateController->runActionWithFilters()
+#16 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(282): RealEstateController->run()
+#17 E:\wamp\fsboni\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 E:\wamp\fsboni\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 E:\wamp\fsboni\www\index.php(13): CWebApplication->run()
+REQUEST_URI=/wamp/fsboni/www/index.php?r=realEstate/sellerRegistration
+in E:\wamp\fsboni\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\StreamBuffer.php (233)
+in E:\wamp\fsboni\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\StreamBuffer.php (70)
+in E:\wamp\fsboni\www\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\AbstractSmtpTransport.php (101)
