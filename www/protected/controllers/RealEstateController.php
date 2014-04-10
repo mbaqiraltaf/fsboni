@@ -86,19 +86,25 @@ class RealEstateController extends Controller {
             $this->render('search', array('model' => $model, 'property_details' => $result[0], 'image' => $image[0]));
         } else {
             if (isset($_POST['search_submit'])) {
-                $criteria = new CDbCriteria();
-                $criteria->order = 'id ASC';
-                $criteria->limit = 13;
-                $result = FsProperty::model()->findAll($criteria);
+//                $criteria = new CDbCriteria();
+//                $criteria->order = 'id ASC';
+//                $criteria->limit = 13;
+                $result = new FsProperty;
+                $result->attributes = $_POST['FsSearchCriteria'];
+                
+                $searchResult = $result->search();
+                //$result = FsProperty::model()->findAll($criteria);
                 $images = array();
-                foreach ($result as $record) {
+                //var_dump($searchResult->getData());
+                //die;
+                foreach ($searchResult->getData() as $record) {
                     $image = FsPropGallery::model()->findAll('prop_id = ' . $record->id);
                     if (count($image) > 0)
                         $images[$record->id] = $image[0]->image_name;
                     else
                         $images[$record->id] = 'home.jpg';
                 }
-                $this->render('search', array('model' => $model, 'search_results' => $result, 'images' => $images));
+                $this->render('search', array('model' => $model, 'search_results' => $searchResult->getData(), 'images' => $images));
             }
             else {
                 $this->render('search', array('model' => $model));

@@ -484,7 +484,7 @@ class FsProperty extends CActiveRecord {
         $criteria->compare('assessment', $this->assessment, true);
         $criteria->compare('created_date', $this->created_date, true);
         $criteria->compare('updated_date', $this->updated_date, true);
-        $criteria->compare('status', $this->status, true);
+        //$criteria->compare('status', $this->status, true);
         $criteria->compare('electricity', $this->electricity, true);
         $criteria->compare('youtube', $this->youtube, true);
         $criteria->compare('list_home_inMls', $this->list_home_inMls, true);
@@ -545,6 +545,8 @@ class FsProperty extends CActiveRecord {
         $criteria->compare('county', $this->county, true);
         $criteria->compare('frequency', $this->frequency, true);
         $criteria->compare('street_name', $this->street_name, true);
+        $criteria->order = 'id ASC';
+        $criteria->limit = 13;
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
