@@ -32,12 +32,12 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                             <div class="city_row">
                                 <div class="search_float_box">
-                                    <?php echo $form->labelEx($model, 'prop_id'); ?>
+                                    <?php echo $form->labelEx($model, 'fsboni_property_id'); ?>
                                     <?php
                                     if (isset($property_details)) {
-                                        echo $form->textField($model, 'prop_id', array('size' => 60, 'maxlength' => 255, 'style' => 'width : 110px;', 'value' => $property_details->fsboni_property_id));
+                                        echo $form->textField($model, 'fsboni_property_id', array('size' => 60, 'maxlength' => 255, 'style' => 'width : 110px;', 'value' => $property_details->fsboni_property_id));
                                     } else {
-                                        echo $form->textField($model, 'prop_id', array('size' => 60, 'maxlength' => 255, 'style' => 'width : 110px;'));
+                                        echo $form->textField($model, 'fsboni_property_id', array('size' => 60, 'maxlength' => 255, 'style' => 'width : 110px;'));
                                     }
                                     ?>
                                 </div>
@@ -87,13 +87,13 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                     <?php echo $form->labelEx($model, 'state'); ?> <br/>
                                     <?php echo $form->dropDownList($model, 'state', CHtml::listData(FsStateMaster::model()->findAll(array('order' => 'state_name')), 'id', 'state_name'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
                                 </div>
-                                 
+
                                 <div class="search_float_box">
-                                    <?php echo $form->labelEx($model, 'zip'); ?> <br/>
+                                    <?php echo $form->labelEx($model, 'zip_code'); ?> <br/>
                                     <?php
                                     $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
                                         'model' => $model,
-                                        'attribute' => 'zip',
+                                        'attribute' => 'zip_code',
                                         // additional javascript options for the autocomplete plugin
                                         'options' => array(
                                             'minLength' => '1',
@@ -148,56 +148,55 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                     ));
                                     ?>
                                 </div>
-                               
+
                             </div>
-                            
-                            
+
+
                             <div class="city_row third_row" style="display:none;">                              
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'neighbourhood'); ?> <br/>
-                                    <?php
-                                    echo $form->textField($model, 'neighbourhood', array('style' => 'width : 150px;')); ?> 
+                                    <?php echo $form->textField($model, 'neighbourhood', array('style' => 'width : 150px;')); ?> 
                                 </div>
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'building_name'); ?> <br/>
-                                    <?php echo $form->textField($model, 'building_name', array('class' => 'w150'));  ?>
+                                    <?php echo $form->textField($model, 'building_name', array('class' => 'w150')); ?>
                                 </div>
-                                 
+
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'sub_division'); ?> <br/>
                                     <?php
-                                    echo $form->textField($model, 'sub_division', array('class' => 'w150')); 
+                                    echo $form->textField($model, 'sub_division', array('class' => 'w150'));
                                     ?>
                                 </div>
 
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'street_number_min'); ?> <br/>
                                     <?php
-                                    echo $form->textField($model, 'street_number_min', array('class' => 'w150', 'value' => '00000')); 
+                                    echo $form->textField($model, 'street_number_min', array('class' => 'w150', 'value' => '00000'));
                                     ?>
                                     <span class="mlr10">to</span>
                                 </div>
-                                
+
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'street_number_max'); ?> <br/>
                                     <?php
-                                    echo $form->textField($model, 'street_number_max', array('class' => 'w150', 'value' => '00000')); 
+                                    echo $form->textField($model, 'street_number_max', array('class' => 'w150', 'value' => '00000'));
                                     ?>
                                 </div>
-                               
+
                             </div>
-                            
+
 
                             <div class="city_row">
                                 <div class="search_float_box">
                                     <?php echo $form->labelEx($model, 'prop_type'); ?><br/>
-                                    <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('style' => 'width: 180px;')); ?>
+                                    <?php echo $form->dropDownList($model, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
 
                                 </div>
-<!--                                <div class="search_float_box w240">
-                                    <span><?php echo $form->labelEx($model, 'property_style'); ?></span><br/>
-                                    <?php echo $form->dropDownList($model, 'property_style', array('a' => 'Attached', 'd' => 'Detached', 'l' => 'All'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
-                                </div>-->
+                                <!--                                <div class="search_float_box w240">
+                                                                    <span><?php echo $form->labelEx($model, 'property_style'); ?></span><br/>
+                                <?php echo $form->dropDownList($model, 'property_style', array('a' => 'Attached', 'd' => 'Detached', 'l' => 'All'), array('prompt' => '', 'style' => 'width: 180px;')); ?>
+                                                                </div>-->
 
                             </div>
                             <div class="city_row">
@@ -264,10 +263,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                     <?php echo $form->dropDownList($model, 'pet_friendly', array('' => 'None', 'd' => 'Dog', 'c' => 'Cat', 'b' => 'Both'), array('class' => 'w70')); ?>
                                 </div>
                                 <div class="search_float_box"><?php echo $form->labelEx($model, 'open_house'); ?>
-                                    <?php echo $form->dropDownList($model, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday','saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
-                                    <?php echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
+                                    <?php echo $form->dropDownList($model, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
+                                    <?php echo $form->dropDownList($model, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('prompt' => '', 'class' => 'w70')); ?>
                                     to
-                                    <?php echo $form->dropDownList($model, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
+                                    <?php echo $form->dropDownList($model, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('prompt' => '', 'class' => 'w70')); ?>
 
                                 </div>
                                 <?php echo CHtml::submitButton('Search', array('class' => 'middle fr search-button', 'name' => 'search_submit')); ?>
@@ -333,44 +332,54 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
         <div class="property_area_n specific-div">
             <div class="top"></div>
             <div class="mid">
+                <?php if (count($search_results)) : ?>
                 <h3>All Properties</h3>
 
                 <div class="clear">&nbsp;</div>
                 <ul class="prop_row">
-                    <?php foreach ($search_results as $property_details) : ?>
-                        <li>
-                            <div class="pro_details">
-                                <div class="img_sec"><img width="136" height="141"
-                                                          src="<?php echo Yii::app()->baseUrl . '/images/prop_gallery/' . $images[$property_details->id]; ?>">
+                    
+                        <?php foreach ($search_results as $property_details) : ?>
+                            <li>
+                                <div class="pro_details">
+                                    <div class="img_sec"><img width="136" height="141"
+                                                              src="<?php echo Yii::app()->baseUrl . '/images/prop_gallery/' . $images[$property_details->id]; ?>">
+                                    </div>
+                                    <div class="prop_details">
+                                        <div class="sale"> $<?php echo $property_details->price_range; ?></div>
+                                        <br> <br> FSBONI<br>ID# : <?php echo $property_details->fsboni_property_id; ?><br>Bedrooms
+                                        : <?php echo $property_details->numbr_bedroom; ?><br>Bathrooms
+                                        : <?php echo $property_details->numbr_bathroom; ?><br>Sq. Ft.
+                                        : <?php echo $property_details->prop_size; ?><br><br>
+
+                                        <div><a id="prpd0" href="<?php echo $this->createUrl('realEstate/fullPageListing', array('prop_id' => $property_details->fsboni_property_id)); ?>">View
+                                                Full Property Listing </a></div>
+                                    </div>
                                 </div>
-                                <div class="prop_details">
-                                    <div class="sale"> $<?php echo $property_details->price_range; ?></div>
-                                    <br> <br> FSBONI<br>ID# : <?php echo $property_details->fsboni_property_id; ?><br>Bedrooms
-                                    : <?php echo $property_details->numbr_bedroom; ?><br>Bathrooms
-                                    : <?php echo $property_details->numbr_bathroom; ?><br>Sq. Ft.
-                                    : <?php echo $property_details->prop_size; ?><br><br>
+                            </li>
 
-                                    <div><a id="prpd0" href="<?php echo $this->createUrl('realEstate/fullPageListing', array('prop_id' => $property_details->fsboni_property_id)); ?>">View
-                                            Full Property Listing </a></div>
-                                </div>
-                            </div>
-                        </li>
+                            <?php if ($count % 3 == 0 && $count > 0) : ?>
+                            </ul><ul class="prop_row">
+                            <?php endif; ?>    
 
-                        <?php if ($count % 3 == 0 && $count > 0) : ?>
-                        </ul><ul class="prop_row">
-                        <?php endif; ?>    
-
+                            <?php
+                            $count++;
+                        endforeach;
+                        ?> </ul>
                         <?php
-                        $count++;
-                    endforeach;
+                else:
                     ?>
-                </ul>
+                    <div style="color: red; font-weight: bold;">No results found !!</div>
+                <?php
+                endif;
+                ?>
+
+
             </div>
             <div class="bottom"></div>
         </div>
 
-    <?php }
-    ?>
+<?php }
+?>
 </div>
 
 

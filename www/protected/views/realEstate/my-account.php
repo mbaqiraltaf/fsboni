@@ -22,23 +22,33 @@
                     <div class="view_pro">View Count</div>
                     <div class="view_pro">Edit/View</div>
                 </div>
-            </span><br><span>
-                <?php foreach ($properties as $property) {
-                    ?>
+            </span><br>
+            <?php if (count($properties)) : ?>
+                <span>
+                    <?php foreach ($properties as $property) :
+                        ?>
 
-                    <div class="pro_row">
-                        <div class="title"><?php echo $property->fsboni_property_id; ?></div>
-                        <div class="view_pro">0</div>
-                        <div class="view_pro"> 
-                            <a
-                                href="<?php echo $this->createUrl('realEstate/editproperty', array('prop_id' => $property->fsboni_property_id)); ?>">Edit</a> | 
-                            <a
-                                href="<?php echo $this->createUrl('realEstate/fullPageListing', array('prop_id' => $property->fsboni_property_id)); ?>">View</a>
+                        <div class="pro_row">
+                            <div class="title"><?php echo $property->fsboni_property_id; ?></div>
+                            <div class="view_pro">0</div>
+                            <div class="view_pro"> 
+                                <a
+                                    href="<?php echo $this->createUrl('realEstate/editproperty', array('prop_id' => $property->fsboni_property_id)); ?>">Edit</a> | 
+                                <a
+                                    href="<?php echo $this->createUrl('realEstate/fullPageListing', array('prop_id' => $property->fsboni_property_id)); ?>">View</a>
+                            </div>
+
                         </div>
+                    <?php endforeach; ?>
 
-                    </div>
-                <?php } ?>
-            </span></span>
+                </span>
+            <?php else:
+                ?>
+                <span style="display:block;color:Red;" id="ContentPlaceHolder1_spanBuyrAppnt">No record found. !!!</span>
+            <?php
+            endif;
+            ?>
+        </span>
 
         <div class="view"><span id="ContentPlaceHolder1_lbl_view_all"></span></div>
     </div>
@@ -74,15 +84,60 @@
         <div class="clear">&nbsp;</div>
         <h3>Saved Searches</h3>
 
+
         <div class="heading">
             <div class="col_search_new">State</div>
             <div class="col_search_new">City</div>
             <div class="col_search_new">Street Name</div>
-            <div class="col_search_new">Sales Price</div>
             <div class="search_on">Search On</div>
             <div class="col_search_right">Delete/Search Result</div>
         </div>
-        <span style="color:Red;display:block;" id="ContentPlaceHolder1_spanBuyrSearch">No record found. !!!</span>
+        <div style="clear:both"></div>
+        <div>
+            <table cellspacing="0" style="border-width:0px;border-style:None;width:100%;border-collapse:collapse;" id="ContentPlaceHolder1_gdvSaveSearch">
+                <tbody>
+                    <tr>
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                    <?php 
+                    
+                    if (count($saved_searches)) : ?>
+
+                        <?php foreach ($saved_searches as $saved_search) :
+                            //var_dump($saved_search->stateid);
+                            ?>
+                            <tr>
+                                <td>
+                                    <div class="pro_row">
+                                        <div class="col_search_new"><?php echo ($saved_search->stateid) ? $saved_search->state : '-'; ?>
+                                        </div>
+                                        <div class="col_search_new"><?php echo ($saved_search->city) ? $saved_search->city : '-'; ?>
+                                        </div> 
+                                        <div class="col_search_new"><?php echo ($saved_search->street_name) ? $saved_search->street_name : '-'; ?>
+                                        </div>                                 
+                                        <div class="search_on"><?php echo ($saved_search->created_date) ? $saved_search->created_date : '-'; ?></div> <span class="mlr5"></span>
+                                        <div class="col_search_right"></div>
+                                           
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+
+
+                    <?php else:
+                        ?>
+                        <tr>
+                            <td>
+                                <span style="display:block;color:Red;" id="ContentPlaceHolder1_spanBuyrAppnt">No record found. !!!</span>
+                            </td>
+                        </tr>
+
+                    <?php
+                    endif;
+                    ?>
+                </tbody>
+            </table>
+        </div>
 
         <div style="clear:both"></div>
         <div>

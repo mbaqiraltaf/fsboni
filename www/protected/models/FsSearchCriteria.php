@@ -22,14 +22,14 @@
  * @property string $garage
  * @property string $keyword
  * @property string $created_date
- * @property string $prop_id
+ * @property string $fsboni_property_id
  * @property string $search_by
  * @property integer $user_id
  * @property string $search_type
  * @property string $garage_parking
  * @property integer $state
  * @property string $cityagain
- * @property string $zip
+ * @property string $zip_code
  * @property string $neighbourhood
  * @property string $compass_point
  * @property string $street_name
@@ -68,7 +68,7 @@ class FsSearchCriteria extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('prop_type, price_range_min, price_range_max, bed_room_range_min, bed_room_range_max, bath_room_range_min, bath_room_range_max, user_id, state, property_style', 'numerical', 'integerOnly' => true),
-            array('city, size_min, size_max, year_built_min, year_built_max, garage, keyword, prop_id, search_by, cityagain, zip, neighbourhood, county', 'length', 'max' => 255),
+            array('city, size_min, size_max, year_built_min, year_built_max, garage, keyword, fsboni_property_id, search_by, cityagain, zip_code, neighbourhood, county', 'length', 'max' => 255),
             array('listing_with_virtual, listing_with_photo, search_type, garage_parking, compass_point, property_style_type, pet_friendly', 'length', 'max' => 1),
             array('street_name, tax_year, open_house, open_house_to_time, open_house_from_time', 'length', 'max' => 50),
             array('property_tax', 'length', 'max' => 100),
@@ -76,7 +76,7 @@ class FsSearchCriteria extends CActiveRecord {
             array('created_date', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, city, prop_type, price_range_min, price_range_max, bed_room_range_min, bed_room_range_max, bath_room_range_min, bath_room_range_max, size_min, size_max, listing_with_virtual, listing_with_photo, year_built_min, year_built_max, garage, keyword, created_date, prop_id, search_by, user_id, search_type, garage_parking, state, cityagain, zip, neighbourhood, compass_point, street_name, property_style_type, property_style, property_tax, tax_year, frequency, assessment, pet_friendly, open_house, open_house_to_time, open_house_from_time, county, building_name, sub_division, street_number_min, street_number_max', 'safe', 'on' => 'search'),
+            array('id, city, prop_type, price_range_min, price_range_max, bed_room_range_min, bed_room_range_max, bath_room_range_min, bath_room_range_max, size_min, size_max, listing_with_virtual, listing_with_photo, year_built_min, year_built_max, garage, keyword, created_date, fsboni_property_id, search_by, user_id, search_type, garage_parking, state, cityagain, zip_code, neighbourhood, compass_point, street_name, property_style_type, property_style, property_tax, tax_year, frequency, assessment, pet_friendly, open_house, open_house_to_time, open_house_from_time, county, building_name, sub_division, street_number_min, street_number_max', 'safe', 'on' => 'search'),
         );
     }
 
@@ -91,6 +91,7 @@ class FsSearchCriteria extends CActiveRecord {
             'priceRangeMin' => array(self::BELONGS_TO, 'FsPriceRange', 'price_range_min'),
             'propType' => array(self::BELONGS_TO, 'FsPropType', 'prop_type'),
             'fsSearchPropStyleRelations' => array(self::HAS_MANY, 'FsSearchPropStyleRelation', 'search_id'),
+            'stateid' => array(self::BELONGS_TO, 'FsStateMaster', 'state'),
         );
     }
 
@@ -117,14 +118,14 @@ class FsSearchCriteria extends CActiveRecord {
             'garage' => 'Garage',
             'keyword' => 'Keyword',
             'created_date' => 'Created Date',
-            'prop_id' => 'FSBONI ID',
+            'fsboni_property_id' => 'FSBONI ID',
             'search_by' => 'Search By',
             'user_id' => 'User',
             'search_type' => 'Search Type',
             'garage_parking' => 'Garage Parking',
             'state' => 'State',
             'cityagain' => 'Cityagain',
-            'zip' => 'Zip Code',
+            'zip_code' => 'Zip Code',
             'neighbourhood' => 'Neighborhood',
             'compass_point' => 'Compass Point',
             'street_name' => 'Street Name',
@@ -181,14 +182,14 @@ class FsSearchCriteria extends CActiveRecord {
         $criteria->compare('garage', $this->garage, true);
         $criteria->compare('keyword', $this->keyword, true);
         $criteria->compare('created_date', $this->created_date, true);
-        $criteria->compare('prop_id', $this->prop_id, true);
+        $criteria->compare('fsboni_property_id', $this->fsboni_property_id, true);
         $criteria->compare('search_by', $this->search_by, true);
         $criteria->compare('user_id', $this->user_id);
         $criteria->compare('search_type', $this->search_type, true);
         $criteria->compare('garage_parking', $this->garage_parking, true);
         $criteria->compare('state', $this->state);
         $criteria->compare('cityagain', $this->cityagain, true);
-        $criteria->compare('zip', $this->zip, true);
+        $criteria->compare('zip_code', $this->zip_code, true);
         $criteria->compare('neighbourhood', $this->neighbourhood, true);
         $criteria->compare('compass_point', $this->compass_point, true);
         $criteria->compare('street_name', $this->street_name, true);

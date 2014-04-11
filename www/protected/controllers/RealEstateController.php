@@ -86,25 +86,23 @@ class RealEstateController extends Controller {
             $this->render('search', array('model' => $model, 'property_details' => $result[0], 'image' => $image[0]));
         } else {
             if (isset($_POST['search_submit'])) {
-//                $criteria = new CDbCriteria();
-//                $criteria->order = 'id ASC';
-//                $criteria->limit = 13;
                 $result = new FsProperty;
                 $result->attributes = $_POST['FsSearchCriteria'];
-                
+                $model->attributes = $_POST['FsSearchCriteria'];
+                $model->user_id = Yii::app()->user->getId();
+                $model->save();
                 $searchResult = $result->search();
-                //$result = FsProperty::model()->findAll($criteria);
+                $searchResult = $searchResult->getData();
                 $images = array();
-                //var_dump($searchResult->getData());
-                //die;
-                foreach ($searchResult->getData() as $record) {
+
+                foreach ($searchResult as $record) {
                     $image = FsPropGallery::model()->findAll('prop_id = ' . $record->id);
                     if (count($image) > 0)
                         $images[$record->id] = $image[0]->image_name;
                     else
                         $images[$record->id] = 'home.jpg';
                 }
-                $this->render('search', array('model' => $model, 'search_results' => $searchResult->getData(), 'images' => $images));
+                $this->render('search', array('model' => $model, 'search_results' => $searchResult, 'images' => $images));
             }
             else {
                 $this->render('search', array('model' => $model));
@@ -452,7 +450,8 @@ class RealEstateController extends Controller {
 
     public function actionMyAccount() {
         $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->user->getId());
-        $this->render('my-account', array('properties' => $seller_properties));
+        $buyer_searches = FsSearchCriteria::model()->with(array('stateid'))->findAll('user_id = ' . Yii::app()->user->getId());
+        $this->render('my-account', array('properties' => $seller_properties, 'saved_searches' => $buyer_searches));
     }
 
     public function actionMembershipPage() {

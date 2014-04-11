@@ -47,6 +47,7 @@ class FsStateMaster extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'searchstate' => array(self::HAS_MANY, 'FsSearchCriteria', 'state'),
 		);
 	}
 
