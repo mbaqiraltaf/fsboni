@@ -85,8 +85,8 @@
                         <b>Street Name : </b>
                         <?php echo $property_details->street_name; ?>
                     </span> &nbsp;
-                    <?php if (isset($property_details->city0)) : ?>
-                    <span class="fields-span"><b> City : </b><?php echo $property_details->city0->city; ?></span>
+                    <?php if (isset($property_details->city)) : ?>
+                    <span class="fields-span"><b> City : </b><?php echo $property_details->city; ?></span>
                     <?php endif; ?>
                     <span class="fields-span"><b>State : </b><?php echo $property_details->state0->state_name; ?></span>
                     <span class="fields-span"><b>Zip Code : </b><?php echo $property_details->zip_code; ?></span>

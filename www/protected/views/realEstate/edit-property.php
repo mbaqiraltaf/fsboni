@@ -90,6 +90,13 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                     </div>
 
                     <div class="contact_row_new">
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'city'); ?></div>
+                        <div class="right_area_new">                            
+                            <?php echo $form->textField($property_data, 'city', array()); ?>
+                        </div>
+                    </div>
+
+                    <div class="contact_row_new">
 
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'state'); ?></div>
                         <div class="right_area_new">
@@ -97,10 +104,11 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         </div>
                     </div>
                     <div class="contact_row_new">
-                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'city'); ?></div>
-                        <div class="right_area_new">                            
-                            <?php echo $form->textField($property_data, 'city', array()); ?>
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'zip_code'); ?></div>
+                        <div class="right_area_new">
+                            <?php echo $form->textField($property_data, 'zip_code', array()); ?>
                         </div>
+
                     </div>
 
                     <div class="contact_row_new">
@@ -116,13 +124,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                             <?php echo $form->textField($property_data, 'neighbourhood', array()); ?>
                         </div>
                     </div>
-                    <div class="contact_row_new">
-                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'zip_code'); ?></div>
-                        <div class="right_area_new">
-                            <?php echo $form->textField($property_data, 'zip_code', array()); ?>
-                        </div>
 
-                    </div>
 
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'price_range'); ?></div>
@@ -206,7 +208,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                     </div>
 
                     <div class="clear">&nbsp;</div>
-                   
+
                 </div>
 
 
@@ -638,7 +640,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        
+
                     </div>
                 </div>
 
@@ -675,7 +677,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        
+
                     </div>
                 </div>
 
@@ -733,18 +735,21 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="clear">&nbsp;</div>
 
-                        
+
                     </div>                    
                 </div>
+
+
+
                 
-                <div align="center">
-                            <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
 
-                </div>
+            </div>
+            <div align="center">
+                <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
 
-                <?php $this->endWidget(); ?>
-
-            </div></div></div></div>
+            </div>
+        <?php $this->endWidget(); ?>
+        </div></div></div>
 
 <?php $this->renderPartial('accountpage-sidebar'); ?>
 
