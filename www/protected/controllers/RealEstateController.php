@@ -291,7 +291,9 @@ class RealEstateController extends Controller {
         foreach ($relationalData as $key => &$value) {
             $value = array_filter($value);
         }
-
+        $model = new $modelName();
+        $model->deleteAll('prop_id = ' . $prop_id);
+        
         foreach ($relationalData as $key => $values) {
             if (is_array($values)) {
                 foreach ($values as $value) {
@@ -466,17 +468,22 @@ class RealEstateController extends Controller {
         if (yii::app()->getRequest()->getParam('prop_id') != null) {
             $result = FsProperty::model()->find('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
             if (isset($_POST['update_property_x'])) {
-                //$user = $this->getPageState('step1', array());
-                //$model->attributes = $user;
                 $property = yii::app()->getRequest()->getParam('FsProperty');
-//                var_dump($property);
-//                die;
-                $result->attributes = $property;
-                //$fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
+                $result->attributes = $property;                
                 $fsboni_property_id = yii::app()->getRequest()->getParam('prop_id');
-                //$fsboni_property_id++;
+                
                 $result->fsboni_property_id = $fsboni_property_id;
                 if ($result->save()) {
+                    $id = $result->id;
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsInteriorPropRelation'), 'FsInteriorPropRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAppliancesRelation'), 'FsAppliancesRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsKitchenRelation'), 'FsKitchenRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsBathroomAmenitiesRelation'), 'FsBathroomAmenitiesRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAdditionalRoomsRelation'), 'FsAdditionalRoomsRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsEquipmentRelation'), 'FsEquipmentRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsExteriorConstrRelation'), 'FsExteriorConstrRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAmenitiesRelation'), 'FsAmenitiesRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAssessincRelation'), 'FsAssessincRelation');
                     $this->redirect(array('myAccount'));
                 }
             }

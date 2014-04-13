@@ -11,7 +11,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
     <div class="contact_row_new">
         <div class="left_area_new">FSBONI ID</div>
         <div class="right_area_new">
-            <span id="ContentPlaceHolder1_Label2"><?php echo $property_data->fsboni_property_id; ?></span>
+            <span id="ContentPlaceHolder1_Label2"><?php 
+            $fsboni_property_id = $property_data->fsboni_property_id;
+            echo $fsboni_property_id; ?>
+            </span>
         </div>
     </div>
     <div class="clear">&nbsp;</div>
@@ -475,7 +478,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($interior_feature, 'interior_prop_featur'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($interior_feature, 'interior_prop_featur', $form, CHtml::listData(FsInteriorPropertyFeatur::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($interior_feature, 'interior_prop_featur', $form, CHtml::listData(FsInteriorPropertyFeatur::model()->findAll(), 'id', 'title'),$fsboni_property_id); ?>
                             </div>
                         </div>
 
@@ -497,14 +500,14 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($kitchen_relation, 'kitchen_id'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($kitchen_relation, 'kitchen_id', $form, CHtml::listData(FsKitchen::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($kitchen_relation, 'kitchen_id', $form, CHtml::listData(FsKitchen::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($appliances_relation, 'appliances_id'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($appliances_relation, 'appliances_id', $form, CHtml::listData(FsAppliances::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($appliances_relation, 'appliances_id', $form, CHtml::listData(FsAppliances::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
@@ -532,14 +535,14 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($bathroom_relation, 'bath_amenities_id'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($bathroom_relation, 'bath_amenities_id', $form, CHtml::listData(FsBathroomAmenities::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($bathroom_relation, 'bath_amenities_id', $form, CHtml::listData(FsBathroomAmenities::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($additional_room_relation, 'addi_rooms_id'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($additional_room_relation, 'addi_rooms_id', $form, CHtml::listData(FsAdditionalRooms::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($additional_room_relation, 'addi_rooms_id', $form, CHtml::listData(FsAdditionalRooms::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
@@ -553,7 +556,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($equipment_relation, 'equipment_id'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($equipment_relation, 'equipment_id', $form, CHtml::listData(FsEquipment::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($equipment_relation, 'equipment_id', $form, CHtml::listData(FsEquipment::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
@@ -570,7 +573,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($exterior_relation, 'exterior_constr_id'); ?> </div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($exterior_relation, 'exterior_constr_id', $form, CHtml::listData(FsExteriorConstruction::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($exterior_relation, 'exterior_constr_id', $form, CHtml::listData(FsExteriorConstruction::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
@@ -619,14 +622,14 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($amenities_relation, 'amenities_id'); ?> </div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($amenities_relation, 'amenities_id', $form, CHtml::listData(FsAmenities::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($amenities_relation, 'amenities_id', $form, CHtml::listData(FsAmenities::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($assessments_include, 'assinc_id'); ?> </div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($assessments_include, 'assinc_id', $form, CHtml::listData(FsAssessmentInclude::model()->findAll(), 'id', 'title')); ?>
+                                <?php echo Helper::generateCheckboxList($assessments_include, 'assinc_id', $form, CHtml::listData(FsAssessmentInclude::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 

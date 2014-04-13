@@ -2,7 +2,19 @@
 
 class Helper {
 
-    public static function generateCheckboxList($model, $attribute, &$form, $data) {
+    public static function generateCheckboxList($model, $attribute, &$form, $data, $fsboni_prop_id) {
+        $criteria = new CDbCriteria;
+        $criteria->select = 'id'; 
+        $criteria->condition = "fsboni_property_id = '" . $fsboni_prop_id . "'";
+        $selectedValues = array();
+
+        $propertyData = FsProperty::model()->find($criteria);
+        $selectedResult = $model->findAll('prop_id = ' . $propertyData->id);
+        foreach($selectedResult as $value)
+        {
+            $selectedValues[] = $value->$attribute;
+        }
+        
         $i = 0;
         //$data = CHtml::listData(FsInteriorPropertyFeatur::model()->findAll(), 'id', 'title');
         $html = '<table cellpadding = "3">';
@@ -13,7 +25,7 @@ class Helper {
                 $html .= '</tr>';
                 $html .= '<tr>';
             }
-            $html .= '<td>' . $form->checkBox($model, $attribute . '[' . $i . ']', array('value' => $key)) . '</td>';
+            $html .= '<td>' . $form->checkBox($model, $attribute . '[' . $i . ']', array('value' => $key, 'checked' => (in_array($key, $selectedValues)) ? 'checked' : '')) . '</td>';
             $html .= '<td class="checkbox-label">' . CHtml::label($value, '') . '</td>';
             $i++;
         }
@@ -21,16 +33,14 @@ class Helper {
         $html .= '</table>';
         return $html;
     }
-    
-    public static function arrayOfObjectToString($array){
+
+    public static function arrayOfObjectToString($array) {
         $output = array();
-        foreach($array as $object)
-        {
+        foreach ($array as $object) {
             
         }
-        
     }
-    
+
     public static function showDropDownValues($itemObject, $label, $attributeName, $relationalColumnName = '') {
         $html = '';
         $value = '';
