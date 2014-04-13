@@ -193,6 +193,7 @@ class FsProperty extends CActiveRecord {
             array('street_number', 'length', 'max' => 100),
             //array('compas_point, status', 'length', 'max'=>1),
             //array('price_range', 'length', 'max' => 20),
+            array('air_conditioning, heating, dinning, attic, basement_details, garage_type, water ', 'safe'),    
             array('kitchen_menu, kitchen_fireplace, dinning_menu, dinning_fireplace, bed_mast_menu, bed_mast_fireplace, bed_1_menu, bed_1_fireplace, bed_2_menu, bed_2_fireplace, bed_3_menu, bed_3_fireplace, bed_4_menu, bed_4_fireplace, bed_5_menu, bed_5_fireplace, garage_ownrship, garage_on_site, disability_access, elevatory_building, sewer, pet_friendly, electricity, list_home_inMls, virtual_tour, real_estate_attorney, home_warantee, appraiser, home_inspector, prop_type, living_room_menu, living_room_fire, family_menu, family_fireplace, den_menu, den_fireplace, laundry_menu, laundry_fireplace, balcony_menu, balcony_fire, bonus_room_menu, bonus_room_fireplace, living_room_flooring, dinning_room_flooring, family_room_flooring, kitchen_flooring, mastrBedroom_flooring, bedroom1_flooring, bedroom2_flooring, bedroom3_flooring, bedroom4_flooring, bedroom5_flooring, den_flooring, laundry_flooring, den_balcony_flooring, bouns_flooring', 'length', 'max' => 255),
             array('property_taxes, tax_year, open_house, open_house_to_time, open_house_from_time', 'length', 'max' => 50),
             array('street_suffix', 'length', 'max' => 10),

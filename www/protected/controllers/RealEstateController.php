@@ -298,8 +298,8 @@ class RealEstateController extends Controller {
             if (is_array($values)) {
                 foreach ($values as $value) {
                     $model = new $modelName();
-                    $model->prop_id = $prop_id;
-                    $model->$key = $value;
+                    $model->prop_id = $prop_id;                    
+                    $model->$key = $value;                    
                     $model->save();
                 }
             }
