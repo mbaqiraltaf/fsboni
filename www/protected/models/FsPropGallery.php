@@ -32,9 +32,10 @@ class FsPropGallery extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('prop_id', 'numerical', 'integerOnly'=>true),
-			array('title, image_name', 'length', 'max'=>255),
+			array('title', 'length', 'max'=>255),
+                        array('image_name', 'file', 'types'=>'jpg, gif, png'),
 			array('STATUS, default_img', 'length', 'max'=>1),
-			array('created_date, updated_date', 'safe'),
+			array('created_date, updated_date, image_name', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, prop_id, title, image_name, STATUS, created_date, updated_date, default_img', 'safe', 'on'=>'search'),

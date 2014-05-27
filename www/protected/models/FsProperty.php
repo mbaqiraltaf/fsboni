@@ -223,6 +223,7 @@ class FsProperty extends CActiveRecord {
             'fsExteriorConstrRelations' => array(self::HAS_MANY, 'FsExteriorConstrRelation', 'prop_id', 'together' => false),
             'fsInteriorPropRelations' => array(self::HAS_MANY, 'FsInteriorPropRelation', 'prop_id'),
             'fsPropImages' => array(self::HAS_MANY, 'FsPropImage', 'prop_id'),
+            'fsPropGallery' => array(self::HAS_MANY, 'FsPropGallery', 'prop_id'),
             'seller' => array(self::BELONGS_TO, 'FsUser', 'seller_id'),
             'airConditioning' => array(self::BELONGS_TO, 'FsAirConditioning', 'air_conditioning'),
             'attic0' => array(self::BELONGS_TO, 'FsAttic', 'attic'),

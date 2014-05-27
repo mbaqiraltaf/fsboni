@@ -109,7 +109,7 @@
                             <tr>
                                 <td>
                                     <div class="pro_row">
-                                        <div class="col_search_new"><?php echo ($saved_search->stateid) ? $saved_search->state : '-'; ?>
+                                        <div class="col_search_new"><?php echo ($saved_search->stateid) ? $saved_search->stateid->state_name : '-'; ?>
                                         </div>
                                         <div class="col_search_new"><?php echo ($saved_search->city) ? $saved_search->city : '-'; ?>
                                         </div> 

@@ -166,23 +166,25 @@ class RealEstateController extends Controller {
             $user = $this->getPageState('step1', array());
             $model->attributes = $user;
             $property = yii::app()->getRequest()->getParam('FsProperty');
-//            $number_bedroom = '';
-//            $number_bathroom = '';
-//            foreach ($property['numbr_bedroom'] as $bedroom) {
-//                $number_bedroom .= $bedroom;
-//            }
-//            foreach ($property['numbr_bathroom'] as $bathroom) {
-//                $number_bathroom .= $bathroom;
-//            }
-//            $property['numbr_bedroom'] = $number_bedroom;
-//            $property['numbr_bathroom'] = $number_bathroom;
             $model->attributes = $property;
+            //$model->fsPropGallery = new FsPropGallery;
+            //$propertyGalleryModel = $model->fsPropGallery;
+            $propertyGalleryModel = new FsPropGallery;
+            $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');
+            var_dump($propertyGalleryModel->attributes);
+            die;
+            $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
             $fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
             $fsboni_property_id = $fsboni_id[0]->fsboni_property_id;
             $fsboni_property_id++;
             $model->fsboni_property_id = $fsboni_property_id;
+            
+            var_dump(yii::app()->getRequest()->getParam('FsPropGallery'));
             if ($model->save()) {
-                $this->redirect(array('myAccount'));
+                if ($propertyGalleryModel->save()) {
+                    $propertyGalleryModel->image_name->saveAs(Yii::app()->baseUrl . '/images/propertiesimages/' . $fsboni_property_id . '/');
+                    $this->redirect(array('myAccount'));
+                }
             } else {
                 $this->render('step2', array('model' => $model));
             }
@@ -190,6 +192,7 @@ class RealEstateController extends Controller {
             $user_id = yii::app()->getRequest()->getParam('uid');
             $this->setPageState('step1', array('seller_id' => $user_id));
             $model = new FsProperty('new');
+            $model->fsPropGallery = new FsPropGallery;
             $this->render('step2', array('model' => $model));
         }
 
@@ -293,13 +296,13 @@ class RealEstateController extends Controller {
         }
         $model = new $modelName();
         $model->deleteAll('prop_id = ' . $prop_id);
-        
+
         foreach ($relationalData as $key => $values) {
             if (is_array($values)) {
                 foreach ($values as $value) {
                     $model = new $modelName();
-                    $model->prop_id = $prop_id;                    
-                    $model->$key = $value;                    
+                    $model->prop_id = $prop_id;
+                    $model->$key = $value;
                     $model->save();
                 }
             }
@@ -451,9 +454,14 @@ class RealEstateController extends Controller {
     }
 
     public function actionMyAccount() {
-        $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->user->getId());
-        $buyer_searches = FsSearchCriteria::model()->with(array('stateid'))->findAll('user_id = ' . Yii::app()->user->getId());
-        $this->render('my-account', array('properties' => $seller_properties, 'saved_searches' => $buyer_searches));
+        if(Yii::app()->user->getId() != null){
+            $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->user->getId());
+            $buyer_searches = FsSearchCriteria::model()->with(array('stateid'))->findAll('user_id = ' . Yii::app()->user->getId());
+            $this->render('my-account', array('properties' => $seller_properties, 'saved_searches' => $buyer_searches));
+        }else{
+            $this->render('//common/_notAuthorized');
+        }
+        
     }
 
     public function actionMembershipPage() {
@@ -469,9 +477,9 @@ class RealEstateController extends Controller {
             $result = FsProperty::model()->find('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
             if (isset($_POST['update_property_x'])) {
                 $property = yii::app()->getRequest()->getParam('FsProperty');
-                $result->attributes = $property;                
+                $result->attributes = $property;
                 $fsboni_property_id = yii::app()->getRequest()->getParam('prop_id');
-                
+
                 $result->fsboni_property_id = $fsboni_property_id;
                 if ($result->save()) {
                     $id = $result->id;

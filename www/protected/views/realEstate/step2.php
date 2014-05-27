@@ -288,7 +288,7 @@ echo CHtml::cssFile("http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-u
 
         <div class="left_area">Upload Photo<div> 
             </div></div>
-        <div class="right_area"> <?php echo $form->fileField($model, 'att_dett_style'); ?>
+        <div class="right_area"> <?php echo $form->fileField($model->fsPropGallery, 'image_name'); ?>
             <br />
             Best suited image size(374*322) in pixels.
         </div>
