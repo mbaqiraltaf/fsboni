@@ -47,6 +47,7 @@ echo CHtml::cssFile("http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-u
         // See class documentation of CActiveForm for details on this.
         'enableAjaxValidation' => false,
         'stateful' => true,
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
     ));
     ?>
 

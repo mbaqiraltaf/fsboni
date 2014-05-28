@@ -587,7 +587,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($property_data, 'garage_type'); ?></div>
                             <div class="right_area_new">
-                                <?php echo $form->dropDownList($property_data, 'garage_type', CHtml::listData(FsGarageType::model()->findAll(), 'id', 'title'), array('prompt' => '')); ?>
+                                <?php echo $form->dropDownList($property_data, 'garage_type', CHtml::listData(FsGarageType::model()->findAll(), 'id', 'title')); ?>
                             </div>
                         </div>
 

@@ -161,38 +161,43 @@ class RealEstateController extends Controller {
     }
 
     public function actionSellHome() {
+        $model = new FsProperty();       
+        
         if (isset($_POST['submit_property_x'])) {
-            $model = new FsProperty();
+            
             $user = $this->getPageState('step1', array());
             $model->attributes = $user;
             $property = yii::app()->getRequest()->getParam('FsProperty');
-            $model->attributes = $property;
-            //$model->fsPropGallery = new FsPropGallery;
-            //$propertyGalleryModel = $model->fsPropGallery;
-            $propertyGalleryModel = new FsPropGallery;
-            $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');
-            var_dump($propertyGalleryModel->attributes);
-            die;
-            $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
+            $model->attributes = $property;            
+            
             $fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
             $fsboni_property_id = $fsboni_id[0]->fsboni_property_id;
             $fsboni_property_id++;
             $model->fsboni_property_id = $fsboni_property_id;
             
-            var_dump(yii::app()->getRequest()->getParam('FsPropGallery'));
+            $propertyGalleryModel = new FsPropGallery;
+            $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');            
+            $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
+            $propertyGalleryModel->prop_id = $fsboni_property_id;
+            
+            
             if ($model->save()) {
                 if ($propertyGalleryModel->save()) {
-                    $propertyGalleryModel->image_name->saveAs(Yii::app()->baseUrl . '/images/propertiesimages/' . $fsboni_property_id . '/');
+                    $folder = Yii::app()->baseUrl . '/images/propertyimages/';
+                    if (!is_dir($folder . $fsboni_property_id)) {
+                        mkdir($folder . $fsboni_property_id);
+                    }
+
+                    $propertyGalleryModel->image_name->saveAs($folder . $fsboni_property_id . '/' . $propertyGalleryModel->image_name->name);
                     $this->redirect(array('myAccount'));
                 }
             } else {
                 $this->render('step2', array('model' => $model));
             }
-        } else {
+        } else {            
             $user_id = yii::app()->getRequest()->getParam('uid');
-            $this->setPageState('step1', array('seller_id' => $user_id));
-            $model = new FsProperty('new');
             $model->fsPropGallery = new FsPropGallery;
+            $this->setPageState('step1', array('seller_id' => $user_id)); 
             $this->render('step2', array('model' => $model));
         }
 

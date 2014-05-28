@@ -31,7 +31,7 @@ class FsPropGallery extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('prop_id', 'numerical', 'integerOnly'=>true),
+			//array('prop_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
                         array('image_name', 'file', 'types'=>'jpg, gif, png'),
 			array('STATUS, default_img', 'length', 'max'=>1),
