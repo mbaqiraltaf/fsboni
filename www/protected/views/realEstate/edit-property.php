@@ -43,6 +43,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                 // See class documentation of CActiveForm for details on this.
                 'enableAjaxValidation' => false,
                 'stateful' => true,
+                'htmlOptions' => array('enctype' => 'multipart/form-data'),
             ));
             ?>
 
@@ -650,10 +651,39 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                 <div id="tabs-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
                     <div class="TabbedPanelsContentX" id="ContentPlaceHolder1_dvPhotoFile">
                         <div class="contact_row_new">
+                            
+                            <?php 
+                                    
+$imagePath = '';
+//                                
+                                    if(!is_null($property_data->fsPropGallery) && count($property_data->fsPropGallery)){
+                                        $galleryObject = $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1];
+                                        $imagePath = $property_data->id . '/' . $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1]->image_name;
+                                    }
+                                    else{
+                                        $property_data->fsPropGallery = new FsPropGallery;
+                                    }
 
-                            <div class="left_area_new">Upload Photo<div> 
-                                </div></div>
-                            <div class="right_area_new"> <?php echo $form->fileField($property_data, 'att_dett_style'); ?>
+                                    ?>
+                            
+                            <?php if($imagePath): ?>
+
+                            <div class="left_area_new">
+                                <div id="ContentPlaceHolder1_trPhoto">
+                                    
+                                    <img style="height:55px;width:77px;" src="<?php echo Yii::app()->baseUrl . '/images/propertyimages/' . $imagePath; ?>" id="ContentPlaceHolder1_hdIMAGE">  <input type="submit" id="ContentPlaceHolder1_btnDel" onclick="return ConfirmDelete();" value="Remove Image" name="ctl00$ContentPlaceHolder1$btnDel">
+                                </div>
+                            </div>
+                            
+                            <?php else: ?>
+                                                        
+                            <div class="left_area_new">Upload Photo
+                                <div></div>                                    
+                            </div>
+                            
+                            <?php endif; ?>
+                            
+                            <div class="right_area_new"> <?php echo $form->fileField($galleryObject, 'image_name'); ?>
                                 <br />
                                 Best suited image size(374*322) in pixels.
                             </div>

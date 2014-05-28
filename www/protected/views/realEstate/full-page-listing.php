@@ -9,7 +9,7 @@
             <div class="mid_bg">
                 <a href="#" rel="bigImage" id="bigImagexx">
                     <?php if (count($image) > 0) : ?>
-                        <img src="<?php echo Yii::app()->baseUrl . '/images/prop_gallery/' . $image[0]->image_name; ?>">
+                        <img src="<?php echo Yii::app()->baseUrl . '/images/propertyimages/' .$property_details->id . '/' .  $image[count($image) - 1]->image_name; ?>">
                     <?php else: ?>
                         <img src="<?php echo Yii::app()->baseUrl . '/images/prop_gallery/home.jpg'; ?>">
                     <?php endif; ?>
