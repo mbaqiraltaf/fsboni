@@ -33,7 +33,7 @@ class FsPropGallery extends CActiveRecord
 		return array(
 			//array('prop_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
-                        array('image_name', 'file', 'types'=>'jpg, gif, png'),
+                        //array('image_name', 'file', 'types'=>'jpg, gif, png'),
 			array('STATUS, default_img', 'length', 'max'=>1),
 			array('created_date, updated_date, image_name', 'safe'),
 			// The following rule is used by search().

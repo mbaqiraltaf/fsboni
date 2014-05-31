@@ -11,9 +11,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
     <div class="contact_row_new">
         <div class="left_area_new">FSBONI ID</div>
         <div class="right_area_new">
-            <span id="ContentPlaceHolder1_Label2"><?php 
-            $fsboni_property_id = $property_data->fsboni_property_id;
-            echo $fsboni_property_id; ?>
+            <span id="ContentPlaceHolder1_Label2"><?php
+                $fsboni_property_id = $property_data->fsboni_property_id;
+                echo $fsboni_property_id;
+                ?>
             </span>
         </div>
     </div>
@@ -25,9 +26,8 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
         <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
             <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-1">Property</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#tabs-2">Interior</a></li>
-            <li class="ui-state-default ui-corner-top"><a href="#tabs-3">Exterior</a></li>
-            <li class="ui-state-default ui-corner-top"><a href="#tabs-4">Virtual Tour</a></li>
-            <li class="ui-state-default ui-corner-top"><a href="#tabs-5">Photos</a></li>
+            <li class="ui-state-default ui-corner-top"><a href="#tabs-3">Exterior</a></li>            
+<!--            <li class="ui-state-default ui-corner-top"><a href="#tabs-5">Photos</a></li>-->
             <li class="ui-state-default ui-corner-top"><a href="#tabs-6">Optional Services</a></li>
         </ul>
 
@@ -58,13 +58,13 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                     <div>&nbsp;</div>                         
 
 
-                    <div class="contact_row_new">
-                        <div class="left_area_new"> Select one</div>
-                        <div class="right_area_new">
-                            <input type="radio" checked="checked" class="middle" id="ContentPlaceHolder1_rd_own" name="ctl00$ContentPlaceHolder1$type" value="rd_own"> <span class="middle">Personal Residence</span>
-                            <input type="radio" class="middle ml20" id="ContentPlaceHolder1_rd_invest" name="ctl00$ContentPlaceHolder1$type" value="rd_invest"> <span class="middle">Investment property </span>                   
-                        </div>
-                    </div>
+                    <!--                    <div class="contact_row_new">
+                                            <div class="left_area_new"> Select one</div>
+                                            <div class="right_area_new">
+                                                <input type="radio" checked="checked" class="middle" id="ContentPlaceHolder1_rd_own" name="ctl00$ContentPlaceHolder1$type" value="rd_own"> <span class="middle">Personal Residence</span>
+                                                <input type="radio" class="middle ml20" id="ContentPlaceHolder1_rd_invest" name="ctl00$ContentPlaceHolder1$type" value="rd_invest"> <span class="middle">Investment property </span>                   
+                                            </div>
+                                        </div>-->
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'street_number'); ?></div>
                         <div class="right_area_new"><?php echo $form->textField($property_data, 'street_number', array()); ?></div>
@@ -129,17 +129,39 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         </div>
                     </div>
 
+                    <div class="contact_row_new">
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'building_name'); ?></div>
+                        <div class="right_area_new">
+                            <?php echo $form->textField($property_data, 'building_name', array()); ?>
+                        </div>
+                    </div>
+
+                    <div class="contact_row_new">
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'sub_division'); ?></div>
+                        <div class="right_area_new">
+                            <?php echo $form->textField($property_data, 'sub_division', array()); ?>
+                        </div>
+                    </div>
+
 
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'price_range'); ?></div>
                         <div class="right_area_new">$ <?php echo $form->textField($property_data, 'price_range', array('class' => 'w85 digit-format')); ?>
                         </div>
                     </div>
+                    
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'prop_type'); ?></div>
                         <div class="right_area_new">    
                             <?php echo $form->dropDownList($property_data, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '')); ?> </div>
-                    </div>                    
+                    </div>  
+                    
+                    <div class="contact_row_new">
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'pet_friendly'); ?></div>
+                        <div class="right_area_new">    
+                            <?php echo $form->dropDownList($property_data, 'pet_friendly',array('None' => 'None', 'Dog' => 'Dog', 'Cat' => 'Cat', 'Both' => 'Both'), array('prompt' => '')); ?> </div>
+                    </div>
+                    
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'numbr_bedroom'); ?></div>
 
@@ -210,13 +232,63 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                             <?php echo $form->textArea($property_data, 'prp_desc', array('class' => '', 'onkeyup' => 'countChar(this)')); ?></div>
                         <div id="lblMsg1" class="char-count" style="text-align:right">1000 characters left</div>
                     </div>
+                    
+                    <div class="contact_row_new">
 
-                    <div class="clear">&nbsp;</div>
+                            <?php
+                            $imagePath = '';
+//                                
+                            if (!is_null($property_data->fsPropGallery) && count($property_data->fsPropGallery)) {
+                                $galleryObject = $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1];
+                                $imagePath = $property_data->id . '/' . $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1]->image_name;
+                            } else {
+                                $galleryObject = new FsPropGallery;
+                            }
+                            ?>
+
+                            <?php if ($imagePath): ?>
+
+                                <div class="left_area_new">
+                                    <div id="ContentPlaceHolder1_trPhoto">
+
+                                        <img style="height:55px;width:77px;" src="<?php echo Yii::app()->baseUrl . '/images/propertyimages/' . $imagePath; ?>" id="ContentPlaceHolder1_hdIMAGE">  <input type="button" id="ContentPlaceHolder1_btnDel" onclick="return ConfirmDelete();" value="Remove Image" name="ctl00$ContentPlaceHolder1$btnDel">
+                                    </div>
+                                </div>
+
+                            <?php else: ?>
+
+                                <div class="left_area_new">Upload Photo
+                                    <div></div>                                    
+                                </div>
+
+                            <?php endif; ?>
+
+                            <div class="right_area_new"> <?php echo $form->fileField($galleryObject, 'image_name'); ?>
+                                <br />
+                                Best suited image size(374*322) in pixels.
+                            </div>
+
+                        </div>
+
+                        <div class="contact_row_new">
+                            <div class="left_area_new"><?php echo $form->labelEx($property_data, 'youtube'); ?></div>
+                            <div class="right_area_new">  http:// <?php echo $form->textField($property_data, 'youtube', array()); ?></div>
+                        </div> 
+
+                        <div class="contact_row_new">
+                            <div class="left_area_new"><?php echo $form->labelEx($property_data, 'open_house'); ?></div>
+                            <div class="right_area_new">
+                                <?php echo $form->dropDownList($property_data, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
+
+                                <?php echo $form->dropDownList($property_data, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
+                                to
+                                <?php echo $form->dropDownList($property_data, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
+                            </div> 
+                        </div>
+
+                        <div class="clear">&nbsp;</div>
 
                 </div>
-
-
-
 
                 <!-- Interior content goes here -->
                 <div id="tabs-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
@@ -479,7 +551,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="contact_row_new">
                             <div class="left_area_new"><?php echo $form->labelEx($interior_feature, 'interior_prop_featur'); ?></div>
                             <div class="right_area_new">
-                                <?php echo Helper::generateCheckboxList($interior_feature, 'interior_prop_featur', $form, CHtml::listData(FsInteriorPropertyFeatur::model()->findAll(), 'id', 'title'),$fsboni_property_id); ?>
+                                <?php echo Helper::generateCheckboxList($interior_feature, 'interior_prop_featur', $form, CHtml::listData(FsInteriorPropertyFeatur::model()->findAll(), 'id', 'title'), $fsboni_property_id); ?>
                             </div>
                         </div>
 
@@ -648,72 +720,6 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                     </div>
                 </div>
 
-                <div id="tabs-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
-                    <div class="TabbedPanelsContentX" id="ContentPlaceHolder1_dvPhotoFile">
-                        <div class="contact_row_new">
-                            
-                            <?php 
-                                    
-$imagePath = '';
-//                                
-                                    if(!is_null($property_data->fsPropGallery) && count($property_data->fsPropGallery)){
-                                        $galleryObject = $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1];
-                                        $imagePath = $property_data->id . '/' . $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1]->image_name;
-                                    }
-                                    else{
-                                        $property_data->fsPropGallery = new FsPropGallery;
-                                    }
-
-                                    ?>
-                            
-                            <?php if($imagePath): ?>
-
-                            <div class="left_area_new">
-                                <div id="ContentPlaceHolder1_trPhoto">
-                                    
-                                    <img style="height:55px;width:77px;" src="<?php echo Yii::app()->baseUrl . '/images/propertyimages/' . $imagePath; ?>" id="ContentPlaceHolder1_hdIMAGE">  <input type="submit" id="ContentPlaceHolder1_btnDel" onclick="return ConfirmDelete();" value="Remove Image" name="ctl00$ContentPlaceHolder1$btnDel">
-                                </div>
-                            </div>
-                            
-                            <?php else: ?>
-                                                        
-                            <div class="left_area_new">Upload Photo
-                                <div></div>                                    
-                            </div>
-                            
-                            <?php endif; ?>
-                            
-                            <div class="right_area_new"> <?php echo $form->fileField($galleryObject, 'image_name'); ?>
-                                <br />
-                                Best suited image size(374*322) in pixels.
-                            </div>
-
-                        </div>
-
-                        <div class="contact_row_new">
-                            <div class="left_area_new"><?php echo $form->labelEx($property_data, 'youtube'); ?></div>
-                            <div class="right_area_new">  http:// <?php echo $form->textField($property_data, 'youtube', array()); ?></div>
-                        </div> 
-
-                        <div class="contact_row_new">
-                            <div class="left_area_new"><?php echo $form->labelEx($property_data, 'open_house'); ?></div>
-                            <div class="right_area_new">
-                                <?php echo $form->dropDownList($property_data, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
-
-                                <?php //echo $form->textField($property_data, 'open_house_to_time', array('id' => 'testing-time')); ?>
-
-                                <?php echo $form->dropDownList($property_data, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
-                                to
-                                <?php echo $form->dropDownList($property_data, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
-                            </div> 
-                        </div>
-
-                        <div class="clear">&nbsp;</div>
-
-
-                    </div>
-                </div>
-
                 <div id="tabs-5" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
                     <!-- photos -->
                     <div class="TabbedPanelsContentX" id="ContentPlaceHolder1_dvPhotos">
@@ -774,14 +780,14 @@ $imagePath = '';
 
 
 
-                
+
 
             </div>
             <div align="center">
                 <?php echo CHtml::imageButton(Yii::app()->baseUrl . '/images/save.png', array('class' => 'mlr10', 'name' => 'update_property')); ?>
 
             </div>
-        <?php $this->endWidget(); ?>
+            <?php $this->endWidget(); ?>
         </div></div></div>
 
 <?php $this->renderPartial('accountpage-sidebar'); ?>

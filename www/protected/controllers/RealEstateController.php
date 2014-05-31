@@ -131,7 +131,7 @@ class RealEstateController extends Controller {
                             'fsExteriorConstrRelations',
                             'fsAmenitiesRelations',
                             'fsKitchenRelations',
-                             'fsAssessnicRelations'
+                            'fsAssessnicRelations'
                         ))->findAll('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
 
                 $image = FsPropGallery::model()->findAll('prop_id = ' . $result[0]->id);
@@ -154,42 +154,46 @@ class RealEstateController extends Controller {
     }
 
     public function actionSellHome() {
-        $model = new FsProperty();       
-        
+        $model = new FsProperty();
+        $model->fsPropGallery = new FsPropGallery;
+
         if (isset($_POST['submit_property_x'])) {
-            
+
             $user = $this->getPageState('step1', array());
             $model->attributes = $user;
             $property = yii::app()->getRequest()->getParam('FsProperty');
-            $model->attributes = $property;            
-            
+            $model->attributes = $property;
+
             $fsboni_id = FsProperty::model()->findAll(array('order' => 'id DESC', 'limit' => '1'));
             $fsboni_property_id = $fsboni_id[0]->fsboni_property_id;
             $fsboni_property_id++;
             $model->fsboni_property_id = $fsboni_property_id;
-            
+
             $propertyGalleryModel = new FsPropGallery;
-            $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');            
-            $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');            
-            
+            $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');
+            $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
+
             if ($model->save()) {
                 $propertyGalleryModel->prop_id = $model->id;
-                if ($propertyGalleryModel->save()) {
-                    $folder = Yii::app()->baseUrl . '/images/propertyimages/';
-                    if (!is_dir($folder .  $model->id)) {
-                        mkdir($folder .  $model->id);
-                    }
+                if (!is_null($propertyGalleryModel->image_name)) {
 
-                    $propertyGalleryModel->image_name->saveAs($folder .  $model->id . '/' . $propertyGalleryModel->image_name->name);
-                    $this->redirect(array('myAccount'));
+                    if ($propertyGalleryModel->save()) {
+                        $folder = 'images/propertyimages/';
+                        if (!is_dir($folder . $model->id)) {
+                            mkdir($folder . $model->id, 0777, true);
+                        }
+                        $propertyGalleryModel->image_name->saveAs($folder . $model->id . '/' . $propertyGalleryModel->image_name->name);
+                    }
+                    
                 }
+                $this->redirect(array('myAccount'));
             } else {
                 $this->render('step2', array('model' => $model));
             }
-        } else {            
+        } else {
             $user_id = yii::app()->getRequest()->getParam('uid');
-            $model->fsPropGallery = new FsPropGallery;
-            $this->setPageState('step1', array('seller_id' => $user_id)); 
+
+            $this->setPageState('step1', array('seller_id' => $user_id));
             $this->render('step2', array('model' => $model));
         }
 
@@ -451,14 +455,13 @@ class RealEstateController extends Controller {
     }
 
     public function actionMyAccount() {
-        if(Yii::app()->user->getId() != null){
+        if (Yii::app()->user->getId() != null) {
             $seller_properties = FsProperty::model()->findAll('seller_id = ' . Yii::app()->user->getId());
             $buyer_searches = FsSearchCriteria::model()->with(array('stateid'))->findAll('user_id = ' . Yii::app()->user->getId());
             $this->render('my-account', array('properties' => $seller_properties, 'saved_searches' => $buyer_searches));
-        }else{
+        } else {
             $this->render('//common/_notAuthorized');
         }
-        
     }
 
     public function actionMembershipPage() {
@@ -489,23 +492,23 @@ class RealEstateController extends Controller {
                     $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsExteriorConstrRelation'), 'FsExteriorConstrRelation');
                     $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAmenitiesRelation'), 'FsAmenitiesRelation');
                     $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAssessincRelation'), 'FsAssessincRelation');
-                    
-                    $propertyGalleryModel = new FsPropGallery;
-                    $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');            
-                    $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name'); 
-                   
-                    $propertyGalleryModel->prop_id = $result->id;
-                    
-                    
-                    if ($propertyGalleryModel->save()) {
-                        $folder = Yii::app()->baseUrl . '/images/propertyimages/';
-                        if (!is_dir($folder . $result->id)) {
-                            mkdir($folder . $result->id);
-                        }
 
-                        $propertyGalleryModel->image_name->saveAs($folder . $result->id . '/' . $propertyGalleryModel->image_name->name);
-                        $this->redirect(array('myAccount'));
+                    $propertyGalleryModel = new FsPropGallery;
+                    $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');
+                    $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
+                    $propertyGalleryModel->prop_id = $result->id;
+
+                    if (!is_null($propertyGalleryModel->image_name)) {
+                        if ($propertyGalleryModel->save()) {
+                            $folder = 'images/propertyimages/';
+                            if (!is_dir($folder . $result->id)) {
+                                mkdir($folder . $result->id, 0777, true);
+                            }
+                            $propertyGalleryModel->image_name->saveAs($folder . $result->id . '/' . $propertyGalleryModel->image_name->name);
+                        }
                     }
+
+                    $this->redirect(array('myAccount'));
                 }
             }
 
@@ -525,6 +528,22 @@ class RealEstateController extends Controller {
     public function actionLogout() {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
+    }
+
+    public function actionTest() {
+        $folder = 'images/propertyimages/';
+
+        $user_name = "root";
+
+        // Set the user
+        //chown($folder, $user_name);
+        echo $folder;
+        //$stat = stat($path);
+//print_r(posix_getpwuid($stat['uid']));
+        //die;
+        if (!is_dir($folder . '250')) {
+            mkdir($folder . '250', 0777, true);
+        }
     }
 
 }
