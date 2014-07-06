@@ -27,7 +27,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
             <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-1">Property</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#tabs-2">Interior</a></li>
             <li class="ui-state-default ui-corner-top"><a href="#tabs-3">Exterior</a></li>            
-<!--            <li class="ui-state-default ui-corner-top"><a href="#tabs-5">Photos</a></li>-->
+            <!--            <li class="ui-state-default ui-corner-top"><a href="#tabs-5">Photos</a></li>-->
             <li class="ui-state-default ui-corner-top"><a href="#tabs-6">Optional Services</a></li>
         </ul>
 
@@ -58,13 +58,15 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                     <div>&nbsp;</div>                         
 
 
-                    <!--                    <div class="contact_row_new">
-                                            <div class="left_area_new"> Select one</div>
-                                            <div class="right_area_new">
-                                                <input type="radio" checked="checked" class="middle" id="ContentPlaceHolder1_rd_own" name="ctl00$ContentPlaceHolder1$type" value="rd_own"> <span class="middle">Personal Residence</span>
-                                                <input type="radio" class="middle ml20" id="ContentPlaceHolder1_rd_invest" name="ctl00$ContentPlaceHolder1$type" value="rd_invest"> <span class="middle">Investment property </span>                   
-                                            </div>
-                                        </div>-->
+                    <div class="contact_row_new">
+                        <div class="left_area_new"> Select one</div>
+                        <div class="right_area_new">
+                            <?php echo $form->radioButtonList($property_data, 'new_prop_type', array('1' => 'Personal Residence', '2' => 'Investment property'), array('separator' => '&nbsp;&nbsp;&nbsp;'));?>
+<!--                            <input type="radio" class="middle" id="ContentPlaceHolder1_rd_own" name="FsProperty[new_prop_type]" value="1"> <span class="middle">Personal Residence</span>
+                            <input type="radio" class="middle ml20" id="ContentPlaceHolder1_rd_invest" name="FsProperty[new_prop_type]" value="2"> <span class="middle">Investment property </span> -->
+                        </div>
+                    </div>
+                    
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'street_number'); ?></div>
                         <div class="right_area_new"><?php echo $form->textField($property_data, 'street_number', array()); ?></div>
@@ -149,19 +151,19 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="right_area_new">$ <?php echo $form->textField($property_data, 'price_range', array('class' => 'w85 digit-format')); ?>
                         </div>
                     </div>
-                    
+
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'prop_type'); ?></div>
                         <div class="right_area_new">    
                             <?php echo $form->dropDownList($property_data, 'prop_type', CHtml::listData(FsPropType::model()->findAll(), 'title', 'title'), array('prompt' => '')); ?> </div>
                     </div>  
-                    
+
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'pet_friendly'); ?></div>
                         <div class="right_area_new">    
-                            <?php echo $form->dropDownList($property_data, 'pet_friendly',array('None' => 'None', 'Dog' => 'Dog', 'Cat' => 'Cat', 'Both' => 'Both'), array('prompt' => '')); ?> </div>
+                            <?php echo $form->dropDownList($property_data, 'pet_friendly', array('None' => 'None', 'Dog' => 'Dog', 'Cat' => 'Cat', 'Both' => 'Both'), array('prompt' => '')); ?> </div>
                     </div>
-                    
+
                     <div class="contact_row_new">
                         <div class="left_area_new"><?php echo $form->labelEx($property_data, 'numbr_bedroom'); ?></div>
 
@@ -232,61 +234,61 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                             <?php echo $form->textArea($property_data, 'prp_desc', array('class' => '', 'onkeyup' => 'countChar(this)')); ?></div>
                         <div id="lblMsg1" class="char-count" style="text-align:right">1000 characters left</div>
                     </div>
-                    
+
                     <div class="contact_row_new">
 
-                            <?php
-                            $imagePath = '';
+                        <?php
+                        $imagePath = '';
 //                                
-                            if (!is_null($property_data->fsPropGallery) && count($property_data->fsPropGallery)) {
-                                $galleryObject = $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1];
-                                $imagePath = $property_data->id . '/' . $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1]->image_name;
-                            } else {
-                                $galleryObject = new FsPropGallery;
-                            }
-                            ?>
+                        if (!is_null($property_data->fsPropGallery) && count($property_data->fsPropGallery)) {
+                            $galleryObject = $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1];
+                            $imagePath = $property_data->id . '/' . $property_data->fsPropGallery[count($property_data->fsPropGallery) - 1]->image_name;
+                        } else {
+                            $galleryObject = new FsPropGallery;
+                        }
+                        ?>
 
-                            <?php if ($imagePath): ?>
+                        <?php if ($imagePath): ?>
 
-                                <div class="left_area_new">
-                                    <div id="ContentPlaceHolder1_trPhoto">
+                            <div class="left_area_new">
+                                <div id="ContentPlaceHolder1_trPhoto">
 
-                                        <img style="height:55px;width:77px;" src="<?php echo Yii::app()->baseUrl . '/images/propertyimages/' . $imagePath; ?>" id="ContentPlaceHolder1_hdIMAGE">  <input type="button" id="ContentPlaceHolder1_btnDel" onclick="return ConfirmDelete();" value="Remove Image" name="ctl00$ContentPlaceHolder1$btnDel">
-                                    </div>
+                                    <img style="height:55px;width:77px;" src="<?php echo Yii::app()->baseUrl . '/images/propertyimages/' . $imagePath; ?>" id="ContentPlaceHolder1_hdIMAGE">  <input type="button" id="ContentPlaceHolder1_btnDel" onclick="return ConfirmDelete();" value="Remove Image" name="ctl00$ContentPlaceHolder1$btnDel">
                                 </div>
-
-                            <?php else: ?>
-
-                                <div class="left_area_new">Upload Photo
-                                    <div></div>                                    
-                                </div>
-
-                            <?php endif; ?>
-
-                            <div class="right_area_new"> <?php echo $form->fileField($galleryObject, 'image_name'); ?>
-                                <br />
-                                Best suited image size(374*322) in pixels.
                             </div>
 
+                        <?php else: ?>
+
+                            <div class="left_area_new">Upload Photo
+                                <div></div>                                    
+                            </div>
+
+                        <?php endif; ?>
+
+                        <div class="right_area_new"> <?php echo $form->fileField($galleryObject, 'image_name'); ?>
+                            <br />
+                            Best suited image size(374*322) in pixels.
                         </div>
 
-                        <div class="contact_row_new">
-                            <div class="left_area_new"><?php echo $form->labelEx($property_data, 'youtube'); ?></div>
-                            <div class="right_area_new">  http:// <?php echo $form->textField($property_data, 'youtube', array()); ?></div>
+                    </div>
+
+                    <div class="contact_row_new">
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'youtube'); ?></div>
+                        <div class="right_area_new">  http:// <?php echo $form->textField($property_data, 'youtube', array()); ?></div>
+                    </div> 
+
+                    <div class="contact_row_new">
+                        <div class="left_area_new"><?php echo $form->labelEx($property_data, 'open_house'); ?></div>
+                        <div class="right_area_new">
+                            <?php echo $form->dropDownList($property_data, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
+
+                            <?php echo $form->dropDownList($property_data, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
+                            to
+                            <?php echo $form->dropDownList($property_data, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
                         </div> 
+                    </div>
 
-                        <div class="contact_row_new">
-                            <div class="left_area_new"><?php echo $form->labelEx($property_data, 'open_house'); ?></div>
-                            <div class="right_area_new">
-                                <?php echo $form->dropDownList($property_data, 'open_house', array('monday' => 'Monday', 'tuesday' => 'Tuesday', 'wednesday' => 'Wednesday', 'thursday' => 'Thursday', 'friday' => 'Friday', 'saturday' => 'Saturday', 'sunday' => 'Sunday', 'holiday' => 'Holiday', 'weekend' => 'Weekend'), array('prompt' => 'None', 'class' => 'w100')); ?>
-
-                                <?php echo $form->dropDownList($property_data, 'open_house_to_time', array('6am' => '6am', '7am' => '7am', '8am' => '8am', '9am' => '9am', '10am' => '10am', '11am' => '11am', '12am' => '12am'), array('class' => 'w70')); ?>
-                                to
-                                <?php echo $form->dropDownList($property_data, 'open_house_from_time', array('1pm' => '1pm', '2pm' => '2pm', '3pm' => '3pm', '4pm' => '4pm', '5pm' => '5pm', '6pm' => '6pm', '7pm' => '7pm', '8pm' => '8pm', '9pm' => '9pm'), array('class' => 'w70')); ?>
-                            </div> 
-                        </div>
-
-                        <div class="clear">&nbsp;</div>
+                    <div class="clear">&nbsp;</div>
 
                 </div>
 
