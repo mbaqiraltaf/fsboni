@@ -12,7 +12,9 @@ $(document).ready(function() {
         var mainEditDiv = $('.main-edit-div');
         mainEditDiv.find('.ui-widget-content:visible').hide();
         mainEditDiv.find(href).show().removeClass('ui-tabs-hide');
-    })
+    });
+    
+    //$('#basic_example_1').datetimepicker();
 });
 
 function countChar(val) {

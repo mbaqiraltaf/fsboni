@@ -153,9 +153,64 @@ class RealEstateController extends Controller {
         }
     }
 
+    public function actionEditProperty() {
+        if (yii::app()->getRequest()->getParam('prop_id') != null) {
+            $result = FsProperty::model()->find('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
+            if (isset($_POST['update_property_x'])) {
+                $property = yii::app()->getRequest()->getParam('FsProperty');
+                $result->attributes = $property;
+                $fsboni_property_id = yii::app()->getRequest()->getParam('prop_id');
+
+                $result->fsboni_property_id = $fsboni_property_id;
+                if ($result->save()) {
+                    $id = $result->id;
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsInteriorPropRelation'), 'FsInteriorPropRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAppliancesRelation'), 'FsAppliancesRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsKitchenRelation'), 'FsKitchenRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsBathroomAmenitiesRelation'), 'FsBathroomAmenitiesRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAdditionalRoomsRelation'), 'FsAdditionalRoomsRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsEquipmentRelation'), 'FsEquipmentRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsExteriorConstrRelation'), 'FsExteriorConstrRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAmenitiesRelation'), 'FsAmenitiesRelation');
+                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAssessincRelation'), 'FsAssessincRelation');
+
+                    $propertyGalleryModel = new FsPropGallery;
+                    $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');
+                    $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
+                    $propertyGalleryModel->prop_id = $result->id;
+
+                    if (!is_null($propertyGalleryModel->image_name)) {
+                        if ($propertyGalleryModel->save()) {
+                            $folder = 'images/propertyimages/';
+                            if (!is_dir($folder . $result->id)) {
+                                mkdir($folder . $result->id, 0777, true);
+                            }
+                            $propertyGalleryModel->image_name->saveAs($folder . $result->id . '/' . $propertyGalleryModel->image_name->name);
+                        }
+                    }
+
+                    $this->redirect(array('myAccount'));
+                }
+            }
+
+            $interior_relation = new FsInteriorPropRelation;
+            $appliances_relation = new FsAppliancesRelation;
+            $kitchen_relation = new FsKitchenRelation;
+            $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
+            $addition_rooms_relation = new FsAdditionalRoomsRelation;
+            $equipment_relation = new FsEquipmentRelation;
+            $exterior_relation = new FsExteriorConstrRelation;
+            $amenities_relation = new FsAmenitiesRelation;
+            $assessments_include = new FsAssessincRelation;
+            $this->render('edit-property', array('property_data' => $result, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
+        }
+    }
+
     public function actionSellHome() {
         $model = new FsProperty();
-        $model->fsPropGallery = new FsPropGallery;
+        //$model->fsPropGallery = new FsPropGallery;
+        $user_id = yii::app()->getRequest()->getParam('uid');
+        $this->setPageState('step1', array('seller_id' => $user_id));
 
         if (isset($_POST['submit_property_x'])) {
 
@@ -174,6 +229,18 @@ class RealEstateController extends Controller {
             $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
 
             if ($model->save()) {
+
+                $id = $model->id;
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsInteriorPropRelation'), 'FsInteriorPropRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAppliancesRelation'), 'FsAppliancesRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsKitchenRelation'), 'FsKitchenRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsBathroomAmenitiesRelation'), 'FsBathroomAmenitiesRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAdditionalRoomsRelation'), 'FsAdditionalRoomsRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsEquipmentRelation'), 'FsEquipmentRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsExteriorConstrRelation'), 'FsExteriorConstrRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAmenitiesRelation'), 'FsAmenitiesRelation');
+                $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAssessincRelation'), 'FsAssessincRelation');
+
                 $propertyGalleryModel->prop_id = $model->id;
                 if (!is_null($propertyGalleryModel->image_name)) {
 
@@ -184,18 +251,24 @@ class RealEstateController extends Controller {
                         }
                         $propertyGalleryModel->image_name->saveAs($folder . $model->id . '/' . $propertyGalleryModel->image_name->name);
                     }
-                    
                 }
                 $this->redirect(array('myAccount'));
-            } else {
-                $this->render('step2', array('model' => $model));
             }
-        } else {
-            $user_id = yii::app()->getRequest()->getParam('uid');
+        } 
 
-            $this->setPageState('step1', array('seller_id' => $user_id));
-            $this->render('step2', array('model' => $model));
-        }
+        $interior_relation = new FsInteriorPropRelation;
+        $appliances_relation = new FsAppliancesRelation;
+        $kitchen_relation = new FsKitchenRelation;
+        $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
+        $addition_rooms_relation = new FsAdditionalRoomsRelation;
+        $equipment_relation = new FsEquipmentRelation;
+        $exterior_relation = new FsExteriorConstrRelation;
+        $amenities_relation = new FsAmenitiesRelation;
+        $assessments_include = new FsAssessincRelation;
+
+        $this->render('step2_new', array('model' => $model, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
+
+
 
 //        if (isset($_POST['step3_x'])) {
 //
@@ -470,59 +543,6 @@ class RealEstateController extends Controller {
 
     public function actionChangePassword() {
         $this->render('change-password');
-    }
-
-    public function actionEditProperty() {
-        if (yii::app()->getRequest()->getParam('prop_id') != null) {
-            $result = FsProperty::model()->find('fsboni_property_id = "' . yii::app()->getRequest()->getParam('prop_id') . '"');
-            if (isset($_POST['update_property_x'])) {
-                $property = yii::app()->getRequest()->getParam('FsProperty');
-                $result->attributes = $property;
-                $fsboni_property_id = yii::app()->getRequest()->getParam('prop_id');
-
-                $result->fsboni_property_id = $fsboni_property_id;
-                if ($result->save()) {
-                    $id = $result->id;
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsInteriorPropRelation'), 'FsInteriorPropRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAppliancesRelation'), 'FsAppliancesRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsKitchenRelation'), 'FsKitchenRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsBathroomAmenitiesRelation'), 'FsBathroomAmenitiesRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAdditionalRoomsRelation'), 'FsAdditionalRoomsRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsEquipmentRelation'), 'FsEquipmentRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsExteriorConstrRelation'), 'FsExteriorConstrRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAmenitiesRelation'), 'FsAmenitiesRelation');
-                    $this->saveRelationalTables($id, yii::app()->getRequest()->getParam('FsAssessincRelation'), 'FsAssessincRelation');
-
-                    $propertyGalleryModel = new FsPropGallery;
-                    $propertyGalleryModel->attributes = yii::app()->getRequest()->getParam('FsPropGallery');
-                    $propertyGalleryModel->image_name = CUploadedFile::getInstance($propertyGalleryModel, 'image_name');
-                    $propertyGalleryModel->prop_id = $result->id;
-
-                    if (!is_null($propertyGalleryModel->image_name)) {
-                        if ($propertyGalleryModel->save()) {
-                            $folder = 'images/propertyimages/';
-                            if (!is_dir($folder . $result->id)) {
-                                mkdir($folder . $result->id, 0777, true);
-                            }
-                            $propertyGalleryModel->image_name->saveAs($folder . $result->id . '/' . $propertyGalleryModel->image_name->name);
-                        }
-                    }
-
-                    $this->redirect(array('myAccount'));
-                }
-            }
-
-            $interior_relation = new FsInteriorPropRelation;
-            $appliances_relation = new FsAppliancesRelation;
-            $kitchen_relation = new FsKitchenRelation;
-            $bathroom_amenities_relation = new FsBathroomAmenitiesRelation;
-            $addition_rooms_relation = new FsAdditionalRoomsRelation;
-            $equipment_relation = new FsEquipmentRelation;
-            $exterior_relation = new FsExteriorConstrRelation;
-            $amenities_relation = new FsAmenitiesRelation;
-            $assessments_include = new FsAssessincRelation;
-            $this->render('edit-property', array('property_data' => $result, 'interior_feature' => $interior_relation, 'appliances_relation' => $appliances_relation, 'kitchen_relation' => $kitchen_relation, 'bathroom_relation' => $bathroom_amenities_relation, 'additional_room_relation' => $addition_rooms_relation, 'equipment_relation' => $equipment_relation, 'exterior_relation' => $exterior_relation, 'amenities_relation' => $amenities_relation, 'assessments_include' => $assessments_include));
-        }
     }
 
     public function actionLogout() {

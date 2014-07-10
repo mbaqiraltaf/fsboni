@@ -62,8 +62,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         <div class="left_area_new"> Select one</div>
                         <div class="right_area_new">
                             <?php echo $form->radioButtonList($property_data, 'new_prop_type', array('1' => 'Personal Residence', '2' => 'Investment property'), array('separator' => '&nbsp;&nbsp;&nbsp;'));?>
-<!--                            <input type="radio" class="middle" id="ContentPlaceHolder1_rd_own" name="FsProperty[new_prop_type]" value="1"> <span class="middle">Personal Residence</span>
-                            <input type="radio" class="middle ml20" id="ContentPlaceHolder1_rd_invest" name="FsProperty[new_prop_type]" value="2"> <span class="middle">Investment property </span> -->
+
                         </div>
                     </div>
                     

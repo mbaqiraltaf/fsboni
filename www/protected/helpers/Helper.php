@@ -4,17 +4,20 @@ class Helper {
 
     public static function generateCheckboxList($model, $attribute, &$form, $data, $fsboni_prop_id) {
         $criteria = new CDbCriteria;
-        $criteria->select = 'id'; 
+        $criteria->select = 'id';
         $criteria->condition = "fsboni_property_id = '" . $fsboni_prop_id . "'";
         $selectedValues = array();
 
         $propertyData = FsProperty::model()->find($criteria);
-        $selectedResult = $model->findAll('prop_id = ' . $propertyData->id);
-        foreach($selectedResult as $value)
-        {
-            $selectedValues[] = $value->$attribute;
+
+        if (!is_null($propertyData)) {
+            $selectedResult = $model->findAll('prop_id = ' . $propertyData->id);
+            foreach ($selectedResult as $value) {
+                $selectedValues[] = $value->$attribute;
+            }
         }
-        
+
+
         $i = 0;
         //$data = CHtml::listData(FsInteriorPropertyFeatur::model()->findAll(), 'id', 'title');
         $html = '<table cellpadding = "3">';
