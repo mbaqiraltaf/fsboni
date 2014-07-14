@@ -230,7 +230,7 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
 
                         <div class="right_area_new">
 
-                            <?php echo $form->textArea($property_data, 'prp_desc', array('class' => '', 'onkeyup' => 'countChar(this)')); ?></div>
+                            <?php echo $form->textArea($property_data, 'prp_desc', array('class' => 'big-text-area', 'onkeyup' => 'countChar(this)')); ?></div>
                         <div id="lblMsg1" class="char-count" style="text-align:right">1000 characters left</div>
                     </div>
 
@@ -304,8 +304,19 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                         for ($i = 1; $i <= 100; $i++) {
                             $levels_data[$i] = $i;
                         }
-                        $level = CHtml::dropDownList('Level', '', $levels_data, array('class' => 'w100'));
+                        $level = CHtml::dropDownList('Level', '', $levels_data, array('class' => 'w100 margLeft20'));
                         ?>
+                        <div class="contact_row_new">
+                            <div class="left_area_new">
+                                <span class="room_headings">Room</span>
+                            </div>
+                            <div class="right_area_new">
+                                <span class="room_headings" style="margin-left: 25px; margin-right: 98px;">Dimension</span>
+                                <span class="room_headings" style="margin-right: 46px;">Level</span>
+                                <span class="room_headings" style="margin-right: 30px;">FirePlace</span>
+                                <span class="room_headings">Flooring</span>
+                            </div>
+                        </div>
                         <div class="contact_row_new">
                             <div class="left_area_new">
                                 <?php echo $form->labelEx($property_data, 'living_room_menu'); ?>
@@ -314,10 +325,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'living_room_min', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'living_room_max', array('class' => 'w50')); ?>
-                                <span class="ml10">Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'living_room_fire'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'living_room_fire'); ?>
+                                <?php echo $form->checkBox($property_data, 'living_room_fire', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'living_room_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'living_room_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -332,10 +343,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'dinning_min_dimenstion', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'dinning_max_dimension', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'dinning_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'dinning_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'dinning_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'dinning_room_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'dinning_room_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -350,10 +361,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'family_room_min', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'family_room_max', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'family_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'family_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'family_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'family_room_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'family_room_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -368,10 +379,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'kitchen_min_dimension', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'kitchen_max_dimension', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'kitchen_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'kitchen_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'kitchen_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'kitchen_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'kitchen_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -385,10 +396,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bed_mast_bed_min_dim', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bed_mast_bed_max_dim', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bed_mast_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bed_mast_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bed_mast_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'mastrBedroom_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'mastrBedroom_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -402,10 +413,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bed_min_dim_1', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bed_max_dim_1', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bed_1_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bed_1_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bed_1_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'bedroom1_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'bedroom1_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -419,10 +430,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bed_min_dim_2', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bed_max_dim_2', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bed_2_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bed_2_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bed_2_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'bedroom2_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'bedroom2_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -436,10 +447,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bed_min_dim_3', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bed_max_dim_3', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bed_3_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bed_3_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bed_3_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'bedroom3_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'bedroom3_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -453,10 +464,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bed_min_dim_4', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bed_max_dim_4', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bed_4_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bed_4_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bed_4_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'bedroom4_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'bedroom4_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -470,10 +481,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bed_min_dim_5', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bed_max_dim_5', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bed_5_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bed_5_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bed_5_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'bedroom5_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'bedroom5_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -487,10 +498,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'den_min', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'den_max', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'den_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'den_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'den_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'den_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'den_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -504,10 +515,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'laundry_min', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'laundry_max', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'laundry_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'laundry_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'laundry_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'laundry_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'laundry_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -522,10 +533,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'balcony_min', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'balcony_max', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'balcony_fire'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'balcony_fire'); ?>
+                                <?php echo $form->checkBox($property_data, 'balcony_fire', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'den_balcony_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'den_balcony_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>
@@ -540,10 +551,10 @@ echo CHtml::scriptFile(Yii::app()->baseUrl . '/js/SpryTabbedPanels.js');
                                 <?php echo $form->textField($property_data, 'bonus_room_min', array('class' => 'w50')); ?>
                                 <?php echo CHtml::image(Yii::app()->baseUrl . '/images/x_icon.gif', '', array()); ?>
                                 <?php echo $form->textField($property_data, 'bonus_room_max', array('class' => 'w50')); ?>
-                                <span class="ml10"> Level</span>
+                                
                                 <?php echo $level; ?>
                                 <?php echo $form->labelEx($property_data, 'bonus_room_fireplace'); ?> &nbsp;
-                                <?php echo $form->checkBox($property_data, 'bonus_room_fireplace'); ?>
+                                <?php echo $form->checkBox($property_data, 'bonus_room_fireplace', array('class' => 'checkBoxMarg')); ?>
                                 <?php echo $form->labelEx($property_data, 'bouns_flooring'); ?>
                                 <?php echo $form->dropDownList($property_data, 'bouns_flooring', $flooring, array('class' => 'w95')); ?>
                             </div>

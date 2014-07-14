@@ -17,3 +17,23 @@
     margin-bottom: 20px;
     text-transform: capitalize;
 }
+
+.big-text-area{
+    height: 260px !important;
+    width: 435px !important;
+}
+
+.margLeft20{
+    margin-left: 30px;
+}
+
+.checkBoxMarg{
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+.room_headings{
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+}

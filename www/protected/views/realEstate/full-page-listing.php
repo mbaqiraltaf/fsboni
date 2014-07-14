@@ -17,12 +17,12 @@
 
             </div>
             <div class="bottom_bg"></div>
-            <div class="links_thumb">
+<!--            <div class="links_thumb">
 
                 <span id="ContentPlaceHolder1_dvprint"><img class="middle" alt="" src="images/demo.gif">
                     <span id="ContentPlaceHolder1_print2"><a class="change_pass" href="printflyer.aspx?property_id=MTI=-wnBs6 lkshc=" id="print">Print Flyer</a></span>&nbsp;</span>                           
 
-            </div>
+            </div>-->
         </div>
         <div class="property_info">
             <p><b>Sales Price:</b> <b style="color:red;"> <span id="ContentPlaceHolder1_property_price">$<?php echo $property_details->price_range; ?></span></b></p>
@@ -44,8 +44,9 @@
                                                 return false;'><img src="images/btn_ef.jpg"></a>
                     </div>
                 </div>
-                <div class="new_row2">
-                    <div class="left_part2"><img class="middle" alt="" src="images/icon2.gif">
+<!--                <div class="new_row2">
+                    <div class="left_part2">
+                        <img class="middle" alt="" src="images/icon2.gif">
                         <a href="property_map.aspx?stat=Alaska&amp;cit=ANAKTUVUK+PASS&amp;add=center=ANAKTUVUK+PASS,Alaska" id="dvg1">Property Maps</a>
                         <img width="16" height="16" class="middle" alt="" src="images/help.gif"> <a href="#nearby_school" id="nearby_schools">Nearby Schools</a><span style="display:;width:auto;margin-right:56px;" id="ContentPlaceHolder1_dvVirtShw">
                             <img width="15" height="15" class="middle" alt="" src="images/demo.gif"> Virtual Tour
@@ -54,7 +55,7 @@
                             <img width="15" height="15" class="middle" alt="" src="images/demo.gif">  <a id="you_tube" href="#video">Virtual Tour</a>
                         </span>
                     </div>
-                </div>
+                </div>-->
                 <div class="new_row2">
                     <div class="left_part2"><img class="middle" alt="" src="images/Home-icon.png"> <a class="change_pass info" href="#">Average Home Price<span>0</span></a>&nbsp;&nbsp;&nbsp;<img class="middle" alt="" src="images/coins-icon.png"> <a class="change_pass info" href="#">Average Income<span>0</span></a>&nbsp; 
                         <img class="middle" alt="Key" src="images/loan_icon.gif"> <a href="#" id="calculator" onclick = '$("#loan_cal").dialog("open");
